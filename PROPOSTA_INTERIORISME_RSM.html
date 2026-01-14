@@ -180,6 +180,28 @@
             margin-top: 0.5rem;
         }
 
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: var(--bg);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
+            filter: brightness(1.1);
+        }
+
         .btn-back {
             color: var(--primary);
             text-decoration: none;
@@ -433,18 +455,25 @@
                         <img src="sala_abans_original.jpg" alt="Estat Actual Sala d'Estar" class="simulation-image">
                     </div>
                     <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
-                            FINAL</div>
-                        <img src="interior_sala_renovada_final_rsm.png" alt="Simulació Sala d'Estar Moblada Final"
-                            class="simulation-image">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">MURAL
+                            DIGITAL I LLUM DINÀMICA</div>
+                        <img src="sala_digital_base.png"
+                            alt="Simulació Sala d'Estar amb Mural Digital i Mobiliari Lleuger" class="simulation-image">
                     </div>
                 </div>
                 <div class="specs">
-                    <p><span class="highlight">Puresa de Línies:</span> S'ha eliminat la columna/xemeneia original,
-                        creant una <span class="highlight">paret totalment plana i contínua</span> darrere de la zona
-                        multimèdia. Aquesta neteja estructural potencia l'amplitud visual i permet que el gran panell de
-                        TV i la llibreria de roure flueixin sense interrupcions. El gran sofà en primer pla i la llum
-                        del balcó acaben de configurar un espai de calma absoluta.</p>
+                    <p><span class="highlight">Art i Tecnologia:</span> En resposta al feedback, hem evolucionat cap a
+                        un
+                        disseny molt més <span class="highlight">lleuger i artístic</span>. S'ha substituït la llibreria
+                        massissa per una estructura de prestatges de roure integrats i retroil·luminats. La gran paret
+                        de
+                        calç ara actua com un <span class="highlight">mural digital</span> via projecció, permetent
+                        canviar l'atmosfera segons l'estat d'ànim o l'hora del dia. La nova butaca de fusta vista i lli
+                        aporta la calidesa mediterrània sense carregar visualment l'espai.</p>
+
+                    <a href="ATMOSFERA_SALA_RSM.html" class="btn-action">
+                        🌈 Explorar Atmosferes Dinàmiques (Home Assistant) →
+                    </a>
                 </div>
             </section>
         </div>

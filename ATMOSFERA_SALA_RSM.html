@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmosferes Dinàmiques | Sala d'Estar Casa RSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .btn-back {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        main {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .scene-container.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .scene-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controls-overlay {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 2rem;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            white-space: nowrap;
+        }
+
+        .control-btn:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .control-btn.active {
+            opacity: 1;
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        .info-panel {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            max-width: 350px;
+            padding: 2.5rem;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(30px);
+            border-radius: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.5s ease;
+        }
+
+        .info-panel h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-panel p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Lightbox for images in this context - keep simple */
+        .fullscreen-hint {
+            position: absolute;
+            top: 2rem;
+            right: 5%;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .info-panel {
+                left: 5%;
+                right: 5%;
+                top: auto;
+                bottom: 10rem;
+                transform: none;
+                max-width: none;
+            }
+
+            .controls-overlay {
+                width: 90%;
+                overflow-x: auto;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Disseny d'Atmosferes | Casa RSM</h1>
+        </div>
+        <a href="index.html" class="btn-back">← Tornar al Dashboard</a>
+    </header>
+
+    <main>
+        <div class="fullscreen-hint">Interactivitat via Home Assistant DIY</div>
+
+        <!-- Escena 1 -->
+        <div id="scene-matinada" class="scene-container active">
+            <img src="sala_matinada_daurada.png" alt="Matinada Daurada" class="scene-image">
+            <div class="info-panel">
+                <span class="tech-badge">Escena 01</span>
+                <h2>Matinada Daurada</h2>
+                <p>Inspirada en les aquarel·les grogues de la teva col·lecció. Una explosió d'energia càlida que banya
+                    l'estuc de calç amb tons ocres a través de la projecció i els LED perimetrals.</p>
+                <div style="font-size: 0.8rem; color: #94a3b8;">
+                    <strong>Programació:</strong> 07:00 - 10:00 AM<br>
+                    <strong>Accent:</strong> Ocre Cinètic (#E8B923)
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 2 -->
+        <div id="scene-capvespre" class="scene-container">
+            <img src="sala_capvespre_blau.png" alt="Capvespre Blau" class="scene-image">
+            <div class="info-panel">
+                <span class="tech-badge" style="border-color: #60a5fa; color: #60a5fa;">Escena 02</span>
+                <h2 style="color: #60a5fa;">Capvespre Blau</h2>
+                <p>Calma absoluta. La paret es converteix en un mirall del cel mediterrani. Els blaus i cians projectats
+                    ajuden a reduir el ritme cardíac al final de la jornada.</p>
+                <div style="font-size: 0.8rem; color: #94a3b8;">
+                    <strong>Programació:</strong> 20:00 - 23:30 PM<br>
+                    <strong>Accent:</strong> Blau Aquarel·la (#3B82F6)
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 3 -->
+        <div id="scene-arrel" class="scene-container">
+            <img src="sala_arrel_terra.png" alt="Arrel Terra" class="scene-image">
+            <div class="info-panel">
+                <span class="tech-badge" style="border-color: #fb923c; color: #fb923c;">Escena 03</span>
+                <h2 style="color: #fb923c;">Arrel Terra</h2>
+                <p>Connexió amb la matèria. Tons terracotta i terra que ressalten la fusta de roure original. Una
+                    atmosfera orgànica i recollida, ideal per a la lectura o el repòs.</p>
+                <div style="font-size: 0.8rem; color: #94a3b8;">
+                    <strong>Programació:</strong> Modo Manual / Tardes de pluja<br>
+                    <strong>Accent:</strong> Terracotta Polsosa (#F87171)
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 4 -->
+        <div id="scene-bosc" class="scene-container">
+            <img src="sala_bosc_mediterrani.png" alt="Bosc Mediterrani" class="scene-image">
+            <div class="info-panel">
+                <span class="tech-badge" style="border-color: #4ade80; color: #4ade80;">Escena 04</span>
+                <h2 style="color: #4ade80;">Bosc Mediterrani</h2>
+                <p>Vitalitat natural. Inspirada en els teus paisatges de turons i camps. Un bany de verds i llum fresca
+                    que connecta l'interior amb l'ADN del paisatge de Vilanova.</p>
+                <div style="font-size: 0.8rem; color: #94a3b8;">
+                    <strong>Programació:</strong> 10:00 - 14:00 PM<br>
+                    <strong>Accent:</strong> Verd Oliva (#4ADE80)
+                </div>
+            </div>
+        </div>
+
+        <!-- Escena 5 -->
+        <div id="scene-somni" class="scene-container">
+            <img src="sala_somni_lavanda.png" alt="Somni de Lavanda" class="scene-image">
+            <div class="info-panel">
+                <span class="tech-badge" style="border-color: #c084fc; color: #c084fc;">Escena 05</span>
+                <h2 style="color: #c084fc;">Somni de Lavanda</h2>
+                <p>Explosió creativa. El moment més artístic utilitzant la paleta més atrevida de les teves aquarel·les.
+                    Tons magentes i blaus que creen un espai màgic i medidatiu.</p>
+                <div style="font-size: 0.8rem; color: #94a3b8;">
+                    <strong>Programació:</strong> Escena "Music & Wine"<br>
+                    <strong>Accent:</strong> Magenta Aquarel·la (#C084FC)
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-overlay">
+            <button class="control-btn active" onclick="changeScene('matinada', this)">Matinada Daurada</button>
+            <button class="control-btn" onclick="changeScene('capvespre', this)">Capvespre Blau</button>
+            <button class="control-btn" onclick="changeScene('arrel', this)">Arrel Terra</button>
+            <button class="control-btn" onclick="changeScene('bosc', this)">Bosc Mediterrani</button>
+            <button class="control-btn" onclick="changeScene('somni', this)">Somni de Lavanda</button>
+        </div>
+    </main>
+
+    <script>
+        function changeScene(sceneId, btn) {
+            // Desactivar totes les escenes
+            document.querySelectorAll('.scene-container').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            // Activar la seleccionada
+            document.getElementById('scene-' + sceneId).classList.add('active');
+
+            // Actualitzar botons
+            document.querySelectorAll('.control-btn').forEach(b => {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
