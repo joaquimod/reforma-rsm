@@ -256,6 +256,47 @@
         .card:nth-child(4) {
             animation-delay: 0.4s;
         }
+
+        /* Lightbox CSS */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        img[src$=".jpg"],
+        img[src$=".png"] {
+            cursor: zoom-in;
+        }
     </style>
 </head>
 
@@ -476,9 +517,32 @@
         </div>
     </main>
 
-    <footer>
-        Sistema d'Auditoria Automatitzat Antigravity | Casa RSM 2025
-    </footer>
+    <!-- Lightbox HTML -->
+    <div id="lightbox" class="lightbox-modal">
+        <img id="lightbox-img" src="" alt="Vista ampliada" class="lightbox-content">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('img').forEach(img => {
+            if (img.id === 'lightbox-img') return;
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        // Tancar amb la tecla Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+        });
+    </script>
 </body>
 
 </html>
