@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resum Sistema Suport - Casa RSM</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #00f2ff;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 80px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        header {
+            border-bottom: 2px solid #f1f5f9;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .meta {
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 35px 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 24px;
+            height: 4px;
+            background: var(--accent);
+            display: inline-block;
+            margin-right: 12px;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        .card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 20px 0;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #f1f5f9;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .btn-print {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .btn-print:hover {
+            transform: scale(1.05);
+            background: #1e293b;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: none;
+                padding: 0;
+            }
+
+            .btn-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn-print" onclick="window.print()">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2m-2 4H8v-4h8v4z">
+            </path>
+        </svg>
+        Desa com a PDF
+    </button>
+
+    <div class="page">
+        <header>
+            <div class="subtitle">Fase: Projecte Bàsic (PB)</div>
+            <h1>Sistema de Seguiment i Suport: Casa RSM</h1>
+            <div class="meta">Versió 1.0 | Gener 2026 | Vilanova i la Geltrú</div>
+        </header>
+
+        <p>Aquest document detalla el protocol d'auditoria forense i suport tècnic dissenyat per assegurar l'èxit de la
+            reforma integral de la Casa RSM, garantint el compliment del Decret d'Habitabilitat de Catalunya, el Codi
+            Tècnic de l'Edificació (CTE) i l'estàndard Passivhaus (EnerPHit).</p>
+
+        <h2>1. Components del Sistema de Suport</h2>
+        <p>El sistema es basa en una arquitectura <strong>Local-First</strong> per protegir la confidencialitat del
+            projecte:</p>
+        <ul>
+            <li><strong>Orquestrador (Python):</strong> Script d'automatització que creua dades entre la memòria (PDF),
+                els amidaments (Excel) i les regles de normativa.</li>
+            <li><strong>Validador de Fitxers:</strong> Verifica la qualitat vectorial del PDF i l'estructura de dades de
+                l'Excel.</li>
+            <li><strong>Model d'IA Local (LM Studio):</strong> Anàlisi de física de l'edifici amb
+                <code>gpt-oss-safeguard-20b-mlx</code>.
+            </li>
+            <li><strong>Base de Coneixement:</strong> Normativa de Vilanova i la Geltrú integrada per a consultes
+                contextuals.</li>
+            <li><strong>Dashboard Visual:</strong> Interfície premium per al seguiment d'indicadors clau i troballes.
+            </li>
+        </ul>
+
+        <h2>2. Protocol d'Execució i Revisió</h2>
+
+        <h3>Pas 1: Preparació</h3>
+        <p>Organització de fitxers a <code>docs/PB/</code> i validació d'input vegetal/vectorial de la documentació
+            rebuda de l'arquitecte.</p>
+
+        <h3>Pas 2: Processament</h3>
+        <p>Execució de l'orquestrador per detectar discrepàncies geomètriques o absències normatives (ex. ascensor,
+            superfícies mínimes).</p>
+
+        <h3>Pas 3: Validació Tèrmica</h3>
+        <p>Contrast de transmitàncies (U-values) mitjançant el model local per validar l'objectiu EnerPHit (U < 0.15
+                W/m²K).</p>
+
+                <h3>Pas 4: Revisió Urbanística</h3>
+                <p>Seguiment estricte de la <strong>Llista de Verificació de VNG</strong> (morters de calç, prohibició
+                    del PVC, carta de colors).</p>
+
+                <h2>3. Consells Estratègics per a la Fase PB</h2>
+
+                <div class="card">
+                    <strong>Llindar del 25% (CTE DB-HE):</strong> En ser reforma integral, exigeix el càlcul global (K i
+                    consum) i no el justificat peça a peça.
+                </div>
+
+                <div class="card">
+                    <strong>Dilema de la Ventilació (HS3):</strong> Amb finestres noves, la VMC amb recuperació
+                    d'energia és innegociable per evitar condensacions i complir la llei.
+                </div>
+
+                <div class="card" style="border-left-color: #2ecc71;">
+                    <strong>Blindatge de Subvencions:</strong> Cal registrar el CEE d'Abans ARA. Sense certificat
+                    original registrat abans de l'actuació, es perden els ajuts Next Generation i les deduccions d'IRPF
+                    (fins a 15.000€).
+                </div>
+
+                <div class="card">
+                    <strong>Relació amb l'estudi:</strong> Utilitza les troballes com a "Oportunitats d'Optimització"
+                    per
+                    assegurar la certificació, mantenint un to col·laboratiu.
+                </div>
+
+                <div class="footer">
+                    Projecte RSM - Seguiment Estratègic d'Alta Eficiència | Gener 2026
+                </div>
+    </div>
+
+</body>
+
+</html>

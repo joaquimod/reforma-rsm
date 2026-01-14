@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulació Interiorisme | Casa RSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --oak: #d4b483;
+            --lime: #f8f9fa;
+            --gray: #e2e8f0;
+            --bg: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--bg);
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .view-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 32px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 3rem;
+        }
+
+        .simulation-container {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .simulation-image {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .before-after-grid .simulation-image {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .facana-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: stretch;
+        }
+
+        .facana-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Ajust per a contenidors dins de graelles per evitar marges extra */
+        .facana-grid .simulation-container,
+        .before-after-grid .simulation-container {
+            margin-bottom: 0;
+            height: 100%;
+        }
+
+        .facana-grid .simulation-image {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .label-overlay {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: #94a3b8;
+            padding-left: 0.5rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 24px;
+            border-left: 4px solid var(--oak);
+        }
+
+        .concept-card h3 {
+            color: var(--oak);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .material-tag {
+            display: inline-block;
+            background: rgba(212, 180, 131, 0.2);
+            color: var(--oak);
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-back {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .specs {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: white;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1 style="font-weight: 700; letter-spacing: -1px;">Simulacions d'interiorisme | Casa RSM</h1>
+                <p style="color: #64748b;">Concepte "Cozy Minimalism" | Transformació 2026</p>
+            </div>
+            <a href="index.html" class="btn-back">← Tornar al Dashboard</a>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('facana')">🏠 Façana</button>
+            <button class="tab-btn" onclick="showTab('cuina')">🍽️ Cuina - Menjador</button>
+            <button class="tab-btn" onclick="showTab('sala')">🛋️ Sala d'Estar</button>
+            <button class="tab-btn" onclick="showTab('habitacio')">🛌 Dormitori 1</button>
+            <button class="tab-btn" onclick="showTab('bany')">🚿 Bany P2</button>
+            <button class="tab-btn" onclick="showTab('escala')">🪜 Escala</button>
+            <button class="tab-btn" onclick="showTab('pati')">🌿 El Pati</button>
+        </div>
+
+        <!-- Secció Façana -->
+        <div id="facana" class="view-section active">
+            <section class="hero-section">
+                <div class="facana-grid">
+                    <!-- Esquerra: Estat Actual -->
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL</div>
+                        <img src="facana_abans_0.jpg" alt="Estat Actual Façana Casa RSM" class="simulation-image">
+                    </div>
+
+                    <!-- Dreta: Les 2 Opcions de Reforma -->
+                    <div class="facana-options">
+                        <div class="simulation-container">
+                            <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
+                                OPCIÓ A: ZÒCALO CREMA</div>
+                            <img src="interior_facana_renovada_v1_rsm.png" alt="Simulació Façana Opció A"
+                                class="simulation-image">
+                        </div>
+                        <div class="simulation-container">
+                            <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
+                                OPCIÓ B: ZÒCALO PEDRA</div>
+                            <img src="interior_facana_renovada_v2_rsm.png" alt="Simulació Façana Opció B"
+                                class="simulation-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specs">
+                    <p><span class="highlight">Estudi de Materialitat:</span> Comparativa de les dues variants de
+                        rehabilitació enfront de l'estat actual. L'<span class="highlight">Opció A</span> utilitza un
+                        zòcalo de calç color crema per a una integració totalment mediterrània, mentre que l'<span
+                            class="highlight">Opció B</span> manté el zòcalo de pedra original com a nexe d'unió amb el
+                        veïnatge. Ambdues asseguren accessibilitat a cota zero i l'eliminació d'elements impropis.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Cuina -->
+        <div id="cuina" class="view-section">
+            <section class="hero-section">
+                <div class="simulation-container">
+                    <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">DISSENY
+                        FINAL</div>
+                    <img src="interior_cuina_menjador_taula_4_final_rsm.png"
+                        alt="Simulació Cuina Menjador Taula 4 Persones Casa RSM" class="simulation-image">
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Optimització de l'Espai:</span> S'ha triat una taula
+                        compacta de mida <span class="highlight">només per a quatre cadires</span>. Aquesta configuració
+                        allibera el centre de l'estança, potenciant la fluïdesa cap a les portes del fons i mantenint
+                        l'estètica neta i mediterrània del conjunt.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Dormitori -->
+        <div id="habitacio" class="view-section">
+            <section class="hero-section">
+                <div class="before-after-grid">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL</div>
+                        <img src="habitacio_abans_0.png" alt="Estat actual dormitori" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">LAYOUT
+                            FINAL</div>
+                        <img src="interior_habitacio_final_rsm.png" alt="Simulació dormitori final"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Optimització del repòs:</span> S'ha reconfigurat la distribució per
+                        prioritzar la fluïdesa. El llit se situa ara a la <span class="highlight">paret esquerra</span>,
+                        creant un espai més ampli i ordenat. La gran corredissa de fusta natural s'ubica a la <span
+                            class="highlight">paret del fons</span>, inundant l'estança de llum matinal i connectant
+                        directament amb el balcó.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Bany P2 -->
+        <div id="bany" class="view-section">
+            <section class="hero-section">
+                <div class="before-after-grid">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL</div>
+                        <img src="bany_p2_abans_0.png" alt="Estat actual Bany" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">ESTAT
+                            FINAL</div>
+                        <img src="interior_bany_p2_porta_fusta_rsm.png" alt="Simulació Bany Planta 2 - Detall Fusta"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Continuïtat de materials:</span> S'ha unificat la fusteria interior amb
+                        l'exterior. La porta d'accés ara és de <span class="highlight">fusta de roure natural
+                            clara</span>, creant un conjunt harmònic amb el moble del lavabo i el marc de la finestra
+                        panoràmica. Es manté el terra a nivell zero per a una accessibilitat total.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Escala -->
+        <div id="escala" class="view-section">
+            <section class="hero-section">
+                <div class="before-after-grid">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL (P1)</div>
+                        <img src="escala_p1_abans.jpg" alt="Estat Actual Escala P1" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
+                            ACCESSIBILITAT (ASCENSOR)</div>
+                        <img src="interior_escala_p1_ascensor.png" alt="Simulació Escala P1 amb Ascensor"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Accessibilitat Integrada:</span> S'ha situat l'ascensor enrasat a la
+                        paret principal, alineant la porta exactament amb el <span class="highlight">primer
+                            esglaó</span> del tram que puja. Aquesta posició "al davant" elimina qualsevol nínxol o
+                        obstacle visual, creant una superfície contínua i minimalista que integra l'accessibilitat de
+                        forma tecnològica i estètica.</p>
+                </div>
+                <div class="before-after-grid" style="margin-top: 4rem;">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL (P2)</div>
+                        <img src="escala_abans_0.jpg" alt="Estat Actual Escala" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
+                            REFORMADA P2</div>
+                        <img src="interior_escala_renovada_rsm.png" alt="Simulació Escala Renovada"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Eficiència Estructural:</span> S'ha optimitzat el nucli d'escala amb un
+                        disseny ultracompacte. Els trams de pujada i baixada estan <span class="highlight">aparellats
+                            lateralment</span> sense barana central, aprofitant al màxim el forat d'1,6 m. L'estructura
+                        de ferro negre mat i els esglaons de roure flueixen com un sol bloc banyat per la llum zenital
+                        de la nova claraboia elevada.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Sala d'Estar -->
+        <div id="sala" class="view-section">
+            <section class="hero-section">
+                <div class="before-after-grid">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL</div>
+                        <img src="sala_abans_original.jpg" alt="Estat Actual Sala d'Estar" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
+                            FINAL</div>
+                        <img src="interior_sala_renovada_final_rsm.png" alt="Simulació Sala d'Estar Moblada Final"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Puresa de Línies:</span> S'ha eliminat la columna/xemeneia original,
+                        creant una <span class="highlight">paret totalment plana i contínua</span> darrere de la zona
+                        multimèdia. Aquesta neteja estructural potencia l'amplitud visual i permet que el gran panell de
+                        TV i la llibreria de roure flueixin sense interrupcions. El gran sofà en primer pla i la llum
+                        del balcó acaben de configurar un espai de calma absoluta.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Secció Pati -->
+        <div id="pati" class="view-section">
+            <section class="hero-section">
+                <div class="before-after-grid">
+                    <div class="simulation-container">
+                        <div class="label-overlay">ESTAT ACTUAL</div>
+                        <img src="pati_abans_0.png" alt="Estat Actual Pati" class="simulation-image">
+                    </div>
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
+                            REFORMADA</div>
+                        <img src="interior_pati_bioclimatic_rsm.png" alt="Simulació Pati Refugi Climàtic"
+                            class="simulation-image">
+                    </div>
+                </div>
+                <div class="specs">
+                    <p><span class="highlight">Projecte Executiu (Refugi Climàtic):</span> Transformació del pati basat
+                        en la documentació de definició. Paviment de <span class="highlight">sauló garbellat</span> amb
+                        pasaderes de pedra calcària. Pared sud amb <span class="highlight">zócalo de pedra seca</span> i
+                        vegetació vertical, i una <span class="highlight">font tipus safareig</span> per refrescar
+                        l'aire de forma natural.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="concept-grid">
+            <div class="concept-card">
+                <h3>Textures i Acabats</h3>
+                <p>Parets amb "Estuc de calç" porós de color blanc trencat, contrastant amb fusteria de roure natural.
+                </p>
+                <div class="material-tags">
+                    <span class="material-tag">Calç Artesana</span>
+                    <span class="material-tag">Roure Natural</span>
+                </div>
+            </div>
+            <div class="concept-card" style="border-left-color: var(--primary);">
+                <h3>Paviment Tèrmic</h3>
+                <p>Microciment gris seda d'alta inèrcia tèrmica, optimitzat per al funcionament de l'aerotèrmia.</p>
+                <div class="material-tags">
+                    <span class="material-tag">Microciment</span>
+                    <span class="material-tag">Inèrcia Alta</span>
+                </div>
+            </div>
+            <div class="concept-card" style="border-left-color: var(--primary);">
+                <h3>Accents i Detalls</h3>
+                <p>Fusteria de fusta natural clara per a una calidesa superior i il·luminació tècnica en carril
+                    encastat.</p>
+                <div class="material-tags">
+                    <span class="material-tag">Fusta Natural</span>
+                    <span class="material-tag">LED Indirecte</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(id) {
+            // Amagar totes les seccions
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Desactivar tots els botons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar la seleccionada
+            document.getElementById(id).classList.add('active');
+            // Activar el botó corresponent
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
+```

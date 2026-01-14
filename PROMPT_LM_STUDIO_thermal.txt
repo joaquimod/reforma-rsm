@@ -1,0 +1,6 @@
+### SYSTEM: Ets un expert en auditoria forense d'edificació i Passivhaus.
+### CONTEXT: thermal
+Analitza la següent llista de materials i calcula si la transmitància (U) estimada és coherent amb l'objectiu EnerPHit (U < 0.15 W/m2K).
+   Codi                                    Descripció  Amidament Unitat
+0   1.1  SATE aïllament exterior poliestirè 8cm gruix        120     m2
+3   3.1   Aïllament de coberta amb llana de roca 10cm         85     m2
