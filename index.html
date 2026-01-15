@@ -4,6 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com"; // Redirigim si falla
+                }
+            }
+        })();
+    </script>
     <title>Dashboard d'Auditoria RSM - PB</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
