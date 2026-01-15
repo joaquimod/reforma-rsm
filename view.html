@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el document:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Visor de Document | Casa RSM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Llibreria per renderitzar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg: #0f172a;
+            --card: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: var(--bg);
+            color: #cbd5e1;
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 5%;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .btn-back {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Estils per al contingut Markdown */
+        #content h1 {
+            color: white;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        #content h2 {
+            color: var(--primary);
+            margin-top: 2rem;
+        }
+
+        #content h3 {
+            color: white;
+            margin-top: 1.5rem;
+        }
+
+        #content strong {
+            color: white;
+        }
+
+        #content code {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        #content blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        #content ul {
+            padding-left: 1.5rem;
+        }
+
+        #content li {
+            margin-bottom: 0.8rem;
+        }
+
+        #content hr {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="btn-back">← Tornar al Dashboard</a>
+            <div id="file-name"
+                style="font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Document
+            </div>
+        </header>
+        <div id="content">Carregant document...</div>
+    </div>
+
+    <script>
+        async function loadMarkdown() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileName = urlParams.get('file');
+
+            if (!fileName) {
+                document.getElementById('content').innerHTML = "No s'ha especificat cap fitxer.";
+                return;
+            }
+
+            document.getElementById('file-name').textContent = fileName.replace(/_/g, ' ');
+
+            try {
+                const response = await fetch(fileName);
+                if (!response.ok) throw new Error('NOT_FOUND');
+                const text = await response.text();
+                document.getElementById('content').innerHTML = marked.parse(text);
+            } catch (error) {
+                if (window.location.protocol === 'file:') {
+                    document.getElementById('content').innerHTML = `
+                        <div style="background: rgba(255,165,0,0.1); border: 1px solid orange; padding: 1.5rem; border-radius: 12px; color: orange;">
+                            <strong>⚠️ Mode local detectat</strong><br>
+                            El navegador bloqueja la càrrega de documents per seguretat en obrir fitxers directament des de la carpeta.
+                            <br><br>
+                            <strong>Solució:</strong> Puja el projecte a GitHub per veure'l en línia o utilitza un servidor local.
+                        </div>`;
+                } else if (error.message === 'NOT_FOUND') {
+                    document.getElementById('content').innerHTML = "❌ Error: No s'ha trobat el fitxer <strong>" + fileName + "</strong>.";
+                } else {
+                    document.getElementById('content').innerHTML = "❌ S'ha produït un error en carregar el document.";
+                }
+            }
+        }
+        loadMarkdown();
+    </script>
+</body>
+
+</html>
