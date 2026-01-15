@@ -132,39 +132,59 @@
     </div>
 
     <script>
-        async function loadMarkdown() {
+        const contentDiv = document.getElementById('content');
+        const fileNameDiv = document.getElementById('file-name');
+
+        function renderMarkdown(text) {
+            contentDiv.innerHTML = marked.parse(text);
+        }
+
+        async function init() {
             const urlParams = new URLSearchParams(window.location.search);
             const fileName = urlParams.get('file');
 
             if (!fileName) {
-                document.getElementById('content').innerHTML = "No s'ha especificat cap fitxer.";
+                contentDiv.innerHTML = "No s'ha especificat cap fitxer.";
                 return;
             }
 
-            document.getElementById('file-name').textContent = fileName.replace(/_/g, ' ');
+            fileNameDiv.textContent = fileName.replace(/_/g, ' ');
 
-            try {
-                const response = await fetch(fileName);
-                if (!response.ok) throw new Error('NOT_FOUND');
-                const text = await response.text();
-                document.getElementById('content').innerHTML = marked.parse(text);
-            } catch (error) {
-                if (window.location.protocol === 'file:') {
-                    document.getElementById('content').innerHTML = `
-                        <div style="background: rgba(255,165,0,0.1); border: 1px solid orange; padding: 1.5rem; border-radius: 12px; color: orange;">
-                            <strong>⚠️ Mode local detectat</strong><br>
-                            El navegador bloqueja la càrrega de documents per seguretat en obrir fitxers directament des de la carpeta.
-                            <br><br>
-                            <strong>Solució:</strong> Puja el projecte a GitHub per veure'l en línia o utilitza un servidor local.
-                        </div>`;
-                } else if (error.message === 'NOT_FOUND') {
-                    document.getElementById('content').innerHTML = "❌ Error: No s'ha trobat el fitxer <strong>" + fileName + "</strong>.";
-                } else {
-                    document.getElementById('content').innerHTML = "❌ S'ha produït un error en carregar el document.";
+            // DETECCIÓ DE MODE (WEB vs LOCAL)
+            if (window.location.protocol === 'file:') {
+                // MODE LOCAL: El navegador bloqueja 'fetch', necessitem acció de l'usuari
+                contentDiv.innerHTML = `
+                    <div style="background: rgba(0, 242, 255, 0.05); border: 1px solid var(--primary); padding: 2rem; border-radius: 16px; text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🏠 Mode Local</div>
+                        <p style="margin-bottom: 1.5rem;">Per seguretat, el navegador requereix que confirmis el fitxer per renderitzar-lo localment:</p>
+                        <input type="file" id="local-file-selector" style="display: none;" accept=".md,.txt">
+                        <button onclick="document.getElementById('local-file-selector').click()" 
+                                style="background: var(--primary); color: #0f172a; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+                            📁 Selecciona "${fileName}" per carregar-lo
+                        </button>
+                    </div>`;
+
+                document.getElementById('local-file-selector').addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => renderMarkdown(e.target.result);
+                        reader.readAsText(file);
+                    }
+                });
+            } else {
+                // MODE WEB (GitHub Pages): Carreguem automàticament
+                try {
+                    const response = await fetch(fileName);
+                    if (!response.ok) throw new Error('NOT_FOUND');
+                    const text = await response.text();
+                    renderMarkdown(text);
+                } catch (error) {
+                    contentDiv.innerHTML = "❌ Error: No s'ha pogut carregar el fitxer automàticament.";
                 }
             }
         }
-        loadMarkdown();
+        init();
     </script>
 </body>
 
