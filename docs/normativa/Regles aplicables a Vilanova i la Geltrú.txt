@@ -1,0 +1,37 @@
+﻿D'acord amb la informació proporcionada, les regles aplicables a Vilanova i la Geltrú es basen en el marc general de Catalunya (Decret d'Habitabilitat) i l'Estat (CTE), ja que la Memòria del POUM de Vilanova remet a l'adequació a la legislació vigent.
+A continuació es detallen els requisits de superfícies i accessibilitat que s'apliquen:
+1. Superfícies Mínimes (Habitabilitat)
+La normativa aplicable a Vilanova, seguint el Decret 141/2012 de la Generalitat de Catalunya, distingeix entre obra nova i habitatges preexistents (usats).
+A. Habitatges de Nova Construcció
+* Superfície útil mínima total: L'habitatge ha de tenir una superfície útil interior no inferior a 36 m².
+* Composició mínima: Ha de constar d'una estança o sala d'estar-menjador, una cambra higiènica i un equip de cuina.
+* Espais d'ús comú (Sala d'estar + Menjador + Cuina): La superfície mínima del conjunt no serà inferior a 20 m². Ha de permetre la inscripció d'un cercle de 2,80 m de diàmetre.
+* Habitacions:
+   * Superfície mínima: 6 m².
+   * En habitatges de 3 o més habitacions, almenys una ha de permetre inscriure un quadrat de 2,60 x 2,60 m.
+   * A la resta, s'ha de poder inscriure un quadrat de 2,00 x 2,00 m.
+* Alçada mínima: L'alçada lliure ha de ser com a mínim de 2,50 m, tot i que en cuines, banys i passadissos s'admet 2,20 m.
+B. Habitatges Preexistents (construïts abans de l'11/08/1984)
+* Superfície útil mínima total: 20 m².
+* Sala d'estar: Mínim 10 m², sense estrangulaments inferiors a 1,40 m.
+* Habitacions: Superfície no inferior a 5 m².
+C. Ràtios d'Ocupació A efectes de càlcul de densitat per al planejament de Vilanova, la Revisió del Pla General utilitza una ràtio de 2,75 habitants per habitatge. No obstant això, el llindar màxim d'ocupació real per cèdula es regeix per la superfície de les habitacions:
+* 1 persona: habitació  5 m2.
+* 2 persones: habitació  8 m2.
+* 3 persones: habitació  12 m2.
+2. Accessibilitat
+L'accessibilitat es regula tant pel Decret d'Habitabilitat (condicions interiors de l'habitatge) com pel CTE DB-SUA (edifici i zones comunes).
+A. Interior de l'habitatge (Habitatge Practicable) Segons el Decret 141/2012, els habitatges nous han de ser com a mínim practicables:
+   * Portes: L'accés a l'habitatge i als espais practicables (bany, cuina, sala, una habitació) ha de tenir una amplada mínima de pas de 0,80 m. La resta de portes interiors, mínim 0,70 m.
+   * Passadissos: Amplada mínima d'1,00 m en les zones que connecten l'accés amb els espais practicables (0,90 m a la resta).
+   * Espais de gir: Davant de les portes d'accés als espais practicables i dins d'aquests (cuina, bany, habitació) s'ha de poder inscriure un cercle d'1,20 m de diàmetre lliure d'obstacles.
+B. Zones Comunes i Accés a l'Edifici (CTE DB-SUA i Decret 141/2012)
+   * Itinerari Accessible: L'edifici ha de disposar d'un itinerari accessible que comuniqui l'entrada principal amb la via pública i les zones comunes.
+   * Ascensor:
+   * És obligatori en edificis plurifamiliars si cal salvar més de dues plantes des de l'entrada fins a un habitatge.
+   * A Vilanova, si hi ha impossibilitat tècnica en edificis petits (fins a PB+2 i màxim 4 habitatges), es permet reservar l'espai per a la instal·lació futura (buit d'1,60 x 1,60 m mínim).
+   * La zona davant de l'ascensor ha de permetre un cercle d'1,50 m (excepcionalment 1,20 m en edificis petits sense habitatges accessibles).
+   * Passadissos comunitaris: Amplada lliure  1,10 m en zones comunes d'edificis d'ús Residencial Habitatge.
+   * Desnivells: No s'admeten esglaons en itineraris accessibles; s'han de salvar amb rampa o ascensor. Les rampes accessibles tindran un pendent màxim del 10% (si < 3 m), 8% (si < 6 m) o 6% (resta).
+3. Rehabilitació (Criteri de Flexibilitat)
+En intervencions en edificis existents a Vilanova, s'aplica el principi de proporcionalitat i no-empitjorament. Si no és tècnicament o econòmicament viable complir estrictament els nous requisits, es permeten solucions que permetin el "major grau d'adequació possible", sempre que no s'empitjorin les condicions preexistents.
