@@ -319,7 +319,7 @@
     <div class="overlay"></div>
     <header>
         <div class="logo">
-            <h1>RSM 2025 | Seguiment i Suport al Projecte</h1>
+            <h1>RSM 2025 | Seguiment i suport al projecte</h1>
         </div>
         <div class="badge">Versió SIMULACIO_ERRORS</div>
     </header>
@@ -340,55 +340,32 @@
     </section>
 
     <main>
-        <!-- Guia de Suport Tècnic Compartit -->
+        <!-- 1. Guia de Suport Tècnic (Resumida) -->
         <div class="card"
-            style="grid-column: 1 / -1; background: rgba(0, 242, 255, 0.05); border-color: rgba(0, 242, 255, 0.2);">
-            <h2 style="color: var(--primary);"><i style="font-style: normal;">🤝</i> Guia de suport tècnic
+            style="grid-column: 1 / -1; background: rgba(0, 242, 255, 0.05); border-color: rgba(0, 242, 255, 0.2); margin-bottom: 2rem;">
+            <h2 style="color: var(--primary);"><i style="font-style: normal;">🤝</i> Guia de suport tècnic compartit
             </h2>
             <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; font-size: 0.9rem; color: #cbd5e1;">
-                <div>
-                    <strong style="color: white; display: block; margin-bottom: 0.5rem;">⚡ Optimització
-                        EnerPHit</strong>
-                    Eina de suport per avaluar el camí cap a l'estàndard Passivhaus. Ajuda a visualitzar on podem
-                    guanyar eficiència per obtenir la certificació final.
-                </div>
-                <div>
-                    <strong style="color: white; display: block; margin-bottom: 0.5rem;">📍 Validació Normativa</strong>
-                    Contrast automàtic amb les regles del POUM i Habitabilitat. L'objectiu és detectar possibles
-                    millores d'ajust abans del lliurament definitiu.
-                </div>
-                <div>
-                    <strong style="color: white; display: block; margin-bottom: 0.5rem;">💡 Oportunitats de
-                        Millora</strong>
-                    Punts detectats per dialogar amb l'equip tècnic. Zones on el projecte pot evolucionar per alinear
-                    millor les expectatives i el disseny.
-                </div>
-                <div>
-                    <strong style="color: white; display: block; margin-bottom: 0.5rem;">🖥️ Anàlisi Local de
-                        Solucions</strong>
-                    Espai per a la validació de solucions constructives. Permet provar materials de forma ràpida per
-                    ajudar en la presa de decisions tècniques.
-                </div>
-                <div>
-                    <strong style="color: white; display: block; margin-bottom: 0.5rem;">🛋️ Interiorisme (5S)</strong>
-                    Metodologia de disseny "Cozy Minimalism". Gestió de l'emmagatzematge integral i estètica EnerPHit
-                    per a la fase d'execució.
-                    <br><br>
-                    <a href="PROPOSTA_INTERIORISME_RSM.html"
-                        style="color: var(--primary); text-decoration: none; font-weight: 600;">✨ Simulació 3D →</a>
-                    <br>
-                    <a href="ATMOSFERA_SALA_RSM.html"
-                        style="color: var(--secondary); text-decoration: none; font-weight: 600; font-size: 0.8rem;">🌈
-                        Atmosferes Dinàmiques (HA) →</a>
-                </div>
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; font-size: 0.9rem; color: #cbd5e1;">
+                <p>Aquest dashboard actua com a pont entre la fase de Projecte Bàsic i l'Execució. L'objectiu és auditar
+                    el compliment de l'estàndard <span class="highlight">EnerPHit</span>, validar la normativa local i
+                    proposar solucions d'interiorisme sota la metodologia <span class="highlight">Cozy
+                        Minimalism</span>.</p>
+                <p>Navega a través dels blocs inferiors per explorar des dels errors detectats en l'auditoria fins a les
+                    preinstal·lacions tecnològiques necessàries per a la domòtica DIY.</p>
             </div>
         </div>
 
-        <div class="grid" style="margin-top: 2rem;">
+        <div class="grid">
+            <!-- 2. BLOC D'AUDITORIA I DIAGNÒSTIC -->
+            <div style="grid-column: 1 / -1; margin: 1rem 0 0.5rem 0;">
+                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">I.
+                    Auditoria Tècnica i Compliment</h3>
+            </div>
+
             <!-- EnerPHit Compliance -->
             <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md" class="card clickable">
-                <h2><i>⚡</i> Estandard EnerPHit</h2>
+                <h2><i>⚡</i> Estàndard EnerPHit</h2>
                 <div class="kpi warning">70%</div>
                 <div class="progress-container">
                     <div class="progress-bar" style="width: 70%;"></div>
@@ -406,60 +383,38 @@
                 <p>Punts d'ajust en habitabilitat. Premeu per obrir la normativa exportada de NotebookLM.</p>
             </a>
 
-            <!-- LM Studio Analysis -->
-            <a href="PROMPT_LM_STUDIO_thermal.txt" class="card clickable">
-                <h2><i>🖥️</i> LM Studio (20b Model)</h2>
-                <p style="margin-bottom: 1rem;">Càlculs de física de l'edifici en local:</p>
-                <div
-                    style="font-size: 0.9rem; background: rgba(0,0,0,0.3); padding: 1.2rem; border-radius: 12px; border-left: 4px solid var(--primary);">
-                    "Estimació transmitància façana: 0.42 W/m²K."
-                </div>
-                <p style="font-size: 0.7rem; margin-top: 1rem; color: #64748b;">Model: gpt-oss-safeguard-20b-mlx. Premeu
-                    per veure el prompt exportat per a LM Studio.</p>
-            </a>
-
             <!-- Punts de Diàleg -->
-            <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md" class="card clickable"
-                style="grid-column: span 2;">
+            <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md" class="card clickable">
                 <h2><i>💡</i> Punts d'ajust tècnic</h2>
                 <ul class="finding-list">
-                    <li class="finding-item">
-                        <div class="finding-icon" style="background: rgba(255, 77, 77, 0.1);">🟠</div>
+                    <li class="finding-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
                         <div class="finding-content">
-                            <h3>ENERPHIT: Gruix d'aïllament (8cm) possiblement ins... <span
+                            <h3 style="font-size: 0.85rem;">ENERPHIT: Aïllament <span
                                     class="status-pill pill-alta">ALTA</span></h3>
-                            <p>Verificar càlcul U-value amb el model local (LM Studio).</p>
                         </div>
                     </li>
-                    <li class="finding-item">
-                        <div class="finding-icon" style="background: rgba(255, 77, 77, 0.1);">🟠</div>
+                    <li class="finding-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
                         <div class="finding-content">
-                            <h3>ENERPHIT: Gruix d'aïllament (10cm) possiblement in... <span
+                            <h3 style="font-size: 0.85rem;">HABITABILITAT: Supervisió <span
                                     class="status-pill pill-alta">ALTA</span></h3>
-                            <p>Verificar càlcul U-value amb el model local (LM Studio).</p>
-                        </div>
-                    </li>
-                    <li class="finding-item">
-                        <div class="finding-icon" style="background: rgba(255, 77, 77, 0.1);">🟠</div>
-                        <div class="finding-content">
-                            <h3>HABITABILITAT: Superfície de peça (2.1 m2) inferior al ... <span
-                                    class="status-pill pill-alta">ALTA</span></h3>
-                            <p>Revisar dimensions de la peça per complir Decret 141/2012.</p>
                         </div>
                     </li>
                 </ul>
-                <p style="text-align: right; font-size: 0.8rem; margin-top: 1rem; color: var(--primary);">Veure informe
-                    d'auditoria complet →</p>
+                <p style="text-align: right; font-size: 0.75rem; color: var(--primary);">Informe complet →</p>
             </a>
 
-            <!-- Simulations Showcase -->
+            <!-- 3. BLOC DE SIMULACIONS D'ESPAIS -->
+            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
+                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">II.
+                    Simulacions d'Interiorisme i Concepte</h3>
+            </div>
+
             <div class="card" style="grid-column: 1 / -1; background: rgba(255, 255, 255, 0.05);">
-                <h2><i>🛋️</i> Darreres Simulacions d'Interiorisme</h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
                     <div
                         style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glass);">
                         <img src="sala_abans_original.jpg" alt="Estat Actual Sala"
-                            style="width: 100%; height: 300px; object-fit: cover;">
+                            style="width: 100%; height: 280px; object-fit: cover;">
                         <div
                             style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem;">
                             ESTAT ACTUAL</div>
@@ -467,72 +422,83 @@
                     <div
                         style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--primary);">
                         <img src="sala_digital_base.png" alt="Proposta Mural Digital Sala"
-                            style="width: 100%; height: 300px; object-fit: cover;">
+                            style="width: 100%; height: 280px; object-fit: cover;">
                         <div
                             style="position: absolute; top: 10px; left: 10px; background: var(--primary); color: #0f172a; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 700;">
-                            PROPOSTA REFORMADA</div>
+                            PROPOSTA COZY MINIMALISM</div>
                     </div>
                 </div>
-                <div style="margin-top: 1.5rem; color: #cbd5e1; font-size: 0.95rem;">
-                    <p><strong>Transformació de la Sala d'Estar (Digital & Cozy):</strong> S'ha evolucionat el disseny
-                        cap a una solució més lleugera amb mobiliari de fusta vista i lli. La innovació principal és la
-                        integració d'un <span class="highlight">mural digital dinàmic</span> sobre la paret d'estuc de
-                        calç, que permet canviar l'atmosfera lumínica i artística de l'estança segons l'estat d'ànim o
-                        l'hora del dia via Home Assistant.</p>
+                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div style="max-width: 60%; font-size: 0.9rem; color: #cbd5e1;">
+                        <p>Visualitzacions realistes dels espais clau (Sala d'Estar, Dormitori 1, Estudi PB) aplicant
+                            els materials definitius: estuc de calç, roure i microciment.</p>
+                    </div>
+                    <a href="PROPOSTA_INTERIORISME_RSM.html" class="card clickable"
+                        style="padding: 1rem 1.5rem; margin: 0; min-width: 250px; border-color: var(--primary);">
+                        <h2 style="margin:0; color: white; font-size: 1rem;">✨ Navegar per la Proposta 3D →</h2>
+                    </a>
                 </div>
-                <p style="margin-top: 1rem; text-align: right;"><a href="PROPOSTA_INTERIORISME_RSM.html"
-                        style="color: var(--primary); text-decoration: none; font-size: 0.8rem; font-weight: 600;">Explorar
-                        totes les simulacions (Escala, Bany, Cuina...) →</a></p>
             </div>
 
-            <!-- Urban Checklist -->
-            <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card clickable"
-                style="border-color: var(--warning);">
-                <h2><i style="font-style: normal;">📋</i> Llista de Verificació Urbanística</h2>
-                <ul style="list-style: none; font-size: 0.85rem; color: #cbd5e1;">
-                    <li style="margin-bottom: 0.5rem;">✅ SATE amb morter de calç (obligatori)</li>
-                    <li style="margin-bottom: 0.5rem;">🚫 Prohibit PVC en façana</li>
-                    <li style="margin-bottom: 0.5rem;">🎨 Carta de colors Nucli Antic (Ocres/Terra)</li>
-                    <li style="margin-bottom: 0.5rem;">🌬️ VMC obligatòria per confort/salubritat</li>
-                </ul>
-                <p style="font-size: 0.75rem; margin-top: 1.5rem; color: var(--warning);">Accentuem el diàleg
-                    arquitectònic →</p>
+            <!-- 4. BLOC DE SOLUCIONS AVANÇADES I EXECUCIÓ -->
+            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
+                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">III.
+                    Solucions Avançades i Execució</h3>
+            </div>
+
+            <!-- Atmosferes Card -->
+            <a href="ATMOSFERA_SALA_RSM.html" class="card clickable"
+                style="background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), transparent);">
+                <h2><i>🌈</i> Atmosferes Dinàmiques</h2>
+                <p>Exploració de l'ADN artístic mitjançant la il·luminació programable i el mural digital de la sala.
+                </p>
+                <p style="margin-top: 1rem; color: var(--primary); font-size: 0.8rem;">Control via Home Assistant →</p>
             </a>
 
-            <!-- Financial Incentives -->
-            <div class="card"
-                style="grid-column: 1 / -1; background: rgba(46, 204, 113, 0.05); border-color: rgba(46, 204, 113, 0.2);">
-                <h2 style="color: var(--success);"><i style="font-style: normal;">💰</i> Viabilitat i Incentius
-                    Financers
-                </h2>
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; font-size: 0.9rem; color: #cbd5e1;">
-                    <div>
-                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">📉 IRPF (Fins al
-                            60%)</strong>
-                        Deducció directa en renda per millora energètica. <b>Requisit:</b> CEE d'Abans registrat.
-                    </div>
-                    <div>
-                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">🇪🇺 Next
-                            Generation</strong>
-                        Ajuts directes del 40% al 80%. Cal justificar estalvi >30% d'energia primària.
-                    </div>
-                    <div>
-                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">🏘️ Bonificació
-                            ICIO/IBI</strong>
-                        Fins al 95% de descompte en impost d'obres a Vilanova per millores tèrmiques.
-                    </div>
-                    <div>
-                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">♿ Accessibilitat</strong>
-                        Subvencions específiques per a la supressió de barreres arquitectòniques.
-                    </div>
-                </div>
-                <p style="margin-top: 1rem; text-align: right;"><a
-                        href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md"
-                        style="color: var(--success); text-decoration: none; font-size: 0.8rem;">Veure guia detallada
-                        →</a>
+            <!-- Advanced Study Card -->
+            <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md" class="card clickable">
+                <h2><i>📑</i> Estudi Avançat d'Interiorisme</h2>
+                <p>Documentació detallada de l'ADN artístic, històric i tècnic. Inclou la secció de <b>Laser TV</b>.</p>
+                <p style="margin-top: 1rem; color: var(--primary); font-size: 0.8rem;">Llegir memòria completa →</p>
+            </a>
+
+            <!-- Domotics Guide Card -->
+            <a href="view.html?file=GUIA_PREINSTALACIO_DOMOTICA_RSM.md" class="card clickable"
+                style="border-color: var(--secondary);">
+                <h2><i>📋</i> Guia de Preinstal·lació</h2>
+                <p>Full de ruta tècnic per a l'electricista: tubs, preses dades RJ45 i infraestructura DIY.</p>
+                <p style="margin-top: 1rem; color: var(--secondary); font-size: 0.8rem;">Especificacions d'execució →
                 </p>
+            </a>
+
+            <!-- 5. BLOC DE VIABILITAT I CONTEXT -->
+            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
+                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">IV.
+                    Viabilitat, Incentius i Entorn</h3>
             </div>
+
+            <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card clickable">
+                <h2><i style="font-style: normal;">📍</i> Context Urbanístic</h2>
+                <p>Verificació de regles del Nucli Antic de Vilanova: SATE, fusteries i carta de colors.</p>
+                <p style="font-size: 0.75rem; margin-top: 1.5rem; color: var(--warning);">Llista de verificació →</p>
+            </a>
+
+            <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md" class="card clickable"
+                style="background: rgba(46, 204, 113, 0.05); border-color: rgba(46, 204, 113, 0.2);">
+                <h2 style="color: var(--success);"><i style="font-style: normal;">💰</i> Incentius Financers</h2>
+                <p>Deduccions d'IRPF (60%), ajuts Next Generation i bonificacions d'IBI/ICIO.</p>
+                <p style="margin-top: 1rem; text-align: right; color: var(--success); font-size: 0.8rem;">Explorar ajuts
+                    →</p>
+            </a>
+
+            <a href="PROMPT_LM_STUDIO_thermal.txt" class="card clickable">
+                <h2><i>🖥️</i> Laboratori Tècnic</h2>
+                <p
+                    style="font-size: 0.8rem; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--primary);">
+                    Càlculs de física de l'edifici en local (LM Studio).
+                </p>
+            </a>
+
         </div>
     </main>
 

@@ -53,9 +53,9 @@ S'han definit tres configuracions base per al sistema domòtic:
 *Calidesa orgànica i textures de terracotta.*
 ![Arrel Terra](./sala_arrel_terra.png)
 
-### Escena 4: Bosc Mediterrani
-*Revitalitzant i fresc, basat en els teus paisatges d'oliveres i turons.*
-![Bosc Mediterrani](./sala_bosc_mediterrani.png)
+### Escena 4: Vinya Penedès
+*Revitalitzant i fresc, inspirat en els paisatges de vinyes del Penedès.*
+![Vinya Penedès](./sala_vinya_penedes.png)
 
 ### Escena 5: Somni de Lavanda
 *Atmosfera creativa i màgica amb tons magentes i blaus cian.*
@@ -84,6 +84,35 @@ Selecció basada en la "Taula de botigues virtuals" i el concepte de mobiliari l
 *   **Zones de Treball:** Triple estació (Digital, Artística, Electrònica) alineada a la paret esquerra.
 *   **Ergonomia:** Integració de la cadira Stressless per a llargues jornades de concentració.
 *   **Llum Natural:** Connexió visual directa amb el pati bioclimàtic al fons de l'estança.
+
+---
+
+## 6. Tecnologia Audiovisual: Laser TV
+
+Per mantenir l'estètica de "Cozy Minimalism" i l'absència de pantalles negres domines, s'opta per un sistema de **Laser TV** a la sala d'estar.
+
+### Característiques del Sistema:
+*   **Projector UST (Ultra Short Throw):** Ubicat sobre el moble de roure a pocs centímetres de la paret. Substitueix completament la TV tradicional.
+*   **Funcionalitat Smart TV:** Integració nativa d'aplicacions (Netflix, YouTube, Movistar+, etc.) mitjançant sistemes operatius com Tizen o Android TV.
+*   **Pantalla ALR (Ambient Light Rejection):** Perforació òptica que bloqueja la llum del balcó i reflecteix només la del projector, permetent la visió clara durant el dia.
+*   **Integració Home Assistant:** Control total de l'encesa, les fonts de vídeo i la sincronització amb les "Escenes d'Atmosfera".
+
+### Avantatges RSM:
+1.  **Invisible:** Quan no s'utilitza, la sala recupera la seva puresa arquitectònica.
+2.  **Immersiu:** Fins a 120 polzades de projecció d'art o cinema sense ocupar espai físic.
+3.  **Versàtil:** Permet alternar entre el "Mural Digital" d'art abstracte i el consum de continguts multimèdia estàndard.
+
+### 6.2. Integració Domòtica DIY (Home Assistant)
+
+Per a la Casa RSM, la integració del sistema Laser TV no és només funcional, sinó part de l'experiència atmosfèrica:
+
+*   **Control de Potència i Fonts:** Integració mitjançant `Samsung SmartTV Console` o `Android TV Remote` (segons el model). Permet l'encesa automàtica vinculada a escenes.
+*   **Control per IR (DIY Bridge):** Ús d'un mòdul **ESP32 amb ESPHome** per a control per infrarojos en cas d'equips sense API oberta, garantint la privacitat local.
+*   **Protocol HDMI-CEC:** Sincronització total amb reproductors externs (Apple TV, Nvidia Shield) per reduir la fragmentació de comandaments.
+*   **Automatització "Escena Cinema":**
+    1.  Tancament de proteccions solars exteriors.
+    2.  Transició de la il·luminació a l'Escena "Capvespre Blau" (intensitat 10%).
+    3.  Encesa de la font de vídeo i el projector Laser TV amb l'app (HBO Max / Filmin) preseleccionada.
 
 ---
 

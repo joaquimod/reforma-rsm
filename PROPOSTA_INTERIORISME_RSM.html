@@ -128,16 +128,15 @@
 
         .facana-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-bottom: 2rem;
             align-items: stretch;
         }
 
         .facana-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            display: contents;
+            /* Desactiva el contenidor flex per permetre que els fills siguin part de la graella del pare */
         }
 
         /* Ajust per a contenidors dins de graelles per evitar marges extra */
@@ -148,7 +147,8 @@
         }
 
         .facana-grid .simulation-image {
-            height: 100%;
+            height: 400px;
+            /* Alçada fixa per garantir que les tres siguin iguals */
             object-fit: cover;
         }
 
@@ -324,20 +324,20 @@
                         <img src="facana_abans_0.jpg" alt="Estat Actual Façana Casa RSM" class="simulation-image">
                     </div>
 
-                    <!-- Dreta: Les 2 Opcions de Reforma -->
-                    <div class="facana-options">
-                        <div class="simulation-container">
-                            <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
-                                OPCIÓ A: ZÒCALO CREMA</div>
-                            <img src="interior_facana_renovada_v1_rsm.png" alt="Simulació Façana Opció A"
-                                class="simulation-image">
-                        </div>
-                        <div class="simulation-container">
-                            <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
-                                OPCIÓ B: ZÒCALO PEDRA</div>
-                            <img src="interior_facana_renovada_v2_rsm.png" alt="Simulació Façana Opció B"
-                                class="simulation-image">
-                        </div>
+                    <!-- Centre: Opció A -->
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
+                            OPCIÓ A: ZÒCALO CREMA</div>
+                        <img src="interior_facana_renovada_v1_rsm.png" alt="Simulació Façana Opció A"
+                            class="simulation-image">
+                    </div>
+
+                    <!-- Dreta: Opció B -->
+                    <div class="simulation-container">
+                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
+                            OPCIÓ B: ZÒCALO PEDRA</div>
+                        <img src="interior_facana_renovada_v2_rsm.png" alt="Simulació Façana Opció B"
+                            class="simulation-image">
                     </div>
                 </div>
 
@@ -507,7 +507,7 @@
                     <div class="simulation-container">
                         <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
                             REFORMADA (ESTÀNDARD)</div>
-                        <img src="interior_sala_renovada_final_rsm.png" alt="Simulació Sala d'Estar Reforma Estàndard"
+                        <img src="sala_digital_base.png" alt="Simulació Sala d'Estar Reforma Estàndard"
                             class="simulation-image">
                     </div>
                 </div>
