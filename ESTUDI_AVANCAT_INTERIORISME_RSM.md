@@ -67,9 +67,23 @@ S'han definit tres configuracions base per al sistema domòtic:
 
 Selecció basada en la "Taula de botigues virtuals" i el concepte de mobiliari lleuger:
 
-*   **Butaca Minimalista:** Models de fusta de roure i lli natural (Ref: Kenay Home / Tikamoon).
-*   **Mobiliari d'Obra:** Prestatgeries integrades de calç amb fons de fusta de roure.
-*   **Tèxtils:** Cortines de lli cru de gran format per a un filtrat de llum natural.
+*   **Butaca i Descans:** Stressless Office en cuir marró per a l'estudi i butaques de roure i lli (Kenay Home / Tikamoon).
+*   **Mobiliari d'Obra:** Prestatgeries integrades de calç i roure, i calaixeres minimalistes de fusta clara.
+*   **Tèxtils:** Lli rentat en tons *Blau Mediterrani* i *Sorra* per al dormitori.
+
+---
+
+## 5. Espais Especialitzats
+
+### Dormitori: El Refugi Climàtic
+*   **Distribució:** Llit perpendicular a la paret de la dreta, maximitzant l'espai central i la fluïdesa cap al balcó.
+*   **Personalització:** Obra abstracta de gran format sobre el capçal, banyada per la llum de la fussa LED del sostre.
+*   **Connexió Exterior:** Obertura total cap al balcó mitjançant grans correderes de roure, eliminant barreres visuals.
+
+### Estudi PB: Hub Professional i Creatiu
+*   **Zones de Treball:** Triple estació (Digital, Artística, Electrònica) alineada a la paret esquerra.
+*   **Ergonomia:** Integració de la cadira Stressless per a llargues jornades de concentració.
+*   **Llum Natural:** Connexió visual directa amb el pati bioclimàtic al fons de l'estança.
 
 ---
 
