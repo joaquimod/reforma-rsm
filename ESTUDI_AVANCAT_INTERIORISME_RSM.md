@@ -116,4 +116,22 @@ Per a la Casa RSM, la integració del sistema Laser TV no és només funcional, 
 
 ---
 
+## 7. Arquitectura Home Assistant DIY: El Cervell Invisible
+
+La Casa RSM es gestiona mitjançant un sistema centralitzat de codi obert que prioritza la privacitat i el funcionament local.
+
+### Dashboard Personalitzat "Casa RSM 2026":
+*   **Interfície Minimalista:** Disseny basat en el concepte de la sala, amb botons tàctils per a les 5 Atmosferes principals.
+*   **Mural Dinàmic:** Control del contingut d'art abstracte projectat, sincronitzat amb el calendari solar de Vilanova (la llum canvia segons l'estació).
+
+### Human-Centric Lighting (HCL):
+*   **Ritme Circadià:** La temperatura de color (CCT) dels LEDs de la cuina i el bany s'ajusta automàticament des de 2700K (nit) fins a 5000K (migdia) per millorar el benestar.
+*   **Il·luminació Indirecta:** Prioritat absoluta a les tires LED ocultes davant dels focus directes al sostre.
+
+### Gestió Climàtica EnerPHit:
+*   **Monitorització de Qualitat d'Aire:** Sensors de CO₂ i Humitat integrats via Zigbee que avisen si cal activar la ventilació mecànica forçada o obrir el pati bioclimàtic.
+*   **Protecció Solar Automàtica (Oest):** Les mallorquines es tanquen proactivament a la tarda quan el sensor de radiació detecta sobreescalfament, protegint la inèrcia tèrmica del microciment.
+
+---
+
 *Document generat per Antigravity per al projecte de reforma Casa RSM - Gener 2026*

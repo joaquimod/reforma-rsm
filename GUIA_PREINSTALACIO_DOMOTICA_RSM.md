@@ -39,7 +39,41 @@ El punt crític és el moble baix de roure on s'ubicarà el projector UST (Ultra
 *   **Control:** Tubs amples cap als interruptors de paret per permetre la instal·lació de micromòduls domòtics (ex: Shelly 2.5 o Sonoff Dual).
 
 ### Sensors (Zigbee/Thread):
-*   **Ubicació:** No requereixen tubs (funcionen a bateria), però cal preveure una bona cobertura WiFi/Zigbee situant el Hub (Raspberry Pi/Mini PC) en una posició central (prop de l'estudi o la sala).
+*   **Ubicació:** No requereixen tubs (funcionen a bateria), però cal preveure una bona cobertura WiFi/Zigbee situant el Hub en una posició central.
+
+---
+
+## 4. Configuració Hub Home Assistant (DIY)
+
+Per garantir la sobirania de dades i el control local total sense dependre del núvol, es recomana la següent configuració:
+
+### Hardware Recomanat:
+*   **Servidor:** Home Assistant Green o una Raspberry Pi 5 (8GB) amb disc SSD (evitar targetes SD per fiabilitat).
+*   **Connexió:** Ubicar prop del router a la **Sala d'Estar** o l'**Estudi**, connectat sempre per cable Ethernet (RJ45).
+*   **Ràdio Multiprotocol:** Adaptador USB (ex: *Home Assistant SkyConnect*) per donar suport nadiu a **Zigbee**, **Thread** i **Matter**.
+
+### Estratègia de Protocols:
+1.  **WiFi (Local):** Per a actuadors potents i mesura de consum (Shelly). Requereix un router robust que suporti >30 dispositius.
+2.  **Zigbee 3.0:** Per a tota la resta (sensors de porta, temperatura, presència i il·luminació). Crea una xarxa de malla (*mesh*) altament fiable.
+3.  **BT Proxy:** Utilitzar dispositius Shelly Plus com a proxies Bluetooth per estendre la cobertura de sensors Bluetooth (ex: SwitchBot o monitors de plantes).
+
+---
+
+## 5. Control de la Il·luminació LED (Fosses i Prestatges)
+
+L'ADN del projecte depèn de la creació d'atmosferes. La instal·lació dels LEDs no ha de ser "on/off" tradicional.
+
+### Components Tècnics:
+*   **Tires LED:** Recomanat **RGBW** (Color + Blanc Calç) o **CCT** (Blanc Dinàmic).
+*   **Controladors:** 
+    *   **Opció Pro (Zigbee):** Controladors tipus *Gledopto* o *QuinLED* (ESPHome) integrats directament a Home Assistant.
+    *   **Opció Estàndard (WiFi):** *Shelly RGBW2*.
+*   **Drivers (Fonts d'alimentació):** Han de ser de tensió constant (12V o 24V) i dimensionades un 20% per sobre del consum de la tira.
+
+### Instruccions per a l'Electricista:
+1.  **Centralització de Drivers:** Ubicar les fonts d'alimentació en registres ventilats o dins del propi moble/fossa per facilitar el manteniment.
+2.  **Cablejat de Baixa Tensió:** Des del controlador fins a la tira, utilitzar cables de secció adequada (min 1.5mm²) per evitar caigudes de tensió en trams llargs.
+3.  **Sense Polsacions:** Els polsadors de paret que controlen aquests LEDs han de ser connectats a les **entrades de control** (Inputs) del controlador domòtic, no tallar la corrent del driver. Permetrem així que el llum estigui sempre "viu" per a les automatitzacions.
 
 ---
 
