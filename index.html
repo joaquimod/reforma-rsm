@@ -94,7 +94,6 @@
             object-position: center;
         }
 
-        /* Lightbox - Fixed Logic */
         #lightbox {
             display: none;
             position: fixed;
@@ -140,7 +139,7 @@
                 <div class="glass px-6 py-4 rounded-3xl border-cyan-400/20">
                     <span class="text-cyan-400 font-bold block text-[10px] uppercase tracking-widest mb-1">Versió
                         Actual</span>
-                    <span class="text-white font-bold">SIMULACIO_ERRORS</span>
+                    <span class="text-white font-bold">REFORMA_ELIMINACIO_FRICCIO</span>
                 </div>
             </div>
         </header>
@@ -212,7 +211,7 @@
                 <div class="card-premium p-10 bg-white/[0.01]">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                         <div class="h-[400px] flex flex-col space-y-4">
-                            <span class="label-blur w-fit text-slate-400 font-bold">Estat Actual</span>
+                            <span class="label-blur w-fit text-slate-400 font-bold">Estat Actual sala</span>
                             <div class="flex-grow rounded-[24px] overflow-hidden border border-white/5 bg-black"><img
                                     src="sala_abans_original.jpg" class="img-fit opacity-60 cursor-zoom-in lb-trigger">
                             </div>
@@ -223,7 +222,8 @@
                                 RS M</span>
                             <div
                                 class="flex-grow rounded-[24px] overflow-hidden border border-cyan-400/40 bg-black shadow-[0_0_30px_rgba(0,242,255,0.15)]">
-                                <img src="sala_digital_base.png" class="img-fit cursor-zoom-in lb-trigger"></div>
+                                <img src="sala_digital_base.png" class="img-fit cursor-zoom-in lb-trigger">
+                            </div>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
@@ -232,17 +232,91 @@
                             <p class="text-slate-500 text-lg leading-relaxed max-w-xl">Visualitzacions realistes dels
                                 espais clau utilitzant els materials definitius.</p>
                         </div>
-                        <a href="PROPOSTA_INTERIORISME_RSM.html"
-                            class="bg-cyan-400 text-slate-900 px-10 py-6 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(0,242,255,0.3)]">✨
-                            Explora la Proposta 3D</a>
+                        <div class="flex gap-4">
+                            <a href="COMPARATIVA_PAVIMENTS_RSM.html"
+                                class="glass px-8 py-5 rounded-2xl font-bold text-xs uppercase tracking-widest text-slate-400 hover:text-cyan-400 transition-all">Comparar
+                                Terres</a>
+                            <a href="PORTAL_SIMULACIONS_RSM.html"
+                                class="bg-cyan-400 text-slate-900 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(0,242,255,0.3)]">✨
+                                Explora la Proposta 3D</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- III. Avançat -->
+            <!-- III. Manteniment i Usabilitat PE -->
+            <div id="cat-maintenance" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    III. Usabilitat i Manteniment PE</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="view.html?file=GUIA_MANTENIMENT_I_USABILITAT_RSM.md"
+                        class="card-premium p-8 block group bg-gradient-to-br from-blue-400/[0.05] to-transparent">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🧹</span><span
+                                class="text-[10px] font-bold text-blue-400">ESTRATÈGIA</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Guia de Netega i Confort</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Mínimes juntes, sanitaris suspesos i ergonomia
+                            per a gent gran.</p>
+                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Llegir
+                            Guia →</span>
+                    </a>
+                    <a href="view.html?file=ESTUDI_ILUMINACIO_TACTICA_RSM.md" class="card-premium p-8 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💡</span><span
+                                class="text-[10px] font-bold text-yellow-400">SALUT VISUAL</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Il·luminació Tàctica</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Estudi per tasques: cuina, lectura i seguretat
+                            nocturna.</p>
+                        <span class="block mt-6 text-[10px] text-yellow-500 font-bold uppercase tracking-widest">Veure
+                            Estudi →</span>
+                    </a>
+                    <a href="view.html?file=PLA_GESTIO_RESIDUS_RSM.md"
+                        class="card-premium p-8 block group border-green-500/20">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">♻️</span><span
+                                class="text-[10px] font-bold text-green-400">HIGIENE</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Gestió de Residus</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Reciclatge invisible a cuina i logística cap
+                            al carrer a VNG.</p>
+                        <span class="block mt-6 text-[10px] text-green-400 font-bold uppercase tracking-widest">Llegir
+                            Pla →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- IV. Entorn Bioclimàtic -->
+            <div id="cat-bioclimatic" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    IV. Entorn Bioclimàtic</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="view.html?file=VEGETACIO_I_BIOCLIMATICA_RSM.md"
+                        class="card-premium p-10 block group bg-gradient-to-br from-green-400/[0.05] to-transparent">
+                        <div class="flex justify-between items-start mb-6"><span class="text-4xl">🌿</span><span
+                                class="text-[10px] font-bold text-green-400 uppercase tracking-widest">Paisatgisme</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-2xl">Vegetació i Qualitat de l'Aire</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Filtres de purificació natural, regulació
+                            tèrmica de façanes i reg domòtic autonomitzat.</p>
+                        <span
+                            class="text-[10px] text-green-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform block">Veure
+                            Pla de Paisatgisme →</span>
+                    </a>
+                    <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md"
+                        class="card-premium p-10 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-4xl">📍</span><span
+                                class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">Normativa</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-2xl">Urbanisme Nucli Antic</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">Verificació de regles de Vilanova: SATE,
+                            carta de colors i fusteries exteriors.</p>
+                        <span
+                            class="text-[10px] text-yellow-500 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform block">Verificar
+                            Regles →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- V. Solucions Avançades -->
             <div id="cat-advanced" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
                 <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    III. Solucions Avançades</h3>
+                    V. Solucions Avançades</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <a href="ATMOSFERA_SALA_RSM.html"
                         class="card-premium p-8 block group bg-gradient-to-br from-cyan-400/[0.05] to-transparent">
@@ -262,37 +336,10 @@
                         <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Llegir
                             Detall →</span>
                     </a>
-                    <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md"
-                        class="card-premium p-8 block group border-green-500/20 bg-green-400/[0.01]">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💰</span><span
-                                class="text-[10px] font-bold text-green-400">FINANÇAMENT</span></div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Incentius i Ajuts</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Deduccions d'IRPF (60%) i ajuts Next Gen per a
-                            alta eficiència.</p>
-                        <span class="block mt-6 text-[10px] text-green-400 font-bold uppercase tracking-widest">Veure
-                            Ajuts →</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- IV. Context -->
-            <div id="cat-context" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
-                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    IV. Viabilitat i Entorn</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card-premium p-8 block group">
-                        <h4 class="text-white font-bold mb-4 flex items-center gap-3"><span>📍</span> Context Urbanístic
-                            Nucli Antic</h4>
-                        <p class="text-sm text-slate-500 mb-4">Verificació de regles de Vilanova: SATE, carta de colors
-                            i fusteries.</p>
-                        <span class="text-[10px] text-yellow-500 font-bold uppercase tracking-widest">Verificació
-                            →</span>
-                    </a>
                     <a href="DEMO_NEXT_GEN_DASHBOARD.html" class="card-premium p-8 block group border-cyan-400/20">
-                        <h4 class="text-white font-bold mb-4 flex items-center gap-3"><span>🚀</span> Next Gen Dashboard
-                            Preview</h4>
-                        <p class="text-sm text-slate-500 mb-4">Explora el futur del seguiment tècnic amb control VR i
-                            dades dinàmiques.</p>
+                        <h4 class="text-white font-bold mb-4 flex items-center gap-3"><span>🚀</span> Next Gen Preview
+                        </h4>
+                        <p class="text-sm text-slate-500 mb-4">Explora el futur del seguiment tècnic amb control VR.</p>
                         <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Explorar Demo
                             →</span>
                     </a>
@@ -304,7 +351,7 @@
             style="opacity: 0;">Projecte RSM - Seguiment Estratègic d'Alta Eficiència | Gener 2026</footer>
     </div>
 
-    <!-- Lightbox (Fixed Logic) -->
+    <!-- Lightbox -->
     <div id="lightbox"><img id="lightbox-img" src=""></div>
 
     <script>
@@ -314,15 +361,14 @@
                 .to("#hero", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
                 .to("#cat-audit", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
                 .to("#cat-interior", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+                .to("#cat-maintenance", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+                .to("#cat-bioclimatic", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
                 .to("#cat-advanced", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
-                .to("#cat-context", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
                 .to("#footer", { opacity: 1, duration: 1 }, "-=0.5");
         });
 
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
-
-        // Opening logic - Use .lb-trigger class
         document.querySelectorAll('.lb-trigger').forEach(img => {
             img.addEventListener('click', (e) => {
                 e.preventDefault(); e.stopPropagation();
@@ -331,15 +377,8 @@
                 gsap.fromTo(lbImg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
             });
         });
-
-        // Closing logic - Click anywhere in the lightbox (overlay or image)
         lb.addEventListener('click', () => {
-            gsap.to(lbImg, {
-                scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => {
-                    lb.classList.remove('flex');
-                    lbImg.src = '';
-                }
-            });
+            gsap.to(lbImg, { scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => { lb.classList.remove('flex'); lbImg.src = ''; } });
         });
     </script>
 </body>

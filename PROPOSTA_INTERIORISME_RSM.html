@@ -153,7 +153,7 @@
             <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('biblioteca', this)">📚 Biblioteca (P2)</button>
+                onclick="showTab('distribuidor', this)">📚 Biblioteca (P2)</button>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
                 onclick="showTab('habitacio', this)">🛌 Dormitori 1 (P2)</button>
@@ -245,8 +245,8 @@
                         Prova les Atmosferes</a>
                 </div>
             </section>
-            <!-- BIBLIOTECA (P2) -->
-            <section id="biblioteca" class="view-section space-y-12">
+            <!-- DISTRIBUIDOR (P2) -->
+            <section id="distribuidor" class="view-section space-y-12">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="space-y-4"><span class="label-overlay">Pas actual</span><img
                             src="distribuidor_p2_abans.jpg" class="simulation-image lb-trigger"></div>
@@ -326,14 +326,31 @@
             gsap.to("#nav-tabs", { opacity: 1, duration: 1, delay: 0.3 });
             gsap.to(".view-section.active", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
             gsap.to("#footer-cards", { opacity: 1, duration: 1, delay: 0.8 });
+
+            // Handle Hash on load
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetTab = document.getElementById(hash);
+                // Look for the button that calls showTab with this hash
+                const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => {
+                    const onclick = btn.getAttribute('onclick');
+                    return onclick && onclick.includes(`'${hash}'`);
+                });
+                if (targetTab && targetBtn) {
+                    showTab(hash, targetBtn);
+                }
+            }
         });
 
         function showTab(id, btn) {
             document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            btn.classList.add('active');
-            gsap.fromTo(`#${id}`, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.add('active');
+                btn.classList.add('active');
+                gsap.fromTo(`#${id}`, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+            }
         }
 
         const lb = document.getElementById('lightbox');
