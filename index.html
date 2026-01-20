@@ -14,518 +14,332 @@
                 } else {
                     alert("Clau incorrecta. L'accés ha estat denegat.");
                     document.documentElement.style.display = 'none';
-                    window.location.href = "https://github.com"; // Redirigim si falla
+                    window.location.href = "https://github.com";
                 }
             }
         })();
     </script>
     <title>Dashboard d'Auditoria RSM - PB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
-        :root {
-            --primary: #00f2ff;
-            --secondary: #00d2ff;
-            --danger: #ff4d4d;
-            --warning: #ffcc00;
-            --success: #2ecc71;
-            --bg-glass: rgba(255, 255, 255, 0.05);
-            --border-glass: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
         body {
-            background: #0f172a;
-            background-image: url('construction_dashboard_background.png');
-            background-size: cover;
-            background-position: center;
+            font-family: 'Outfit', sans-serif;
+            background-color: #050812;
+            color: #e2e8f0;
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent), radial-gradient(circle at bottom left, rgba(0, 102, 255, 0.05), transparent);
             background-attachment: fixed;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9));
-            z-index: -1;
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        header {
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            background: rgba(15, 23, 42, 0.6);
-            border-bottom: 1px solid var(--border-glass);
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            background: linear-gradient(90deg, #fff, var(--primary));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge {
-            background: var(--bg-glass);
-            border: 1px solid var(--border-glass);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-        }
-
-        main {
-            padding: 3rem 5%;
-            flex-grow: 1;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .card.clickable:hover {
-            cursor: pointer;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: var(--primary);
-        }
-
-        .card h2 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #94a3b8;
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-        }
-
-        .card h2 i {
-            margin-right: 10px;
-        }
-
-        .kpi {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .kpi.danger {
-            color: var(--danger);
-        }
-
-        .kpi.warning {
-            color: var(--warning);
-        }
-
-        .kpi.success {
-            color: var(--success);
-        }
-
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin: 1rem 0;
+        .card-premium {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
 
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
+        .card-premium:hover {
+            border-color: #00f2ff;
+            background: rgba(0, 242, 255, 0.02);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .finding-list {
-            list-style: none;
-        }
-
-        .finding-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .finding-item:last-child {
-            border: none;
-            margin-bottom: 0;
-        }
-
-        .finding-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .finding-content h3 {
-            font-size: 1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .finding-content p {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            line-height: 1.4;
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
+        .kpi-text {
+            font-size: 3.5rem;
             font-weight: 700;
-            text-transform: uppercase;
-            margin-left: 10px;
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        .pill-alta {
-            background: rgba(255, 77, 77, 0.2);
-            color: var(--danger);
+        .progress-bar-bg {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        .pill-critica {
-            background: rgba(255, 77, 77, 0.4);
-            color: white;
-            border: 1px solid var(--danger);
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00f2ff, #0066ff);
+            border-radius: 4px;
         }
 
-        footer {
-            padding: 2rem 5%;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #64748b;
-            border-top: 1px solid var(--border-glass);
+        .label-blur {
             background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 10px;
+            text-transform: uppercase;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .card {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        /* Lightbox CSS */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .img-fit {
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.95);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Lightbox - Fixed Logic */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
             z-index: 9999;
-            backdrop-filter: blur(10px);
+            background: rgba(5, 8, 18, 0.95);
+            backdrop-filter: blur(20px);
             cursor: zoom-out;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .lightbox-modal.active {
+        #lightbox.flex {
             display: flex;
-            opacity: 1;
         }
 
-        .lightbox-content {
+        #lightbox img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .lightbox-modal.active .lightbox-content {
-            transform: scale(1);
-        }
-
-        img[src$=".jpg"],
-        img[src$=".png"] {
-            cursor: zoom-in;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            cursor: zoom-out;
         }
     </style>
 </head>
 
-<body>
-    <div class="overlay"></div>
-    <header>
-        <div class="logo">
-            <h1>RSM 2025 | Seguiment i suport al projecte</h1>
-        </div>
-        <div class="badge">Versió SIMULACIO_ERRORS</div>
-    </header>
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto space-y-16">
 
-    <section class="hero-image" style="padding: 0 5%; margin-top: 2rem;">
-        <div
-            style="width: 100%; height: 350px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-glass); box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative;">
-            <img src="casa_rsm_view.jpg" alt="Vista Casa RSM"
-                style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
-            <div
-                style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);">
-                <span class="badge" style="background: rgba(0, 242, 255, 0.2); backdrop-filter: blur(5px);">Context del
-                    Projecte</span>
-                <p style="margin-top: 0.5rem; color: #94a3b8; font-size: 0.9rem;">Raval de Santa Magdalena, 30 |
-                    Vilanova i la Geltrú</p>
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8" id="header"
+            style="opacity: 0; transform: translateY(-20px);">
+            <div class="space-y-3">
+                <span
+                    class="text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full">Auditoria
+                    Forense PB</span>
+                <h1 class="text-5xl font-bold text-white tracking-tight">CASA RSM | Dashboard</h1>
+                <p class="text-slate-400 text-lg">Suport i seguiment estratègic de la rehabilitació</p>
             </div>
-        </div>
-    </section>
-
-    <main>
-        <!-- 1. Guia de Suport Tècnic (Resumida) -->
-        <div class="card"
-            style="grid-column: 1 / -1; background: rgba(0, 242, 255, 0.05); border-color: rgba(0, 242, 255, 0.2); margin-bottom: 2rem;">
-            <h2 style="color: var(--primary);"><i style="font-style: normal;">🤝</i> Guia de suport tècnic compartit
-            </h2>
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; font-size: 0.9rem; color: #cbd5e1;">
-                <p>Aquest dashboard actua com a pont entre la fase de Projecte Bàsic i l'Execució. L'objectiu és auditar
-                    el compliment de l'estàndard <span class="highlight">EnerPHit</span>, validar la normativa local i
-                    proposar solucions d'interiorisme sota la metodologia <span class="highlight">Cozy
-                        Minimalism</span>.</p>
-                <p>Navega a través dels blocs inferiors per explorar des dels errors detectats en l'auditoria fins a les
-                    preinstal·lacions tecnològiques necessàries per a la domòtica DIY.</p>
-            </div>
-        </div>
-
-        <div class="grid">
-            <!-- 2. BLOC D'AUDITORIA I DIAGNÒSTIC -->
-            <div style="grid-column: 1 / -1; margin: 1rem 0 0.5rem 0;">
-                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">I.
-                    Auditoria Tècnica i Compliment</h3>
-            </div>
-
-            <!-- EnerPHit Compliance -->
-            <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md" class="card clickable">
-                <h2><i>⚡</i> Estàndard EnerPHit</h2>
-                <div class="kpi warning">70%</div>
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: 70%;"></div>
+            <div class="flex gap-4">
+                <a href="RESUM_SISTEMA_SUPORT_PB.html"
+                    class="glass px-6 py-4 rounded-3xl text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-cyan-400 transition-all">Protocol</a>
+                <div class="glass px-6 py-4 rounded-3xl border-cyan-400/20">
+                    <span class="text-cyan-400 font-bold block text-[10px] uppercase tracking-widest mb-1">Versió
+                        Actual</span>
+                    <span class="text-white font-bold">SIMULACIO_ERRORS</span>
                 </div>
-                <p>U-values detectats a la envolupant per sota de l'òptim. Premeu per veure el detall tècnic.</p>
-            </a>
+            </div>
+        </header>
 
-            <!-- Normativa Vilanova -->
-            <a href="view.html?file=Regles_aplicables_a_Vilanova_i_la_Geltru.txt" class="card clickable">
-                <h2><i>📍</i> Normativa Vilanova</h2>
-                <div class="kpi warning">70%</div>
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: 70%; background: var(--warning);"></div>
+        <!-- Hero Section -->
+        <section id="hero" style="opacity: 0; transform: translateY(20px);">
+            <div class="card-premium h-[400px] relative group overflow-hidden">
+                <img src="casa_rsm_view.jpg" class="img-fit opacity-80 lb-trigger cursor-zoom-in">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-[#050812] via-transparent to-transparent pointer-events-none">
                 </div>
-                <p>Punts d'ajust en habitabilitat. Premeu per obrir la normativa exportada de NotebookLM.</p>
-            </a>
+                <div class="absolute bottom-10 left-10 space-y-2 pointer-events-none">
+                    <span class="label-blur text-cyan-400 border-cyan-400/20">Ubicació</span>
+                    <h2 class="text-3xl font-bold text-white">Raval de Santa Magdalena, 30</h2>
+                    <p class="text-slate-400">Vilanova i la Geltrú | Clima Mediterrani</p>
+                </div>
+            </div>
+        </section>
 
-            <!-- Punts de Diàleg -->
-            <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md" class="card clickable">
-                <h2><i>💡</i> Punts d'ajust tècnic</h2>
-                <ul class="finding-list">
-                    <li class="finding-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
-                        <div class="finding-content">
-                            <h3 style="font-size: 0.85rem;">ENERPHIT: Aïllament <span
-                                    class="status-pill pill-alta">ALTA</span></h3>
+        <div class="space-y-24">
+            <!-- I. Auditoria -->
+            <div id="cat-audit" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    I. Auditoria Tècnica</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md"
+                        class="card-premium p-8 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">⚡</span><span
+                                class="text-[10px] font-bold text-yellow-400">AJUST PENDENT</span></div>
+                        <h4 class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-2">Estàndard
+                            EnerPHit</h4>
+                        <div class="kpi-text text-yellow-500">70%</div>
+                        <div class="progress-bar-bg mt-4">
+                            <div class="progress-bar-fill w-[70%] !bg-yellow-500"></div>
                         </div>
-                    </li>
-                    <li class="finding-item" style="margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
-                        <div class="finding-content">
-                            <h3 style="font-size: 0.85rem;">HABITABILITAT: Supervisió <span
-                                    class="status-pill pill-alta">ALTA</span></h3>
+                        <p class="mt-6 text-sm text-slate-500 group-hover:text-slate-400">Transmitàncies detectades per
+                            sota de l'òptim Passivhaus.</p>
+                    </a>
+                    <a href="view.html?file=Regles_aplicables_a_Vilanova_i_la_Geltru.txt"
+                        class="card-premium p-8 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📍</span><span
+                                class="text-[10px] font-bold text-yellow-400">NORMATIVA LOCAL</span></div>
+                        <h4 class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-2">Normativa VNG
+                        </h4>
+                        <div class="kpi-text text-yellow-500">70%</div>
+                        <div class="progress-bar-bg mt-4">
+                            <div class="progress-bar-fill w-[70%] !bg-yellow-500"></div>
                         </div>
-                    </li>
-                </ul>
-                <p style="text-align: right; font-size: 0.75rem; color: var(--primary);">Informe complet →</p>
-            </a>
-
-            <!-- 3. BLOC DE SIMULACIONS D'ESPAIS -->
-            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
-                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">II.
-                    Simulacions d'Interiorisme i Concepte</h3>
-            </div>
-
-            <div class="card" style="grid-column: 1 / -1; background: rgba(255, 255, 255, 0.05);">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
-                    <div
-                        style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-glass);">
-                        <img src="sala_abans_original.jpg" alt="Estat Actual Sala"
-                            style="width: 100%; height: 280px; object-fit: cover;">
-                        <div
-                            style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem;">
-                            ESTAT ACTUAL</div>
-                    </div>
-                    <div
-                        style="position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--primary);">
-                        <img src="sala_digital_base.png" alt="Proposta Mural Digital Sala"
-                            style="width: 100%; height: 280px; object-fit: cover;">
-                        <div
-                            style="position: absolute; top: 10px; left: 10px; background: var(--primary); color: #0f172a; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; font-weight: 700;">
-                            PROPOSTA COZY MINIMALISM</div>
-                    </div>
-                </div>
-                <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end;">
-                    <div style="max-width: 60%; font-size: 0.9rem; color: #cbd5e1;">
-                        <p>Visualitzacions realistes dels espais clau (Sala d'Estar, Dormitori 1, Estudi PB) aplicant
-                            els materials definitius: estuc de calç, roure i microciment.</p>
-                    </div>
-                    <a href="PROPOSTA_INTERIORISME_RSM.html" class="card clickable"
-                        style="padding: 1rem 1.5rem; margin: 0; min-width: 250px; border-color: var(--primary);">
-                        <h2 style="margin:0; color: white; font-size: 1rem;">✨ Navegar per la Proposta 3D →</h2>
+                        <p class="mt-6 text-sm text-slate-500 group-hover:text-slate-400">Punts d'ajust en habitabilitat
+                            i configuració d'ascensor.</p>
+                    </a>
+                    <a href="RESUM_SISTEMA_SUPORT_PB.html"
+                        class="card-premium p-8 block group border-cyan-400/20 shadow-[0_0_20px_rgba(0,242,255,0.1)]">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📋</span><span
+                                class="text-[10px] font-bold text-cyan-400">SISTEMA</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Protocol de Seguiment</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Arquitectura Local-First i protocol d'execució
+                            del suport tècnic.</p>
+                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Llegir
+                            Protocol →</span>
                     </a>
                 </div>
             </div>
 
-            <!-- 4. BLOC DE SOLUCIONS AVANÇADES I EXECUCIÓ -->
-            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
-                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">III.
-                    Solucions Avançades i Execució</h3>
+            <!-- II. Interiorisme -->
+            <div id="cat-interior" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    II. Simulacions d'Interiorisme</h3>
+                <div class="card-premium p-10 bg-white/[0.01]">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                        <div class="h-[400px] flex flex-col space-y-4">
+                            <span class="label-blur w-fit text-slate-400 font-bold">Estat Actual</span>
+                            <div class="flex-grow rounded-[24px] overflow-hidden border border-white/5 bg-black"><img
+                                    src="sala_abans_original.jpg" class="img-fit opacity-60 cursor-zoom-in lb-trigger">
+                            </div>
+                        </div>
+                        <div class="h-[400px] flex flex-col space-y-4">
+                            <span
+                                class="label-blur w-fit text-cyan-400 bg-cyan-400/10 !border-cyan-400/20 font-bold">Proposta
+                                RS M</span>
+                            <div
+                                class="flex-grow rounded-[24px] overflow-hidden border border-cyan-400/40 bg-black shadow-[0_0_30px_rgba(0,242,255,0.15)]">
+                                <img src="sala_digital_base.png" class="img-fit cursor-zoom-in lb-trigger"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white mb-4">Experiència "Cozy Minimalism"</h4>
+                            <p class="text-slate-500 text-lg leading-relaxed max-w-xl">Visualitzacions realistes dels
+                                espais clau utilitzant els materials definitius.</p>
+                        </div>
+                        <a href="PROPOSTA_INTERIORISME_RSM.html"
+                            class="bg-cyan-400 text-slate-900 px-10 py-6 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(0,242,255,0.3)]">✨
+                            Explora la Proposta 3D</a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Atmosferes Card -->
-            <a href="ATMOSFERA_SALA_RSM.html" class="card clickable"
-                style="background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), transparent);">
-                <h2><i>🌈</i> Atmosferes Dinàmiques</h2>
-                <p>Exploració de l'ADN artístic mitjançant la il·luminació programable i el mural digital de la sala.
-                </p>
-                <p style="margin-top: 1rem; color: var(--primary); font-size: 0.8rem;">Control via Home Assistant →</p>
-            </a>
-
-            <!-- Advanced Study Card -->
-            <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md" class="card clickable">
-                <h2><i>📑</i> Estudi Avançat d'Interiorisme</h2>
-                <p>Documentació detallada de l'ADN artístic, històric i tècnic. Inclou la secció de <b>Laser TV</b>.</p>
-                <p style="margin-top: 1rem; color: var(--primary); font-size: 0.8rem;">Llegir memòria completa →</p>
-            </a>
-
-            <!-- Domotics Guide Card -->
-            <a href="view.html?file=GUIA_PREINSTALACIO_DOMOTICA_RSM.md" class="card clickable"
-                style="border-color: var(--secondary);">
-                <h2><i>📋</i> Guia de Preinstal·lació</h2>
-                <p>Full de ruta tècnic per a l'electricista: tubs, preses dades RJ45 i infraestructura DIY.</p>
-                <p style="margin-top: 1rem; color: var(--secondary); font-size: 0.8rem;">Especificacions d'execució →
-                </p>
-            </a>
-
-            <!-- 5. BLOC DE VIABILITAT I CONTEXT -->
-            <div style="grid-column: 1 / -1; margin: 2rem 0 0.5rem 0;">
-                <h3 style="color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">IV.
-                    Viabilitat, Incentius i Entorn</h3>
+            <!-- III. Avançat -->
+            <div id="cat-advanced" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    III. Solucions Avançades</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <a href="ATMOSFERA_SALA_RSM.html"
+                        class="card-premium p-8 block group bg-gradient-to-br from-cyan-400/[0.05] to-transparent">
+                        <div class="flex justify-between items-start mb-6"><span
+                                class="text-3xl group-hover:rotate-12 transition-transform">🌈</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Atmosferes Dinàmiques</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Exploració de l'ADN artístic mitjançant la
+                            il·luminació i el mural digital.</p>
+                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Home
+                            Assistant DIY →</span>
+                    </a>
+                    <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md" class="card-premium p-8 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📑</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Memòria Tècnica</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Documentació de l'ADN artístic i històric.
+                            Inclou Laser TV.</p>
+                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Llegir
+                            Detall →</span>
+                    </a>
+                    <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md"
+                        class="card-premium p-8 block group border-green-500/20 bg-green-400/[0.01]">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💰</span><span
+                                class="text-[10px] font-bold text-green-400">FINANÇAMENT</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Incentius i Ajuts</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Deduccions d'IRPF (60%) i ajuts Next Gen per a
+                            alta eficiència.</p>
+                        <span class="block mt-6 text-[10px] text-green-400 font-bold uppercase tracking-widest">Veure
+                            Ajuts →</span>
+                    </a>
+                </div>
             </div>
 
-            <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card clickable">
-                <h2><i style="font-style: normal;">📍</i> Context Urbanístic</h2>
-                <p>Verificació de regles del Nucli Antic de Vilanova: SATE, fusteries i carta de colors.</p>
-                <p style="font-size: 0.75rem; margin-top: 1.5rem; color: var(--warning);">Llista de verificació →</p>
-            </a>
-
-            <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md" class="card clickable"
-                style="background: rgba(46, 204, 113, 0.05); border-color: rgba(46, 204, 113, 0.2);">
-                <h2 style="color: var(--success);"><i style="font-style: normal;">💰</i> Incentius Financers</h2>
-                <p>Deduccions d'IRPF (60%), ajuts Next Generation i bonificacions d'IBI/ICIO.</p>
-                <p style="margin-top: 1rem; text-align: right; color: var(--success); font-size: 0.8rem;">Explorar ajuts
-                    →</p>
-            </a>
-
-            <a href="PROMPT_LM_STUDIO_thermal.txt" class="card clickable">
-                <h2><i>🖥️</i> Laboratori Tècnic</h2>
-                <p
-                    style="font-size: 0.8rem; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--primary);">
-                    Càlculs de física de l'edifici en local (LM Studio).
-                </p>
-            </a>
-
+            <!-- IV. Context -->
+            <div id="cat-context" style="opacity: 0; transform: translateY(20px);" class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    IV. Viabilitat i Entorn</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card-premium p-8 block group">
+                        <h4 class="text-white font-bold mb-4 flex items-center gap-3"><span>📍</span> Context Urbanístic
+                            Nucli Antic</h4>
+                        <p class="text-sm text-slate-500 mb-4">Verificació de regles de Vilanova: SATE, carta de colors
+                            i fusteries.</p>
+                        <span class="text-[10px] text-yellow-500 font-bold uppercase tracking-widest">Verificació
+                            →</span>
+                    </a>
+                    <a href="DEMO_NEXT_GEN_DASHBOARD.html" class="card-premium p-8 block group border-cyan-400/20">
+                        <h4 class="text-white font-bold mb-4 flex items-center gap-3"><span>🚀</span> Next Gen Dashboard
+                            Preview</h4>
+                        <p class="text-sm text-slate-500 mb-4">Explora el futur del seguiment tècnic amb control VR i
+                            dades dinàmiques.</p>
+                        <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Explorar Demo
+                            →</span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </main>
 
-    <!-- Lightbox HTML -->
-    <div id="lightbox" class="lightbox-modal">
-        <img id="lightbox-img" src="" alt="Vista ampliada" class="lightbox-content">
+        <footer class="border-t border-white/5 pt-12 pb-16 text-center text-slate-600 text-sm italic" id="footer"
+            style="opacity: 0;">Projecte RSM - Seguiment Estratègic d'Alta Eficiència | Gener 2026</footer>
     </div>
 
-    <script>
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+    <!-- Lightbox (Fixed Logic) -->
+    <div id="lightbox"><img id="lightbox-img" src=""></div>
 
-        document.querySelectorAll('img').forEach(img => {
-            if (img.id === 'lightbox-img') return;
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.add('active');
+    <script>
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#header", { opacity: 1, y: 0, duration: 1 })
+                .to("#hero", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
+                .to("#cat-audit", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
+                .to("#cat-interior", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+                .to("#cat-advanced", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+                .to("#cat-context", { opacity: 1, y: 0, duration: 1 }, "-=0.8")
+                .to("#footer", { opacity: 1, duration: 1 }, "-=0.5");
+        });
+
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+
+        // Opening logic - Use .lb-trigger class
+        document.querySelectorAll('.lb-trigger').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault(); e.stopPropagation();
+                lbImg.src = img.src;
+                lb.classList.add('flex');
+                gsap.fromTo(lbImg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
             });
         });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-
-        // Tancar amb la tecla Escs
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') lightbox.classList.remove('active');
+        // Closing logic - Click anywhere in the lightbox (overlay or image)
+        lb.addEventListener('click', () => {
+            gsap.to(lbImg, {
+                scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => {
+                    lb.classList.remove('flex');
+                    lbImg.src = '';
+                }
+            });
         });
     </script>
 </body>

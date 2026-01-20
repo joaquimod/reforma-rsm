@@ -19,601 +19,344 @@
             }
         })();
     </script>
-    <title>Simulació Interiorisme | Casa RSM</title>
+    <title>Proposta Interiorisme | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
     <style>
-        :root {
-            --primary: #00f2ff;
-            --oak: #d4b483;
-            --lime: #f8f9fa;
-            --gray: #e2e8f0;
-            --bg: #0f172a;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
         body {
-            background: var(--bg);
-            color: white;
-            padding: 2rem;
-            min-height: 100vh;
+            font-family: 'Outfit', sans-serif;
+            background-color: #05080f;
+            color: #e2e8f0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            align-items: center;
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .tab-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-size: 0.85rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .tab-btn.active {
-            background: var(--primary);
-            color: var(--bg);
-            border-color: var(--primary);
-            font-weight: 600;
+            background: #00f2ff;
+            color: #05080f;
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.3);
+            transform: translateY(-2px);
         }
 
         .view-section {
             display: none;
-            animation: fadeIn 0.5s ease-out;
         }
 
         .view-section.active {
             display: block;
         }
 
-        .hero-section {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 32px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 3rem;
-        }
-
-        .simulation-container {
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-
         .simulation-image {
             width: 100%;
-            display: block;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .before-after-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .before-after-grid .simulation-image {
-            height: 500px;
+            height: 550px;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 24px;
+            cursor: zoom-in;
+            transition: all 0.5s ease;
         }
 
-        .facana-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            align-items: stretch;
-        }
-
-        .facana-grid .simulation-image {
-            height: 400px;
-            object-fit: cover;
+        .simulation-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         .label-overlay {
-            display: block;
-            margin-bottom: 0.8rem;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            color: #94a3b8;
-            padding-left: 0.5rem;
-            border-left: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .concept-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 2rem;
-            border-radius: 24px;
-            border-left: 4px solid var(--oak);
-        }
-
-        .concept-card h3 {
-            color: var(--oak);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .material-tag {
             display: inline-block;
-            background: rgba(212, 180, 131, 0.2);
-            color: var(--oak);
-            padding: 0.2rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary);
-            color: var(--bg);
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-top: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
-        }
-
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.4);
-            filter: brightness(1.1);
-        }
-
-        .btn-back {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .specs {
-            margin-top: 2rem;
-            font-size: 0.9rem;
             color: #94a3b8;
-            line-height: 1.6;
+            padding-left: 0.8rem;
+            border-left: 3px solid #00f2ff;
         }
 
-        .highlight {
-            color: white;
-            font-weight: 600;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Lightbox CSS */
-        .lightbox-modal {
+        /* Lightbox - Fixed Logic */
+        #lightbox {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.95);
+            inset: 0;
             z-index: 9999;
-            backdrop-filter: blur(10px);
+            background: rgba(5, 8, 15, 0.98);
+            backdrop-filter: blur(20px);
             cursor: zoom-out;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .lightbox-modal.active {
+        #lightbox.flex {
             display: flex;
-            opacity: 1;
         }
 
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
+        #lightbox img {
+            max-width: 95%;
+            max-height: 95%;
             border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .lightbox-modal.active .lightbox-content {
-            transform: scale(1);
-        }
-
-        .simulation-image,
-        .concept-card img {
-            cursor: zoom-in;
-        }
-
-        .tab-separator {
-            width: 1px;
-            height: 24px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 0 0.5rem;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            cursor: zoom-out;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <header>
-            <div>
-                <h1 style="font-weight: 700; letter-spacing: -1px;">Simulacions d'interiorisme | Casa RSM</h1>
-                <p style="color: #64748b;">Concepte "Cozy Minimalism" | Transformació 2026</p>
+<body class="p-6 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8" id="header"
+            style="opacity: 0; transform: translateY(-20px);">
+            <div class="space-y-2">
+                <span
+                    class="text-[#00f2ff] font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-1.5 rounded-full">Projecte
+                    Casa RSM</span>
+                <h1 class="text-5xl font-bold text-white tracking-tight">Proposta Interiorisme</h1>
+                <p class="text-slate-400 text-lg">Visualització 3D de la rehabilitació integral</p>
             </div>
-            <a href="index.html" class="btn-back">← Tornar al Dashboard</a>
+            <a href="index.html"
+                class="glass px-8 py-4 rounded-2xl text-cyan-400 hover:bg-cyan-400/10 transition-all flex items-center gap-3 font-semibold group">
+                <span class="group-hover:-translate-x-1 transition-transform">←</span> Tornar al Dashboard
+            </a>
         </header>
 
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="showTab('facana')">🏠 Façana</button>
-            <div class="tab-separator"></div>
-            <button class="tab-btn" onclick="showTab('vestibol')">🚪 Vestíbol (PB)</button>
-            <button class="tab-btn" onclick="showTab('estudi')">🎨 Estudi (PB)</button>
-            <button class="tab-btn" onclick="showTab('pati')">🌿 Pati (PB)</button>
-            <div class="tab-separator"></div>
-            <button class="tab-btn" onclick="showTab('cuina')">🍽️ Cuina-Menjador (P1)</button>
-            <button class="tab-btn" onclick="showTab('sala')">🛋️ Sala d'Estar (P1)</button>
-            <div class="tab-separator"></div>
-            <button class="tab-btn" onclick="showTab('biblioteca')">📚 Biblioteca (P2)</button>
-            <button class="tab-btn" onclick="showTab('habitacio')">🛌 Dormitori 1 (P2)</button>
-            <button class="tab-btn" onclick="showTab('bany')">🚿 Bany (P2)</button>
-            <div class="tab-separator"></div>
-            <button class="tab-btn" onclick="showTab('escala')">🪜 Escala</button>
-        </div>
+        <!-- Navigation Tabs -->
+        <nav class="flex flex-wrap items-center gap-4 mb-16" id="nav-tabs" style="opacity: 0;">
+            <button
+                class="tab-btn active glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('facana', this)">🏠 Façana</button>
+            <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('vestibol', this)">🚪 Vestíbol (PB)</button>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('estudi', this)">🎨 Estudi (PB)</button>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('pati', this)">🌿 Pati (PB)</button>
+            <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('cuina', this)">🍽️ Cuina-Menjador (P1)</button>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('sala', this)">🛋️ Sala (P1)</button>
+            <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('biblioteca', this)">📚 Biblioteca (P2)</button>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('habitacio', this)">🛌 Dormitori 1 (P2)</button>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('bany', this)">🚿 Bany (P2)</button>
+            <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
+            <button
+                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
+                onclick="showTab('escala', this)">🪜 Escala</button>
+        </nav>
 
-        <!-- 1. FAÇANA -->
-        <div id="facana" class="view-section active">
-            <section class="hero-section">
-                <div class="facana-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="facana_abans_0.jpg" alt="Estat Actual Façana Casa RSM" class="simulation-image">
+        <!-- Main Content Area -->
+        <div id="content-area">
+            <!-- Sections remain the same as before -->
+            <!-- FAÇANA -->
+            <section id="facana" class="view-section active space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat Actual</span><img src="facana_abans_0.jpg"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4 text-cyan-400"><span class="label-overlay !border-cyan-400">Opció A: Zòcalo
+                            Crema</span><img src="interior_facana_renovada_v1_rsm.png"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4 text-cyan-400"><span class="label-overlay !border-cyan-400">Opció B: Zòcalo
+                            Pedra</span><img src="interior_facana_renovada_v2_rsm.png"
+                            class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- VESTÍBOL -->
+            <section id="vestibol" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat Actual</span><img src="vestibol_abans.jpg"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta Reformada</span><img
+                            src="interior_vestibol_renovat_rsm.png" class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- ESTUDI -->
+            <section id="estudi" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Magatzem Actual</span><img src="estudi_abans.jpg"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Estudi PB Final</span><img
+                            src="interior_estudi_final.png" class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- PATI -->
+            <section id="pati" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat Actual</span><img src="pati_abans_0.png"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta
+                            Bio-Climàtica</span><img src="interior_pati_bioclimatic_rsm.png"
+                            class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- CUINA-MENJADOR (P1) -->
+            <section id="cuina" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Vista Interior Taula</span><img
+                            src="interior_cuina_menjador_taula_4_final_rsm.png" class="simulation-image lb-trigger">
                     </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">OPCIÓ A:
-                            ZÒCALO CREMA</div>
-                        <img src="interior_facana_renovada_v1_rsm.png" alt="Simulació Façana Opció A"
-                            class="simulation-image">
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Vista des de Terrassa</span><img
+                            src="interior_cuina_menjador_vista_terrassa.png" class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- SALA (P1) -->
+            <section id="sala" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4 flex flex-col"><span class="label-overlay">Estat Actual sala</span>
+                        <div class="flex-grow"><img src="sala_abans_original.jpg"
+                                class="simulation-image lb-trigger w-full h-full object-cover"></div>
                     </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">OPCIÓ B:
-                            ZÒCALO PEDRA</div>
-                        <img src="interior_facana_renovada_v2_rsm.png" alt="Simulació Façana Opció B"
-                            class="simulation-image">
+                    <div class="space-y-4 flex flex-col"><span class="label-overlay !border-cyan-400">Transformació
+                            Minimalista</span>
+                        <div class="flex-grow"><img src="sala_digital_base.png"
+                                class="simulation-image lb-trigger w-full h-full object-cover"></div>
                     </div>
                 </div>
-                <div class="specs">
-                    <p><span class="highlight">Estudi de Materialitat:</span> Comparativa de les dues variants de
-                        rehabilitació enfront de l'estat actual. L'Opció A utilitza un zòcalo de calç color crema per a
-                        una integració totalment mediterrània, mentre que l'Opció B manté el zòcalo de pedra original
-                        com a nexe d'unió amb el veïnatge.</p>
+                <div
+                    class="glass p-10 rounded-[40px] flex flex-col lg:flex-row justify-between items-center gap-10 text-center lg:text-left">
+                    <div class="max-w-2xl">
+                        <h3 class="text-3xl font-bold text-white mb-4">Experiència Atmosfèrica</h3>
+                        <p class="text-slate-400 text-lg leading-relaxed">Configuració de l'ADN artístic mitjançant la
+                            il·luminació programable i el Laser TV amb pantalla ALR.</p>
+                    </div>
+                    <a href="ATMOSFERA_SALA_RSM.html"
+                        class="bg-cyan-400 text-slate-900 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,242,255,0.2)] whitespace-nowrap">🌈
+                        Prova les Atmosferes</a>
+                </div>
+            </section>
+            <!-- BIBLIOTECA (P2) -->
+            <section id="biblioteca" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Pas actual</span><img
+                            src="distribuidor_p2_abans.jpg" class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Biblioteca P2</span><img
+                            src="interior_distribuidor_p2_final.png" class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- HABITACIÓ (P2) -->
+            <section id="habitacio" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat Actual</span><img
+                            src="habitacio_abans_0.png" class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Dormitori RS M</span><img
+                            src="interior_habitacio_final_rsm.png" class="simulation-image lb-trigger"></div>
+                </div>
+                <div class="glass p-10 rounded-[40px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-white">Variants de Personalització</h3>
+                        <p class="text-slate-400 text-lg">Més enllà del disseny base, hem explorat versions amb l'ADN
+                            del Blau Mediterrani i l'aquarel·la abstracta.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="interior_habitacio_v1_personalitzada_rsm.png"
+                            class="rounded-2xl border border-white/5 cursor-zoom-in lb-trigger">
+                        <img src="interior_habitacio_v2_personalitzada_rsm.png"
+                            class="rounded-2xl border border-white/5 cursor-zoom-in lb-trigger">
+                    </div>
+                </div>
+            </section>
+            <!-- BANY (P2) -->
+            <section id="bany" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat Actual</span><img src="bany_p2_abans_0.png"
+                            class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta Bany P2</span><img
+                            src="interior_bany_p2_porta_fusta_rsm.png" class="simulation-image lb-trigger"></div>
+                </div>
+            </section>
+            <!-- ESCALA -->
+            <section id="escala" class="view-section space-y-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="glass p-8 rounded-[32px] space-y-4"><span class="label-overlay">Accessibilitat
+                            P1</span><img src="interior_escala_p1_ascensor.png"
+                            class="h-[450px] w-full object-cover rounded-xl lb-trigger cursor-zoom-in"></div>
+                    <div class="glass p-8 rounded-[32px] space-y-4"><span class="label-overlay">Estructura P2</span><img
+                            src="interior_escala_renovada_rsm.png"
+                            class="h-[450px] w-full object-cover rounded-xl lb-trigger cursor-zoom-in"></div>
                 </div>
             </section>
         </div>
 
-        <!-- 2. VESTÍBOL (PB) -->
-        <div id="vestibol" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="vestibol_abans.jpg" alt="Estat actual vestíbol" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
-                            REFORMADA</div>
-                        <img src="interior_vestibol_renovat_rsm.png" alt="Simulació vestíbol renovat"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Optimització de l'Accesibilitat:</span> Eliminació de les escales
-                        interiors per crear un nivell continu des de l'entrada. S'integra un gran armari de roure de
-                        60cm de fons i es centralitza l'accés a les plantes superiors i garatge.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- 3. ESTUDI (PB) -->
-        <div id="estudi" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="estudi_abans.jpg" alt="Estat Actual Estudi" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">ESTUDI
-                            D'ARCHITECTURE & ART</div>
-                        <img src="interior_estudi_final.png" alt="Simulació Estudi Professional Casa RSM"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Espai de Treball:</span> Aprofitament de l'alçada de 2,90 m per crear un
-                        estudi funcional i ampli, amb vistes directes al pati bioclimàtic a través d'una gran fusteria
-                        de roure.</p>
-                    <a href="view.html?file=DETALL_INTERIORISME_ESTUDI_PB.md" class="btn-action">📑 Especificacions
-                        tècniques →</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- 4. PATI (PB) -->
-        <div id="pati" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="pati_abans_0.png" alt="Estat Actual Pati" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
-                            REFORMADA</div>
-                        <img src="interior_pati_bioclimatic_rsm.png" alt="Simulació Pati Refugi Climàtic"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Refugi Climàtic:</span> Transformació basada en paviment de sauló
-                        garbellat, zòcalo de pedra seca i vegetació vertical amb font tipus safareig per refrescar
-                        l'aire de forma natural.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- 5. CUINA-MENJADOR (P1) -->
-        <div id="cuina" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">VISTA INTERIOR</div>
-                        <img src="interior_cuina_menjador_taula_4_final_rsm.png" alt="Simulació Cuina Menjador"
-                            class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">VISTA
-                            DES DE LA TERRASSA</div>
-                        <img src="interior_cuina_menjador_vista_terrassa.png" alt="Simulació Cuina des de terrassa"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Optimització de l'Espai:</span> Taula compacta per alliberar el centre de
-                        l'estança i obertura de 1,20m cap a la sala d'estar.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- 6. SALA D'ESTAR (P1) -->
-        <div id="sala" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="sala_abans_original.jpg" alt="Estat Actual Sala" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">PROPOSTA
-                            REFORMADA (ESTÀNDARD)</div>
-                        <img src="sala_digital_base.png" alt="Simulació Sala" class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Disseny d'Interiors:</span> Proposta minimalista amb prestatgeria de
-                        roure integrada i paviment de microciment.</p>
-                    <a href="ATMOSFERA_SALA_RSM.html" class="btn-action">🌈 Explorar atmosferes dinàmiques →</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- 7. BIBLIOTECA (P2) -->
-        <div id="biblioteca" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="distribuidor_p2_abans.jpg" alt="Estat actual distribuidor P2"
-                            class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">
-                            BIBLIOTECA DE PAS</div>
-                        <img src="interior_distribuidor_p2_final.png" alt="Simulació Biblioteca P2"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Reconversió Funcional:</span> Transformació d'un distribuïdor fosc en una
-                        biblioteca de pas amb prestatgeries integrades i racó de lectura.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- 8. DORMITORI 1 (P2) -->
-        <div id="habitacio" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="habitacio_abans_0.png" alt="Estat actual dormitori" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">LAYOUT
-                            FINAL</div>
-                        <img src="interior_habitacio_final_rsm.png" alt="Simulació dormitori final"
-                            class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Optimització del repòs:</span> Llit situat a la paret esquerra i gran
-                        corredissa de fusta natural connectant amb el balcó.</p>
-                    <a href="view.html?file=DETALL_INTERIORISME_DORMITORI_1.md" class="btn-action">📑 Especificacions
-                        tècniques →</a>
-                </div>
-            </section>
-        </div>
-
-        <!-- 9. BANY (P2) -->
-        <div id="bany" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ESTAT ACTUAL</div>
-                        <img src="bany_p2_abans_0.png" alt="Estat actual Bany" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">ESTAT
-                            FINAL</div>
-                        <img src="interior_bany_p2_porta_fusta_rsm.png" alt="Simulació Bany" class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Continuïtat de materials:</span> Unificació de fusteria interior amb
-                        fusta de roure natural clara.</p>
-                </div>
-            </section>
-        </div>
-
-        <!-- 10. ESCALA -->
-        <div id="escala" class="view-section">
-            <section class="hero-section">
-                <div class="before-after-grid">
-                    <div class="simulation-container">
-                        <div class="label-overlay">ACCESSIBILITAT (ASCENSOR P1)</div>
-                        <img src="interior_escala_p1_ascensor.png" alt="Ascensor P1" class="simulation-image">
-                    </div>
-                    <div class="simulation-container">
-                        <div class="label-overlay" style="color: var(--primary); border-color: var(--primary);">REFORMA
-                            P2</div>
-                        <img src="interior_escala_renovada_rsm.png" alt="Escala Renovada P2" class="simulation-image">
-                    </div>
-                </div>
-                <div class="specs">
-                    <p><span class="highlight">Eficiència Estructural:</span> Optimització del nucli d'escala amb un
-                        disseny ultracompacte de ferro i roure.</p>
-                </div>
-            </section>
-        </div>
-
-        <div class="concept-grid">
-            <div class="concept-card">
-                <h3>Textures i Acabats</h3>
-                <p>Parets amb "Estuc de calç" porós de color blanc trencat, contrastant amb fusteria de roure natural.
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 pb-20" id="footer-cards" style="opacity: 0;">
+            <div class="glass p-10 rounded-[40px] border-l-4 border-cyan-400">
+                <h4 class="text-xl font-bold text-white mb-2">Estuc de Calç</h4>
+                <p class="text-slate-400 text-sm">Parets poroses que regulen de forma natural la humitat emocional de
+                    l'espai.</p>
+            </div>
+            <div class="glass p-10 rounded-[40px] border-l-4 border-[#d4b483]">
+                <h4 class="text-xl font-bold text-white mb-2">Fusta de Roure</h4>
+                <p class="text-slate-400 text-sm">Continuïtat visual que aporta la calidesa innegociable del projecte.
                 </p>
-                <div class="material-tags">
-                    <span class="material-tag">Calç Artesana</span>
-                    <span class="material-tag">Roure Natural</span>
-                </div>
             </div>
-            <div class="concept-card" style="border-left-color: var(--primary);">
-                <h3>Paviment Tèrmic</h3>
-                <p>Microciment gris seda d'alta inèrcia tèrmica, optimitzat per al funcionament de l'aerotèrmia.</p>
-                <div class="material-tags">
-                    <span class="material-tag">Microciment</span>
-                    <span class="material-tag">Inèrcia Alta</span>
-                </div>
-            </div>
-            <div class="concept-card" style="border-left-color: var(--primary);">
-                <h3>Accents i Detalls</h3>
-                <p>Fusteria de fusta natural clara per a una calidesa superior i il·luminació indirecta.</p>
-                <div class="material-tags">
-                    <span class="material-tag">Fusta Natural</span>
-                    <span class="material-tag">LED Indirecte</span>
-                </div>
+            <div class="glass p-10 rounded-[40px] border-l-4 border-slate-500">
+                <h4 class="text-xl font-bold text-white mb-2">Microciment</h4>
+                <p class="text-slate-400 text-sm">Inèrcia tèrmica optimitzada per a la transició interior cap al pati.
+                </p>
             </div>
         </div>
     </div>
 
-    <!-- Lightbox HTML -->
-    <div id="lightbox" class="lightbox-modal">
-        <img id="lightbox-img" src="" alt="Vista ampliada" class="lightbox-content">
-    </div>
+    <!-- Lightbox (Fixed Logic) -->
+    <div id="lightbox"><img id="lightbox-img" src=""></div>
 
     <script>
-        function showTab(id) {
-            document.querySelectorAll('.view-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+        window.addEventListener('load', () => {
+            gsap.to("#header", { opacity: 1, y: 0, duration: 1 });
+            gsap.to("#nav-tabs", { opacity: 1, duration: 1, delay: 0.3 });
+            gsap.to(".view-section.active", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
+            gsap.to("#footer-cards", { opacity: 1, duration: 1, delay: 0.8 });
+        });
+
+        function showTab(id, btn) {
+            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            event.currentTarget.classList.add('active');
+            btn.classList.add('active');
+            gsap.fromTo(`#${id}`, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
         }
 
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
 
-        document.querySelectorAll('img').forEach(img => {
-            if (img.id === 'lightbox-img') return;
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.add('active');
+        // Opening logic - Use a specific class to avoid selecting the lightbox image itself
+        document.querySelectorAll('.lb-trigger').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lbImg.src = img.src;
+                lb.classList.add('flex');
+                gsap.fromTo(lbImg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
             });
         });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') lightbox.classList.remove('active');
+        // Closing logic - Click anywhere in the lightbox (including the image) to close
+        lb.addEventListener('click', () => {
+            gsap.to(lbImg, {
+                scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => {
+                    lb.classList.remove('flex');
+                    lbImg.src = '';
+                }
+            });
         });
     </script>
 </body>
