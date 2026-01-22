@@ -26,6 +26,12 @@ El punt crític és el moble baix de roure on s'ubicarà el projector UST (Ultra
 *   **Xarxa:** Mínim 2 preses RJ45 a la zona del Mac Studio.
 *   **Canalització:** Tubs corrugats de 32mm entre taules per a una gestió de cables neta (Under-desk cable management).
 
+### Preinstal·lació per a Futur Dormitori:
+Per permetre la reconversió en habitacle per a cuidador/a, preveure professionalment:
+*   **Punt de TV:** Preinstal·lar tub per a antena i presa de corrent a la paret de les prestatgeries (enrasat).
+*   **Capçal de Llit:** Preveure preses de corrent i commutats a 60cm d'alçada en la paret on s'ubicaria el llit, actualment coincident amb la zona artística.
+*   **Armari:** Deixar punts de llum al sostre preparats per a la il·luminació interior d'un futur armari rober.
+
 ---
 
 ## 3. Infraestructura General Domòtica (DIY)

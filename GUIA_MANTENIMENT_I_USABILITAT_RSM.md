@@ -31,5 +31,27 @@ Aquesta guia estableix els criteris per al Projecte Executiu de la Casa RSM, pri
   - Reposabraços sòlids per facilitar l'impuls en aixecar-se.
   - Potes altes (15cm) per a robot aspirador.
 
+## 6. Bugaderia Ergonòmica (Laundry Station)
+- **Alt de Càrrega:** Instal·lació de rentadora/assecadora en columna, elevada **30cm** sobre el nivell del terra (mitjançant sòcol tècnic o moble reforçat).
+- **Suport Intermedi:** Incorporació d'un estant extraïble entre la rentadora i l'assecadora per facilitar el traspàs de roba sense moviments de torsió.
+- **Ubicació Preferent (PB):** Situada a la planta baixa amb sortida al pati. Aquesta decisió prioritza la independència acústica de la zona de nit (P2) i la zona social (P1), aprofitant l'assecat natural al pati bioclimàtic.
+- **Ocultació:** Integració dins d'un armari de fusta de roure amb portes escamotejables per mantenir la coherència visual amb l'estudi.
+
+## 7. Estació de Neteja i Rebost (Passadís P1)
+- **Ubicació Estratègica:** Integració dins l'habitació de rebost situada al passadís entre cuina i sala. Aquesta zona actua com a "hub de servei" equidistant per a tota la planta social.
+- **Zonificació:** Separació física dins l'estança:
+    - **Lateral A:** Prestatgeries per a rebost i estris de cuina de baixa freqüència.
+    - **Lateral B:** Zona tècnica de neteja.
+- **Requisits de Confort:**
+    - **Punt de càrrega:** Presa de corrent per a aspiració sense cables.
+    - **Ventilació:** Indispensable garantir renovació d'aire per evitar humitats de la fregona.
+    - **Il·luminació:** LED amb sensor de moviment de 360º per a accés ràpid sense mans (quan es porten objectes).
+
+## 8. Mecanismes Elèctrics Tàctics (Higiene)
+- **Criteri de Selecció:** Ús de sèries de disseny **enrasat (flush)** o extra-plà.
+- **Acabats:** Prioritat a materials no porosos amb tractament **antibacterià** (ions de plata) i acabats mate anti-petjada.
+- **Endolls Plans:** Ús de bases d'endoll amb fons mòbil que queden enrasades amb el marc quan no s'utilitzen, eliminant el nínxol de pols.
+- **Automatització:** Prioritzar l'ús de sensors de presència i controls per veu/dashboard en zones de treball o banys per minimitzar el contacte físic amb les parets.
+
 ---
 *Document per a la fase de Projecte Executiu (PE) | Gener 2026*

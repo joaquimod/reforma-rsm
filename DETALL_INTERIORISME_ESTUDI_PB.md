@@ -46,5 +46,11 @@ L'il·luminació s'adapta a l'activitat específica de cada zona:
 *   **Escena "Lab":** Activació de preses de corrent específiques per al laboratori d'electrònica amb protecció d'apagat automàtic de seguretat.
 *   **Escena "Relax/Pati":** Atenuació de les llums interiors i focus suau sobre la vegetació del pati bioclimàtic.
 
+## 5. Flexibilitat d'Ús: Espai Evolutiu
+L'estudi s'ha projectat per permetre la seva conversió en un **Dormitori de Planta Baixa** (habitacle per a cuidador/a) a mig termini sense necessitat d'obres majors:
+*   **Capacitat:** Espai suficient per a llit individual o doble, armari rober i butaca de descans.
+*   **Privacitat:** La configuració d'accessos permet independitzar l'estança de la resta de la planta.
+*   **Sortida al Pati:** Manté la funció de "refugi climàtic" també en ús residencial.
+
 ---
 *Document generat per Antigravity per al Projecte Executiu Casa RSM - Gener 2026*
