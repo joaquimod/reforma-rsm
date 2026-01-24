@@ -16,9 +16,9 @@ Vilanova té una alta radiació a l'estiu; la vegetació actua com a barrera:
 - **Ombra Orgànica:** Oliveres o llimoners en testos grans amb rodes per mantenir l'accessibilitat i neteja del paviment.
 
 ## 3. Infraestructura i DIY (Home Assistant)
-- **Reg Intel·ligent:** Sistema per degoteig amagat sota sòcols.
-- **Control Integrat:** Programador Zigbee que atura el reg si Home Assistant detecta pluja o humitat alta (sensor de sòl).
-- **Drenatge:** Connexió directa de jardineres al desguàs per evitar taques de calç al paviment continu.
+- **Reg Intel·ligent:** Sistema per degoteig amagat, alimentat prioritàriament per la cisterna de 10m³ (aigua sense calç).
+- **Control Integrat:** Programador Zigbee coordinat amb el sensor de nivell de la cisterna i la previsió de pluja de l'SMC via Home Assistant.
+- **Drenatge:** Connexió directa de jardineres al desguàs per evitar acumulacions d'aigua i mantenir el paviment net.
 - **Hidrojardineres:** Ús obligatori a l'interior per a una autonomia de 2-4 setmanes.
 
 ---

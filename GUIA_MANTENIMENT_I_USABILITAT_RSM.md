@@ -53,5 +53,11 @@ Aquesta guia estableix els criteris per al Projecte Executiu de la Casa RSM, pri
 - **Endolls Plans:** Ús de bases d'endoll amb fons mòbil que queden enrasades amb el marc quan no s'utilitzen, eliminant el nínxol de pols.
 - **Automatització:** Prioritzar l'ús de sensors de presència i controls per veu/dashboard en zones de treball o banys per minimitzar el contacte físic amb les parets.
 
+## 9. Manteniment del Sistema Hídric
+- **Descalcificador Central:** Control mensual del nivell de sal i regeneració de resines.
+- **Osmosi de Cuina:** Canvi anual de filtres i membrana segons els indicadors de conductivitat del dashboard.
+- **Cisterna Pluvial:** Neteja semestral del filtre de fulles a la coberta i revisió del decantador abans de la temporada de pluges (tardor).
+- **Control de Fugues:** Verificació trimestral de l'estat de les vàlvules intel·ligents i calibratge del fluxòmetre.
+
 ---
 *Document per a la fase de Projecte Executiu (PE) | Gener 2026*
