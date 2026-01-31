@@ -23,22 +23,24 @@ L'il·luminació es gestiona íntegrament mitjançant **Home Assistant**, evitan
 ### Punts de llum:
 1.  **Cova Perimetral (Indirecta):** Tira LED RGBW (CRI > 90) oculta a la fussa del sostre sobre el capçal. Permet banyar la paret d'estuc amb colors atmosfèrics.
 2.  **Llum de lectura:** Aplic de paret o penjant minimalista a cada costat del llit. Estil nòrdic en fusta de roure o metall negre mat (*Lights of Scandinavia*).
-3.  **Il·luminació d'accentuació:** Petits focus LED encastats de baixa potència per ressaltar l'obra d'art abstracte sobre el llit.
+3.  **Il·luminació d'accentuació:** No s'instal·len focus d'accentuació; la puresa de l'estuc de calç és l'únic focus visual.
 
 ### Escenes programades:
 *   **🌅 Matinada Suau:** Pujada progressiva (30 min) de la intensitat LED en tons càlids (2000K) i obertura automàtica de la persiana al 20%.
 *   **💤 Escena Repòs:** Apagat total de totes les llums, tancament de persianes i activació de la climatització en mode "Nit" (Silenci). El color LED passa a un vermell molt tènue si es detecta moviment al bany durant la nit per no desvetllar.
-*   **🎨 Escena Mediterrània:** Els LED adopten el to *Blau Mediterrani* per ressaltar l'aquarel·la del capçal, ideal per a moments de lectura o relaxació.
+*   **🎨 Escena Mediterrània:** Els LED de la fussa perimetral adopten el to *Blau Mediterrani*, banyant la textura natural de les parets nues.
 
 ---
 
-## 3. L'ADN artístic: Decoració personalitzada
+## 3. L'ADN artístic: Optimitització de l'Espai Estret
 
-Basat en el concepte **"Cozy Minimalism"**, el dormitori actua com un refugi climàtic i sensorial.
+El disseny se subordina a la **geometria estreta** de l'habitació, prioritzant la fluïdesa cap a l'exterior i la nuesa de materials.
 
-*   **Peca central:** Sobre el llit s'ubicarà una aquarel·la abstracta de gran format (1.20m x 0.80m). El marc serà de fusta de roure extra-fina per donar tot el protagonisme al color (Blaus, Ocres i Terracotes).
-*   **Mobiliari:** El llit de fusta de roure clara es complementa amb una **calaixera minimalista** a la paret del fons. S'eviten els armaris encastats pesats per mantenir la geometria rectangular i neta de l'estança, prioritzant l'amplitud visual i la connexió amb el balcó.
-*   **Plantes d'interior:** Una sola planta de gran format (Kentia o Ficus Lyrata) prop de la finestra per connectar amb la vegetació del pati lateral.
+*   **Configuració del Llit:** **Llit individual**, situat **arrambat a la paret del fons** i orientat de forma **perpendicular** a la porta de sortida a la terrassa. Aquesta disposició és la que marca el plànol original per optimitzar l'espai estret.
+*   **Accessos:** La porta d'entrada al dormitori (fusta de roure clar) s'ubica a l'esquerra segons s'entra. A la dreta hi ha una **única porta doble** de sortida a la terrassa.
+*   **Mobiliari Minimalista:** Una única **tauleta de nit volant** de fusta de roure al costat del llit.
+*   **Puresa Mural:** Parets d'**estuc de calç** totalment nues, sense quadres, ressaltades per la llum indirecta.
+*   **Plantes d'interior:** Una Kentia prop del finestral de la terrassa.
 
 ---
 

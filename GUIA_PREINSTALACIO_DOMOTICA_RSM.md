@@ -34,7 +34,22 @@ Per permetre la reconversió en habitacle per a cuidador/a, preveure professiona
 
 ---
 
-## 3. Infraestructura General Domòtica (DIY)
+## 3. Zona Sotacoberta (Refugi Passivhaus)
+
+La sotacoberta requereix una planificació específica per mantenir l'estanquitat a l'aire i garantir el confort tèrmic i lumínic.
+
+### Il·luminació i Alimentació:
+*   **Perfils LED Perimetrals:** Preveure canalització per a tira LED en tot el perímetre de la trobada entre sostre inclinada i paret.
+*   **Caixes de Registre:** Ubicar drivers i controladors en una zona accessible però integrada (ex: darrere el mobiliari de roure baix).
+*   **Control Circadiari:** Grups de llum amb control **Dual White (CCT)** per canviar de llum blanca estimulant (matí) a llum càlida (relaxació nocturna).
+
+### Climatització i Eficiència:
+*   **Ventilació Mecànica:** Preveure pas de tubs per al sistema de renovació d'aire VMC (Ventilació Mecànica Controlada) necessari en un espai estanc EnerPHit.
+*   **Sensors:** Instal·lació de sensor de qualitat d'aire (CO2, Humitat, VOC) per automatitzar la renovació d'aire.
+
+---
+
+## 4. Infraestructura General Domòtica (DIY)
 
 ### Quadre Elèctric:
 *   **Espai reserva:** Deixar espai per a un mesurador de consum per carril DIN (ex: Shelly EM) per monitoritzar l'eficiència EnerPHit.
