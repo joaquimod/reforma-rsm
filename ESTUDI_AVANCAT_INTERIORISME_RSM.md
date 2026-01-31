@@ -1,24 +1,24 @@
-# Estudi Avançat d'Interiorisme i Atmosfera | Casa RSM
+# Estudi avançat d'interiorisme i atmosfera | Casa RSM
 
 Aquest document recull la investigació i les propostes de disseny per a l'interior de la Casa RSM, integrant l'ADN històric de l'edifici, la visió artística de la propietat i les possibilitats tecnològiques de la domòtica DIY.
 
 ---
 
-## 1. L'ADN de la Casa RSM: Anàlisi d'Inspiració
+## 1. L'ADN de la Casa RSM: Anàlisi d'inspiració
 
 A partir de la documentació tècnica, les fotografies de 1986 i l'obra artística personal, hem definit tres pilars fonamentals:
 
-### ADN Tècnic (EnerPHit i Minimalisme)
+### ADN tècnic (EnerPHit i Minimalisme)
 *   **Base Neutra:** Ús de l'estuc de calç blanc trencat i microciment gris seda.
 *   **Puresa Visual:** Ocultació de sistemes tècnics i integració de solucions d'accessibilitat invisible.
 *   **Materials Nobles:** Fusta de roure natural, ferro negre i ceràmica artesana.
 
-### ADN Històric (Memòria de 1986)
+### ADN històric (Memòria de 1986)
 *   **Reinterpretació del Terratzo:** Paviments amb un gra subtil que evoca l'original sense perdre el minimalisme.
 *   **Volums d'Obra:** Ús de prestatgeries i mobiliari integrat arquitectònicament en les parets.
 *   **Ritme Vertical:** Inspiració en les baranes originals per a nous elements metàl·lics.
 
-### ADN Artístic (Color i Llum)
+### ADN artístic (Color i Llum)
 *   **Paleta Cinètica:** Colors extrets de les aquarel·les: *Groc Ocre vibrant*, *Roig Terracotta polsós* i *Blau Mediterrani aquarel·lat*.
 *   **Llum Difusa:** La importància de les ombres orgàniques i la llum filtrada (cortines de lli).
 
