@@ -183,10 +183,10 @@
         </header>
 
         <!-- LANDING VIEW -->
-        <div id="landing-view" class="view-section space-y-16">
+        <div id="landing-view" class="view-section space-y-12">
             <!-- Hero -->
             <section id="hero">
-                <div class="card-premium h-[400px] relative group overflow-hidden">
+                <div class="card-premium h-[450px] relative group overflow-hidden">
                     <img src="casa_rsm_view.jpg" class="img-fit opacity-80 lb-trigger cursor-zoom-in">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-[#050812] via-transparent to-transparent pointer-events-none">
@@ -199,72 +199,69 @@
                 </div>
             </section>
 
-            <!-- Technical Explanation -->
-            <section class="card-premium p-10 bg-gradient-to-br from-white/[0.03] to-transparent border-white/10">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                    <div class="lg:col-span-2 space-y-6">
-                        <h3 class="text-cyan-400 font-bold uppercase tracking-[3px] text-xs">Objectius del
-                            Dashboard</h3>
-                        <p class="text-slate-300 text-xl leading-relaxed">
-                            Aquest Quadre de Comandament és l'eina central de gestió de la reforma integral de la casa
-                            RSM. Divideix el
-                            procés en dues fases crítiques per garantir l'èxit de la rehabilitació:
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-                            <div class="space-y-2">
-                                <h4 class="text-white font-bold">Projecte Bàsic (PB)</h4>
-                                <p class="text-sm text-slate-500">Documentació per a la llicència i validació de l'estat
-                                    actual. Centrat en l'auditoria i normatives municipals</p>
-                            </div>
-                            <div class="space-y-2">
-                                <h4 class="text-white font-bold">Projecte Executiu (PE)</h4>
-                                <p class="text-sm text-slate-500">Definició del detall constructiu, sistemes de confort,
-                                    interiorisme i manteniment futur</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass p-8 rounded-[32px] space-y-4 h-full">
-                        <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Guia d'ús</div>
-                        <ul class="text-sm space-y-4 text-slate-400">
-                            <li class="flex gap-2"><span>1.</span> Trieu una fase a continuació per filtrar el
-                                contingut</li>
-                            <li class="flex gap-2"><span>2.</span> Useu el botó superior per tornar a aquest menú
-                                principal</li>
-                        </ul>
+            <!-- Short Indication -->
+            <section class="card-premium p-8 bg-gradient-to-br from-white/[0.03] to-transparent border-white/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-slate-300 text-lg">
+                        Eina per a la gestió operativa, tècnica i visual de la reforma integral
+                    </p>
+                    <div
+                        class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-l border-white/10 pl-6">
+                        Project Twin <br> Dashboard 2026
                     </div>
                 </div>
             </section>
 
-            <!-- Phase Selection -->
-            <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Primary Phase Selection -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div onclick="showPhase('pb')"
-                    class="card-premium phase-card group bg-[#0a1b2b] border-cyan-500/30 hover:bg-[#0c2236] transition-all">
+                    class="card-premium phase-card group bg-[#0a1b2b] border-cyan-500/30 hover:bg-[#0c2236] transition-all !h-[350px]">
                     <div class="content space-y-4">
                         <span
-                            class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/20 px-3 py-1 rounded-full border border-cyan-400/30">Fase
+                            class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30">Fase
                             I</span>
-                        <h2 class="text-4xl font-bold text-white">Projecte Bàsic (PB)</h2>
-                        <p class="text-slate-400 text-sm max-w-xs">Auditoria estructural, normativa i validació de la
-                            base constructiva</p>
+                        <h2 class="text-4xl font-bold text-white">Projecte Bàsic</h2>
+                        <p class="text-slate-400 text-sm max-w-xs">Auditoria, normativa i compliment tècnic del projecte
+                        </p>
                         <div
                             class="flex items-center gap-2 mt-4 text-xs font-bold text-cyan-400 uppercase tracking-widest group-hover:gap-4 transition-all">
-                            Accedir a l'Auditoria <span>→</span>
+                            Veure Auditoria <span>→</span>
                         </div>
                     </div>
                 </div>
                 <div onclick="showPhase('pe')"
-                    class="card-premium phase-card group bg-[#1b0a2b] border-purple-500/30 hover:bg-[#220c36] transition-all">
+                    class="card-premium phase-card group bg-[#1b0a2b] border-purple-500/30 hover:bg-[#220c36] transition-all !h-[350px]">
                     <div class="content space-y-4">
                         <span
-                            class="text-[10px] font-bold text-purple-400 uppercase tracking-widest bg-purple-400/20 px-3 py-1 rounded-full border border-purple-400/30">Fase
+                            class="text-[10px] font-bold text-purple-400 uppercase tracking-widest bg-purple-400/20 px-4 py-2 rounded-full border border-purple-400/30">Fase
                             II</span>
-                        <h2 class="text-4xl font-bold text-white">Projecte Executiu (PE)</h2>
-                        <p class="text-slate-400 text-sm max-w-xs">Interiorisme, mobiliari, sistemes i experiència
-                            habitable final</p>
+                        <h2 class="text-4xl font-bold text-white">Projecte Executiu</h2>
+                        <p class="text-slate-400 text-sm max-w-xs">Definició del detall constructiu i entorn de treball
+                            amb l'oficina tècnica</p>
                         <div
                             class="flex items-center gap-2 mt-4 text-xs font-bold text-purple-400 uppercase tracking-widest group-hover:gap-4 transition-all">
-                            Seguiment del Projecte Executiu <span>→</span>
+                            Zona de Treball <span>→</span>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept Section -->
+            <section onclick="showPhase('visio')"
+                class="card-premium p-10 group bg-[#1a140a] border-orange-500/20 hover:bg-[#221a0d] transition-all cursor-pointer">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="space-y-4">
+                        <span
+                            class="text-[10px] font-bold text-orange-400 uppercase tracking-widest bg-orange-400/10 px-3 py-1 rounded-full">Identitat
+                            Promotor</span>
+                        <h2 class="text-3xl font-bold text-white">Concepte de la Reforma</h2>
+                        <p class="text-slate-400 text-sm max-w-xl leading-relaxed">Consideracions, ADN i visió
+                            estratègica del promotor per a tot el projecte: Interiorisme, Sostenibilitat i Tecnologia
+                        </p>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Explorar Visió <span>→</span>
                     </div>
                 </div>
             </section>
@@ -274,7 +271,7 @@
         <div id="pb-view" class="view-section space-y-16">
             <div class="space-y-8">
                 <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    Auditoria i Validació PB</h3>
+                    I. PROJECTE BÀSIC (PB)</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <a href="view.html?file=Informe_Auditoria_PB_SIMULACIO_ERRORS.md"
                         class="card-premium p-8 block group">
@@ -316,11 +313,108 @@
         </div>
 
         <!-- PE VIEW -->
-        <div id="pe-view" class="view-section space-y-24">
-            <!-- Comparison Hero -->
+        <div id="pe-view" class="view-section space-y-20">
+            <!-- Entorn de Treball -->
             <div class="space-y-8">
                 <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    I. Simulacions d'Interiorisme</h3>
+                    II. PROJECTE EXECUTIU (PE) | ENTORN DE TREBALL</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card-premium p-10 bg-gradient-to-br from-purple-500/[0.05] to-transparent opacity-60">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🧩</span><span
+                                class="text-[10px] font-bold text-purple-400 uppercase tracking-widest italic">A Definir
+                                12/02</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Metodologia de Treball</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed italic">Espai reservat per al flux de treball i
+                            eines de gestió compartides amb l'arquitecte.</p>
+                    </div>
+                    <div class="card-premium p-10 bg-gradient-to-br from-purple-500/[0.05] to-transparent opacity-60">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📂</span><span
+                                class="text-[10px] font-bold text-purple-400 uppercase tracking-widest italic">Pendent</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Documentació de l'Arquitecte</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed italic">Arxiu de plànols, amidaments i memòries
+                            oficials de l'oficina tècnica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memòria del Projecte: Output Final -->
+            <div class="space-y-8">
+                <h3
+                    class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-emerald-800 pl-4">
+                    II.3. DOSSIER FINAL I MEMÒRIA (OUTPUT PROJECTE)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-premium p-8 block group border-emerald-500/20 bg-emerald-500/[0.02]">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📄</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Fonaments</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Memòria Descriptiva</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Descripció general de la intervenció,
+                            objectius i solucions arquitectòniques adoptades.</p>
+                        <span
+                            class="block mt-6 text-[10px] text-emerald-400/50 font-bold uppercase tracking-widest italic">Pendent
+                            de redacció</span>
+                    </div>
+
+                    <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md"
+                        class="card-premium p-8 block group border-emerald-500/20">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💎</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Qualitats</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Memòria de Qualitats</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Selecció de materials, acabats de fusteria,
+                            paviments i revestiments premium.</p>
+                        <span
+                            class="block mt-6 text-[10px] text-emerald-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Consultar
+                            Qualitats →</span>
+                    </a>
+
+                    <div class="card-premium p-8 block group border-emerald-500/20 bg-emerald-500/[0.02]">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📊</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Mesures</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Amidaments</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Quantificació de partides d'obra i superfícies
+                            d'actuació.</p>
+                        <span
+                            class="block mt-6 text-[10px] text-emerald-400/50 font-bold uppercase tracking-widest italic">En
+                            preparació</span>
+                    </div>
+
+                    <a href="view.html?file=Regles_aplicables_a_Vilanova_i_la_Geltru.txt"
+                        class="card-premium p-8 block group border-emerald-500/10">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">⚖️</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Normativa</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Annex Tècnic</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Compliment del Decret d'Habitabilitat i
+                            ordenances municipals de VNG.</p>
+                        <span
+                            class="block mt-6 text-[10px] text-emerald-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                            Annex →</span>
+                    </a>
+
+                    <a href="PORTAL_SIMULACIONS_RSM.html" class="card-premium p-8 block group border-emerald-500/10">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">👁️</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Visual</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Memòria Gràfica</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Suport visual i simulacions que acompanyen la
+                            descripció del projecte.</p>
+                        <span
+                            class="block mt-6 text-[10px] text-emerald-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                            Visuals →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISIO VIEW -->
+        <div id="visio-view" class="view-section space-y-24">
+            <!-- 1. Interiorisme e Experiencia -->
+            <div class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    1. Interiorisme i Experiència</h3>
                 <div class="card-premium p-10 bg-white/[0.01]">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
                         <div class="h-[400px] flex flex-col space-y-4">
@@ -342,13 +436,13 @@
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                         <div>
                             <h4 class="text-2xl font-bold text-white mb-4">Experiència "Cozy Minimalism"</h4>
-                            <p class="text-slate-500 text-lg leading-relaxed max-w-xl">Visualitzacions realistes
-                                definitives de Planta Baixa i Planta Primera</p>
+                            <p class="text-slate-500 text-lg leading-relaxed max-w-xl">Briefing visual del promotor per
+                                a l'arquitecte tècnic.</p>
                         </div>
                         <div class="flex gap-4">
                             <a href="PORTAL_SIMULACIONS_RSM.html"
                                 class="bg-cyan-400 text-slate-900 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(0,242,255,0.3)]">✨
-                                Explora 3D</a>
+                                Portal de Simulacions</a>
                         </div>
                     </div>
                 </div>
@@ -377,119 +471,163 @@
                             Comparativa
                             →</span>
                     </a>
-                    <a href="view.html?file=ESTUDI_ILUMINACIO_TACTICA_RSM.md" class="card-premium p-8 block group">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💡</span><span
-                                class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">Salut
-                                Visual</span></div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Il·luminació</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Zones de treball i seguretat nocturna</p>
+                    <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md"
+                        class="card-premium p-8 block group border-orange-400/10">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🎨</span><span
+                                class="text-[10px] font-bold text-orange-400 uppercase tracking-widest">Estètica</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Colors i Paviments</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Definició de materials, textures i gra del
+                            terra</p>
                         <span
-                            class="block mt-6 text-[9px] text-yellow-500 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                            class="block mt-6 text-[9px] text-orange-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                            Materials
                             →</span>
                     </a>
-
+                    <a href="ANIMA_EXPERIENCE_RSM.html"
+                        class="card-premium p-8 block group border-yellow-600/30 bg-yellow-600/[0.03]">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🏺</span><span
+                                class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">ADN 1986</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">L'Ànima de la Casa</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Com la reforma honra el seu passat:
+                            reinterpretació del gra del terratzo original, volums d'obra integrats i el ritme vertical
+                            de les baranes de 1986.</p>
+                        <span
+                            class="block mt-6 text-[9px] text-yellow-500 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Explorar
+                            Experiència Històrica
+                            →</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- Management & Usability -->
+            <!-- 2. Benestar i Sostenibilitat -->
             <div class="space-y-8">
                 <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    II. Gestió, Usabilitat i Sostenibilitat PE</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="view.html?file=GUIA_MANTENIMENT_I_USABILITAT_RSM.md"
-                        class="card-premium p-8 block group bg-gradient-to-br from-blue-400/[0.05] to-transparent">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🧹</span><span
-                                class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Confort</span>
-                        </div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Guia de Manteniment</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Neteja, ergonomia i mobiliari tàctic</p>
-                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Llegir
-                            →</span>
-                    </a>
+                    2. Benestar i Sostenibilitat</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <a href="view.html?file=GESTIO_CIRCULAR_AIGUA_RSM.md"
-                        class="card-premium p-8 block group border-blue-500/20 bg-blue-500/[0.02]">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">💧</span><span
-                                class="text-[10px] font-bold text-blue-400 uppercase tracking-widest">Hídric</span>
+                        class="card-premium p-6 block group border-blue-500/20 bg-blue-500/[0.02]">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">💧</span><span
+                                class="text-[9px] font-bold text-blue-400 uppercase tracking-widest">Hídric</span>
                         </div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Gestió de l'Aigua</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Qualitat, osmosi i aprofitament de pluja</p>
-                        <span class="block mt-6 text-[10px] text-blue-400 font-bold uppercase tracking-widest">Veure Pla
-                            →</span>
+                        <h4 class="text-white font-bold mb-2 text-lg">Gestió de l'Aigua</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Qualitat, osmosi i aprofitament de pluja
+                        </p>
                     </a>
                     <a href="view.html?file=VEGETACIO_I_BIOCLIMATICA_RSM.md"
-                        class="card-premium p-8 block group border-green-500/10 bg-green-500/[0.02]">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🌿</span><span
-                                class="text-[10px] font-bold text-green-400 uppercase tracking-widest">Natura</span>
+                        class="card-premium p-6 block group border-green-500/10 bg-green-500/[0.02]">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🌿</span><span
+                                class="text-[9px] font-bold text-green-400 uppercase tracking-widest">Natura</span>
                         </div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Vegetació i Bioclimàtica</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Filtres purificadors i control tèrmic</p>
-                        <span class="block mt-6 text-[10px] text-green-400 font-bold uppercase tracking-widest">Veure
-                            →</span>
+                        <h4 class="text-white font-bold mb-2 text-lg">Bioclimàtica</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Filtres purificadors i control tèrmic</p>
+                    </a>
+                    <a href="view.html?file=ESTUDI_ILUMINACIO_TACTICA_RSM.md" class="card-premium p-6 block group">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">💡</span><span
+                                class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Llum</span></div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Il·luminació Tàctica</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Salut visual i seguretat nocturna</p>
+                    </a>
+                    <a href="view.html?file=GUIA_MANTENIMENT_I_USABILITAT_RSM.md"
+                        class="card-premium p-6 block group border-cyan-500/10">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🧹</span><span
+                                class="text-[9px] font-bold text-cyan-400 uppercase tracking-widest">Vida</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Manteniment</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Guia de neteja, ergonomia i mobiliari</p>
                     </a>
                     <a href="view.html?file=DETALL_INTERIORISME_SOTACOBERTA.md"
-                        class="card-premium p-8 block group border-purple-500/20 bg-purple-500/[0.02]">
-                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">🏠</span><span
-                                class="text-[10px] font-bold text-purple-400 uppercase tracking-widest">Sotacoberta</span>
+                        class="card-premium p-6 block group border-purple-500/20 bg-purple-500/[0.02] lg:col-span-2">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🏠</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Sotacoberta</span>
                         </div>
-                        <h4 class="text-white font-bold mb-4 text-xl">Refugi Sotacoberta</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed">Transformació EnerPHit de l'espai sota teulada
-                        </p>
-                        <span
-                            class="block mt-6 text-[10px] text-purple-400 font-bold uppercase tracking-widest">Explorar
-                            Espai
-                            →</span>
+                        <h4 class="text-white font-bold mb-2 text-lg">Refugi Sotacoberta</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Consideracions sobre l'aïllament SATE i
+                            l'estanqueïtat EnerPHit sota teulada.</p>
                     </a>
                 </div>
             </div>
 
-            <!-- Advanced & Future -->
+            <!-- 3. Estratègia i Tecnologia -->
             <div class="space-y-8">
                 <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
-                    III. Economia i Futur</h3>
+                    3. Estratègia i Tecnologia</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card-premium p-6 block group">
                         <h4 class="text-white font-bold mb-2 text-lg">Urbanisme VNG</h4>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">SATE, colors i fusteries exteriors</p>
-                        <span
-                            class="block mt-4 text-[9px] text-yellow-500 font-bold uppercase tracking-widest">Checklist
-                            →</span>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Checklist de materials i colors llicència
+                        </p>
+                    </a>
+                    <a href="view.html?file=GUIA_PREINSTALACIO_DOMOTICA_RSM.md"
+                        class="card-premium p-6 block group border-blue-400/10">
+                        <h4 class="text-white font-bold mb-2 text-lg">Preinstal·lació Domòtica</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Infraestructura per a sensors i control
+                        </p>
                     </a>
                     <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md"
                         class="card-premium p-6 block group border-green-500/20 bg-green-400/[0.01]">
                         <h4 class="text-white font-bold mb-2 text-lg">Ajuts i Deduccions</h4>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">Next Gen i deduccions IRPF</p>
-                        <span class="block mt-4 text-[9px] text-green-400 font-bold uppercase tracking-widest">Veure
-                            →</span>
-                    </a>
-                    <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md"
-                        class="card-premium p-6 block group border-purple-500/10">
-                        <h4 class="text-white font-bold mb-2 text-lg">Ecosistema Digital</h4>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">Àudio, Laser TV i entreteniment</p>
-                        <span class="block mt-4 text-[9px] text-purple-400 font-bold uppercase tracking-widest">Veure
-                            →</span>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Estratègia de finançament Next Gen</p>
                     </a>
                     <a href="DEMO_NEXT_GEN_DASHBOARD.html" class="card-premium p-6 block group opacity-60">
                         <h4 class="text-white font-bold mb-2 text-lg">Bessó Digital</h4>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">Futur control 3D de l'habitatge</p>
-                        <span class="block mt-4 text-[9px] text-cyan-400 font-bold uppercase tracking-widest">Preview
-                            →</span>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Preview del futur control 3D</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Entorn Humà i Familiar -->
+            <div class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    4. Entorn Humà i Familiar</h3>
+                <div class="grid grid-cols-1 gap-8">
+                    <a href="view.html?file=HABITATGE_INTERGENERACIONAL_NENS_RSM.md"
+                        class="card-premium p-10 block group border-cyan-400/20 bg-gradient-to-br from-cyan-400/[0.03] to-transparent">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl text-cyan-400">🧸</span>
+                                    <span
+                                        class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/20">La
+                                        llar dels néts</span>
+                                </div>
+                                <h4 class="text-2xl font-bold text-white">Habitatge Intergeneracional</h4>
+                                <p class="text-slate-400 text-base max-w-2xl leading-relaxed">
+                                    Integració de seguretat, salut ambiental i espais fluids per a la <b>Clara, el Roger
+                                        i l'Estel</b>.
+                                    Disseny de barreres reversibles, materials saludables i silenci compartit.
+                                </p>
+                            </div>
+                            <span
+                                class="bg-cyan-400/10 text-cyan-400 px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest group-hover:bg-cyan-400 group-hover:text-slate-900 transition-all">Llegir
+                                Concepte →</span>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
 
+
         <footer class="border-t border-white/5 pt-12 pb-16 text-center text-slate-600 text-sm italic" id="footer"
-            style="opacity: 0;">Projecte RSM - Bessó Digital de Gestió | Gener 2026</footer>
+            style="opacity: 0;">Projecte RSM - Dashboard de Gestió Promotor | Febrer 2026</footer>
     </div>
 
     <!-- Lightbox -->
     <div id="lightbox"><img id="lightbox-img" src=""></div>
 
     <script>
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
         const views = {
             landing: document.getElementById('landing-view'),
             pb: document.getElementById('pb-view'),
-            pe: document.getElementById('pe-view')
+            pe: document.getElementById('pe-view'),
+            visio: document.getElementById('visio-view')
         };
 
         const header = {
@@ -507,24 +645,31 @@
                     Object.values(views).forEach(v => v.style.display = 'none');
                     const nextView = views[phase];
                     nextView.style.display = 'block';
+                    window.scrollTo(0, 0);
 
                     if (phase === 'pb') {
-                        header.tag.innerText = "Fase I | Projecte Bàsic";
+                        header.tag.innerText = "I | Projecte Bàsic";
                         header.tag.className = "text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full";
-                        header.title.innerText = "Auditoria Tècnica";
-                        header.desc.innerText = "Verificació de la base constructiva i compliment normatiu.";
+                        header.title.innerText = "Projecte Bàsic (PB)";
+                        header.desc.innerText = "Auditoria estructural, normativa i validació de la base constructiva.";
                         header.btnBack.style.display = 'flex';
                     } else if (phase === 'pe') {
-                        header.tag.innerText = "Fase II | Projecte Executiu";
+                        header.tag.innerText = "II | Projecte Executiu";
                         header.tag.className = "text-purple-400 font-bold tracking-[4px] uppercase text-[10px] bg-purple-400/10 px-4 py-2 rounded-full";
-                        header.title.innerText = "Disseny i Sistemes";
-                        header.desc.innerText = "Definició de l'experiència habitable, interiorisme i tecnologia.";
+                        header.title.innerText = "Projecte Executiu (PE)";
+                        header.desc.innerText = "Zona de treball formal i dossier tècnic de l'obra.";
+                        header.btnBack.style.display = 'flex';
+                    } else if (phase === 'visio') {
+                        header.tag.innerText = "III | Visió promotor";
+                        header.tag.className = "text-orange-400 font-bold tracking-[4px] uppercase text-[10px] bg-orange-400/10 px-4 py-2 rounded-full";
+                        header.title.innerText = "Visió i conceptes";
+                        header.desc.innerText = "ADN del projecte, interiorisme, sostenibilitat i consideracions del promotor.";
                         header.btnBack.style.display = 'flex';
                     } else {
                         header.tag.innerText = "Project Twin";
                         header.tag.className = "text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full";
                         header.title.innerText = "CASA RSM | 2026";
-                        header.desc.innerText = "Gestió operativa i visual de la rehabilitació d'alta eficiència.";
+                        header.desc.innerText = "Gestió operativa i visual de la reforma de l'habitatge.";
                         header.btnBack.style.display = 'none';
                     }
                     gsap.fromTo(nextView, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });

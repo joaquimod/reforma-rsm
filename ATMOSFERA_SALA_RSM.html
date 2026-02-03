@@ -209,6 +209,12 @@
     </main>
 
     <script>
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
         window.addEventListener('load', () => {
             gsap.to("#header", { opacity: 1, y: 0, duration: 1 });
             gsap.to("#controls", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
