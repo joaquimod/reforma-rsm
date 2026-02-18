@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            
+            
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+    if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Portal de Simulacions | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #05080f;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-sim {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 300px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-sim:hover {
+            transform: translateY(-10px);
+            border-color: #00f2ff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-sim img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .card-sim:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 8, 15, 0.9) 0%, rgba(5, 8, 15, 0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+
+        .filter-btn.active {
+            background: #00f2ff;
+            color: #05080f;
+            border-color: #00f2ff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+        }
+
+        .tag {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: rgba(5, 8, 15, 0.6);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto space-y-16">
+
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-center gap-8" id="header"
+            style="opacity: 0; transform: translateY(-20px);">
+            <div class="text-center md:text-left space-y-2">
+                <span class="text-cyan-400 font-bold tracking-[4px] uppercase text-[10px]">Visual Experience</span>
+                <h1 class="text-5xl font-bold text-white tracking-tight">Portal de Simulacions</h1>
+                <p class="text-slate-400">Selecciona l'espai que vols explorar</p>
+            </div>
+            <a href="index.html"
+                class="glass px-8 py-4 rounded-2xl text-cyan-400 hover:bg-cyan-400/10 transition-all font-bold flex items-center gap-3">
+                <span>←</span> Dashboard
+            </a>
+        </header>
+
+        <!-- Filtres -->
+        <div class="flex flex-wrap justify-center gap-4" id="filters" style="opacity: 0;">
+            <button class="filter-btn active" data-filter="all">Tots els Espais</button>
+            <button class="filter-btn" data-filter="PB">Planta Baixa</button>
+            <button class="filter-btn" data-filter="P1">Planta Primera</button>
+            <button class="filter-btn" data-filter="P2">Planta Segona</button>
+            <button class="filter-btn" data-filter="EXT">Exterior</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="sim-grid" style="opacity: 0;">
+
+            <!-- I. EXT / PB -->
+            <a href="PROPOSTA_INTERIORISME_RSM.html#facana" class="card-sim group" data-cat="EXT PB">
+                <span class="tag text-cyan-400">EXTERIOR</span>
+                <img src="interior_facana_renovada_v1_rsm.png" alt="Façana">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Façana Principal</h3>
+                    <p class="text-slate-400 text-xs">Simulació de SATE i fusteries de roure</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#vestibol" class="card-sim group" data-cat="PB">
+                <span class="tag text-cyan-400">PLANTA BAIXA</span>
+                <img src="interior_vestibol_renovat_rsm.png" alt="Vestíbul">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Vestíbul d'Entrada</h3>
+                    <p class="text-slate-400 text-xs">Accés a peu de carrer</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#estudi" class="card-sim group" data-cat="PB">
+                <span class="tag text-cyan-400">PLANTA BAIXA</span>
+                <img src="interior_estudi_final.png" alt="Estudi">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Estudi / Home Office</h3>
+                    <p class="text-slate-400 text-xs">Espai de treball a cota de carrer</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#estudi" class="card-sim group" data-cat="PB">
+                <span class="tag text-orange-400">EVOLUCIÓ FUTURA</span>
+                <img src="interior_estudi_futur_dormitori_rsm.png" alt="Futur Dormitori">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Dormitori Rehabilitació</h3>
+                    <p class="text-slate-400 text-xs">Versió accessible per a cuidador/a</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#pati" class="card-sim group" data-cat="PB EXT">
+                <span class="tag text-green-400">PATI</span>
+                <img src="interior_pati_bioclimatic_rsm.png" alt="Pati">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Pati Bioclimàtic</h3>
+                    <p class="text-slate-400 text-xs">Regulador tèrmic i oasi de vegetació</p>
+                </div>
+            </a>
+
+            <!-- II. P1 -->
+            <a href="PROPOSTA_INTERIORISME_RSM.html#cuina" class="card-sim group" data-cat="P1">
+                <span class="tag text-cyan-400">PLANTA PRIMERA</span>
+                <img src="interior_cuina_menjador_taula_4_final_rsm.png" alt="Cuina">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Cuina - Menjador</h3>
+                    <p class="text-slate-400 text-xs">Integració total de materials i llum</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#sala" class="card-sim group" data-cat="P1">
+                <span class="tag text-cyan-400">PLANTA PRIMERA</span>
+                <img src="sala_digital_base.png" alt="Sala">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Sala Principal</h3>
+                    <p class="text-slate-400 text-xs">Atmosfera Cozy Minimalism i Laser TV</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#escala" class="card-sim group" data-cat="P1">
+                <span class="tag text-cyan-400">PLANTA PRIMERA</span>
+                <img src="interior_escala_golfes_fusta_rsm.png" alt="Escala">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Escala i Ascensor</h3>
+                    <p class="text-slate-400 text-xs">Connexió arquitectònica entre plantes</p>
+                </div>
+            </a>
+
+            <!-- III. P2 - Planta Segona -->
+            <a href="PROPOSTA_INTERIORISME_RSM.html#habitacio" class="card-sim group" data-cat="P2">
+                <span class="tag text-cyan-400">P2 | SUITE</span>
+                <img src="interior_habitacio_final_rsm.png" alt="Habitació Principal">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Dormitori Principal</h3>
+                    <p class="text-slate-400 text-xs text-cyan-400 font-bold">Suite d'Alta Eficiència</p>
+                </div>
+            </a>
+
+            <a href="SIMULACIO_DORMITORI_1.html" class="card-sim group border-purple-500/20" data-cat="P2">
+                <span class="tag text-purple-400">P2 | SINGLE</span>
+                <img src="dormitori_1_simulacio.png" alt="Dormitori 1">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Dormitori</h3>
+                    <p class="text-slate-400 text-xs">Simulació Comparativa (Abans/Després)</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#bany" class="card-sim group" data-cat="P2">
+                <span class="tag text-cyan-400">PLANTA SEGONA</span>
+                <img src="interior_bany_p2_porta_fusta_rsm.png" alt="Bany">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Bany Principal</h3>
+                    <p class="text-slate-400 text-xs">Higene i disseny suspès</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#distribuidor" class="card-sim group" data-cat="P2">
+                <span class="tag text-cyan-400">PLANTA SEGONA</span>
+                <img src="interior_distribuidor_p2_final.png" alt="Distribuidor">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Distribuïdor P2</h3>
+                    <p class="text-slate-400 text-xs">Simplicitat i pas de llum natural</p>
+                </div>
+            </a>
+
+            <!-- IV. SOTACOBERTA - Golfes -->
+            <a href="SIMULACIO_SOTACOBERTA.html" class="card-sim group border-orange-500/20" data-cat="SOTA">
+                <span class="tag text-orange-400">PLANTA SOTACOBERTA</span>
+                <img src="interior_sotacoberta_final.png" alt="Sotacoberta">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Refugi Sotacoberta</h3>
+                    <p class="text-slate-400 text-xs">Aïllament SATE i Sala Polivalent</p>
+                </div>
+            </a>
+        </div>
+
+        <footer class="text-center py-10 opacity-0" id="footer">
+            <p class="text-slate-600 text-[10px] uppercase tracking-[4px]">CASA RSM | Selecció Visual 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#header", { opacity: 1, y: 0, duration: 1 })
+                .to("#filters", { opacity: 1, duration: 1 }, "-=0.6")
+                .to("#sim-grid", { opacity: 1, duration: 1 }, "-=0.4")
+                .to("#footer", { opacity: 1, duration: 1 }, "-=0.2");
+
+            // Filter Logic
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.card-sim');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    cards.forEach(card => {
+                        const cats = card.getAttribute('data-cat').split(' ');
+                        if (filter === 'all' || cats.includes(filter)) {
+                            gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, display: 'block' });
+                        } else {
+                            gsap.to(card, { opacity: 0, scale: 0.9, duration: 0.4, display: 'none' });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

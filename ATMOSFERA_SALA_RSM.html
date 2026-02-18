@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            
+            
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+    if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Atmosferes Dinàmiques | Sala d'Estar Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #050812;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scene-container {
+            position: absolute;
+            inset: 0;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .scene-container.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .scene-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            transition: transform 10s linear;
+        }
+
+        .scene-container.active .scene-image {
+            transform: scale(1);
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            white-space: nowrap;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .control-btn.active {
+            background: #00f2ff;
+            color: #050812;
+            border-color: #00f2ff;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+        }
+
+        .tech-badge {
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00f2ff;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-[100]" id="header"
+        style="opacity: 0;">
+        <div class="space-y-1">
+            <h1 class="text-2xl font-bold tracking-tight text-white">Disseny d'Atmosferes</h1>
+            <p class="text-[10px] uppercase tracking-[4px] text-cyan-400 font-bold opacity-80 text-shadow-glow">Casa RSM
+                2026</p>
+        </div>
+        <div class="flex gap-4">
+            <a href="PORTAL_SIMULACIONS_RSM.html"
+                class="glass-panel px-6 py-3 rounded-2xl text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-3 font-semibold text-sm">
+                <span>🏠</span> Portada Simulacions
+            </a>
+            <a href="index.html"
+                class="glass-panel px-6 py-3 rounded-2xl text-cyan-400 hover:bg-cyan-400/10 transition-colors flex items-center gap-3 font-semibold text-sm">
+                <span>←</span> Dashboard
+            </a>
+        </div>
+    </header>
+
+    <main class="relative h-full w-full">
+        <!-- MATINADA -->
+        <div id="scene-matinada" class="scene-container active">
+            <img src="sala_matinada_daurada.png" class="scene-image">
+            <div
+                class="absolute left-12 top-1/2 -translate-y-1/2 glass-panel p-10 rounded-[40px] max-w-sm space-y-6 opacity-0 translate-x-[-20px] info-box">
+                <span class="tech-badge">Escena 01</span>
+                <h2 class="text-4xl font-bold text-white">Matinada Daurada</h2>
+                <p class="text-slate-300 leading-relaxed text-sm">L'estuc de calç es banya en una llum daurada procedent
+                    de tires LED indirectes, eliminant qualsevol lluminària directa.</p>
+                <div
+                    class="pt-4 space-y-2 border-t border-white/10 uppercase tracking-widest text-[9px] font-bold text-slate-500">
+                    Programació: 07:00 - 10:00 AM | Accent Ocre
+                </div>
+            </div>
+        </div>
+
+        <!-- CAPVESPRE -->
+        <div id="scene-capvespre" class="scene-container">
+            <img src="sala_capvespre_blau.png" class="scene-image">
+            <div
+                class="absolute left-12 top-1/2 -translate-y-1/2 glass-panel p-10 rounded-[40px] max-w-sm space-y-6 opacity-0 translate-x-[-20px] info-box">
+                <span class="tech-badge !text-blue-400 !border-blue-400/30">Escena 02</span>
+                <h2 class="text-4xl font-bold text-white">Capvespre Blau</h2>
+                <p class="text-slate-300 leading-relaxed text-sm">Calma absoluta. La paret es converteix en un mirall
+                    del cel mediterrani, reduint el ritme cardíac per al descans.</p>
+                <div
+                    class="pt-4 space-y-2 border-t border-white/10 uppercase tracking-widest text-[9px] font-bold text-slate-500">
+                    Programació: 20:00 - 23:30 PM | Accent Blau
+                </div>
+            </div>
+        </div>
+
+        <!-- FILMIN -->
+        <div id="scene-filmin" class="scene-container">
+            <img src="sala_filmin.png" class="scene-image">
+            <div
+                class="absolute left-12 top-1/2 -translate-y-1/2 glass-panel p-10 rounded-[40px] max-w-sm space-y-6 opacity-0 translate-x-[-20px] info-box">
+                <span class="tech-badge !text-cyan-400 !border-cyan-400/30">Cinema Session</span>
+                <h2 class="text-4xl font-bold text-white">Filmin Sessions</h2>
+                <p class="text-slate-300 leading-relaxed text-sm">Sessió de cinema d'autor. El Laser TV s'integra amb
+                    il·luminació LED indirecta des dels prestatges.</p>
+                <div
+                    class="pt-4 space-y-2 border-t border-white/10 uppercase tracking-widest text-[9px] font-bold text-slate-500">
+                    Mode Cinema "Art House" | Audio Hifi Actiu
+                </div>
+            </div>
+        </div>
+
+        <!-- HBO -->
+        <div id="scene-hbo" class="scene-container">
+            <img src="sala_hbo.png" class="scene-image">
+            <div
+                class="absolute left-12 top-1/2 -translate-y-1/2 glass-panel p-10 rounded-[40px] max-w-sm space-y-6 opacity-0 translate-x-[-20px] info-box">
+                <span class="tech-badge !text-red-500 !border-red-500/30">Cinema Session</span>
+                <h2 class="text-4xl font-bold text-white">HBO Cinema</h2>
+                <p class="text-slate-300 leading-relaxed text-sm">Contrast excepcional. La sala s'enfosqueix totalment
+                    per a una experiència immersiva Succession 2026.</p>
+                <div
+                    class="pt-4 space-y-2 border-t border-white/10 uppercase tracking-widest text-[9px] font-bold text-slate-500">
+                    Mode Cinema "Blockbuster" | Audio Surround
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="fixed bottom-12 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center gap-6 w-full">
+            <div class="glass-panel p-2.5 rounded-full flex gap-3 overflow-x-auto no-scrollbar px-6 max-w-[90vw]"
+                id="controls" style="opacity: 0;">
+                <button class="control-btn active" onclick="changeScene('matinada', this)">Matinada</button>
+                <button class="control-btn" onclick="changeScene('capvespre', this)">Capvespre</button>
+                <div class="w-px h-8 bg-white/20 mx-2 self-center"></div>
+                <button class="control-btn" onclick="changeScene('filmin', this)">🎬 Filmin</button>
+                <button class="control-btn" onclick="changeScene('hbo', this)">🎬 HBO Cinema</button>
+            </div>
+            <p class="text-[10px] uppercase tracking-[3px] text-slate-500 font-bold">Interactivitat via Home Assistant
+                DIY</p>
+        </div>
+    </main>
+
+    <script>
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.addEventListener('load', () => {
+            gsap.to("#header", { opacity: 1, y: 0, duration: 1 });
+            gsap.to("#controls", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
+            animateInfoBox('matinada');
+        });
+
+        function animateInfoBox(id) {
+            gsap.to(".info-box", { opacity: 0, x: -30, duration: 0.4 });
+            const box = document.querySelector(`#scene-${id} .info-box`);
+            gsap.fromTo(box, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 1, delay: 0.6, ease: "power3.out" });
+        }
+
+        function changeScene(sceneId, btn) {
+            document.querySelectorAll('.scene-container').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.control-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('scene-' + sceneId).classList.add('active');
+            btn.classList.add('active');
+            animateInfoBox(sceneId);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el document:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Visor de Document | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #050812;
+            color: #cbd5e1;
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 40px;
+        }
+
+        #content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        #content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00f2ff;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        #content li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            list-style-type: none;
+        }
+
+        #content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00f2ff;
+            font-weight: bold;
+        }
+
+        #content code {
+            background: rgba(0, 242, 255, 0.1);
+            color: #00f2ff;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+
+        #content blockquote {
+            border-left: 4px solid #00f2ff;
+            background: rgba(0, 242, 255, 0.03);
+            padding: 1.5rem 2rem;
+            border-radius: 0 20px 20px 0;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="p-6 md:p-12 lg:p-20">
+    <div class="max-w-4xl mx-auto space-y-12">
+        <header class="flex justify-between items-center" id="header" style="opacity: 0;">
+            <div class="flex gap-4">
+                <a href="index.html"
+                    class="glass-card px-6 py-3 rounded-2xl text-slate-400 hover:bg-white/5 transition-all font-bold text-sm">←
+                    Tornar a l'Inici</a>
+                <a id="btn-back-pe" href="index.html?phase=pe"
+                    class="hidden glass-card px-6 py-3 rounded-2xl text-purple-400 border-purple-500/30 hover:bg-purple-400/10 transition-all font-bold text-sm">←
+                    Tornar al PE</a>
+            </div>
+            <div id="file-name" class="text-[10px] uppercase tracking-[3px] font-bold text-slate-500">Document</div>
+        </header>
+        <div id="wrapper" class="glass-card p-10 md:p-16 lg:p-20 min-h-[60vh]" style="opacity: 0;">
+            <div id="content" class="animate-pulse">Carregant document...</div>
+        </div>
+        <footer class="text-center text-[10px] text-slate-600 uppercase tracking-widest pt-8" id="footer"
+            style="opacity: 0;">Casa RSM | Project Twin 2026</footer>
+    </div>
+
+    <script>
+        const contentDiv = document.getElementById('content');
+        function renderMarkdown(text) {
+            contentDiv.classList.remove('animate-pulse');
+            contentDiv.innerHTML = marked.parse(text);
+            gsap.from("#content > *", { opacity: 0, y: 15, duration: 0.5, stagger: 0.1, ease: "power2.out" });
+        }
+
+        async function init() {
+            gsap.to("#header", { opacity: 1, y: 0, duration: 1 });
+            gsap.to("#wrapper", { opacity: 1, y: 0, duration: 1, delay: 0.2 });
+            gsap.to("#footer", { opacity: 1, duration: 1, delay: 0.8 });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileName = urlParams.get('file');
+            const from = urlParams.get('from');
+
+            if (from === 'pe') {
+                document.getElementById('btn-back-pe').classList.remove('hidden');
+            }
+
+            if (!fileName) { contentDiv.innerHTML = "❌ Fitxer no especificat."; return; }
+            document.getElementById('file-name').textContent = fileName.replace('.md', '').replace(/_/g, ' ');
+
+            if (window.location.protocol === 'file:') {
+                contentDiv.innerHTML = `<div class="text-center py-20 space-y-8">
+                    <h2 class="text-2xl font-bold text-white">Mode Local</h2>
+                    <p class="text-slate-400">Selecciona el fitxer <b>${fileName}</b>:</p>
+                    <input type="file" id="local-file-selector" class="hidden" accept=".md,.txt">
+                    <button onclick="document.getElementById('local-file-selector').click()" class="bg-cyan-400 text-slate-900 px-8 py-4 rounded-2xl font-bold">SELECCIONA FITXER</button>
+                </div>`;
+                document.getElementById('local-file-selector').onchange = (e) => {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => renderMarkdown(ev.target.result);
+                    reader.readAsText(e.target.files[0]);
+                };
+            } else {
+                try {
+                    const res = await fetch(fileName);
+                    if (!res.ok) throw new Error();
+                    renderMarkdown(await res.text());
+                } catch { contentDiv.innerHTML = "❌ Error carregant fitxer."; }
+            }
+        }
+        init();
+    </script>
+</body>
+
+</html>

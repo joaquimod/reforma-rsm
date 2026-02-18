@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            
+            
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+    if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Simulació Dormitori | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #05080f;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.4s ease, transform 0.4s ease;
+            cursor: zoom-in;
+            background-color: #1a1a1a;
+        }
+
+        .comparison-img:hover {
+            transform: scale(1.01);
+            border-color: #00f2ff;
+        }
+
+        .label-blur {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 8, 15, 0.98);
+            backdrop-filter: blur(20px);
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox.flex {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 24px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            cursor: zoom-out;
+        }
+    </style>
+</head>
+
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto space-y-12">
+
+        <!-- Back Link -->
+        <header class="flex flex-col md:flex-row justify-between items-center gap-6" id="header" style="opacity: 0;">
+            <div class="space-y-2">
+                <span class="text-purple-400 font-bold tracking-[4px] uppercase text-[10px]">Planta Segona (P2)</span>
+                <h1 class="text-4xl font-bold text-white tracking-tight">Dormitori | Suite Twin</h1>
+            </div>
+            <a href="PORTAL_SIMULACIONS_RSM.html"
+                class="glass px-8 py-4 rounded-2xl text-cyan-400 hover:bg-cyan-400/10 transition-all font-bold flex items-center gap-3">
+                <span>←</span> Portal de Simulacions
+            </a>
+        </header>
+
+        <!-- Comparison Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+            <div class="space-y-6" id="card-before" style="opacity: 0;">
+                <div class="flex items-center gap-4">
+                    <span class="label-blur text-slate-400">Estat Actual</span>
+                    <span class="text-xs text-yellow-500 font-medium">⚠️ Baixa eficiència i materials degradats</span>
+                </div>
+                <img src="dormitori_1_abans.jpg" alt="Dormitori 1 Abans" class="comparison-img lb-trigger">
+            </div>
+
+            <div class="space-y-6" id="card-after" style="opacity: 0;">
+                <div class="flex items-center gap-4">
+                    <span class="label-blur text-cyan-400 border-cyan-400/20">Proposta RSM</span>
+                    <span class="text-xs text-cyan-400 font-medium font-bold">✨ Cozy Minimalism (EnerPHit)</span>
+                </div>
+                <img src="dormitori_1_simulacio.png" alt="Dormitori 1 Després"
+                    class="comparison-img shadow-[0_0_50px_rgba(0,242,255,0.15)] border-cyan-400/30 lb-trigger">
+            </div>
+        </main>
+
+        <!-- Technical Description -->
+        <section class="glass p-12 rounded-[40px] space-y-8 mt-12 bg-gradient-to-br from-white/[0.02] to-transparent"
+            id="tech-section" style="opacity: 0;">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-4">Memòria de la intervenció</h2>
+                <p class="text-slate-400 leading-relaxed text-lg">
+                    La transformació del Dormitori a la Planta Segona aposta per una optimització radical de l'espai
+                    mitjançant la puresa dels materials i el control lumínic. Es passa d'un espai funcional degradat a
+                    un refugi sensorial d'alta eficiència energètica.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 border-t border-white/5">
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Mobiliari i distribució</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Configuració amb <strong>llit individual</strong>
+                        situat perpendicularment a la terrassa per alliberar el centre de l'habitació. Tauleta volant en
+                        fusta de roure per minimitzar l'ocupació del terra.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Envolupant i tancaments</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Parets nues d'<strong>estuc de calç
+                            artesanal</strong>. Fusteria de fusta de roure clar amb triple vidre i <strong>única porta
+                            doble</strong> de sortida a la terrassa.</p>
+                </div>
+                <div class="space-y-3">
+                    <h4 class="text-cyan-400 font-bold text-xs uppercase tracking-widest">Domòtica i confort</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Il·luminació perimètrica LED circadiària integrada
+                        en fussa. Paviment de <strong>microciment continu</strong> gris seda per a una estètica neta i
+                        atemporal.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center pt-12 pb-16 text-slate-600 text-[10px] uppercase tracking-[4px]">
+            CASA RSM | Technical Double Check 2026
+        </footer>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox"><img id="lightbox-img" src=""></div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#header", { opacity: 1, y: 0, duration: 1 })
+                .to("#card-before", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.5")
+                .to("#card-after", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6")
+                .to("#tech-section", { opacity: 1, y: 0, duration: 1 }, "-=0.4");
+
+            // Lightbox functionality
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            document.querySelectorAll('.lb-trigger').forEach(img => {
+                img.addEventListener('click', () => {
+                    if (img.src) {
+                        lbImg.src = img.src;
+                        lb.classList.add('flex');
+                        gsap.fromTo(lbImg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
+                    }
+                });
+            });
+            lb.addEventListener('click', () => {
+                gsap.to(lbImg, { scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => { lb.classList.remove('flex'); lbImg.src = ''; } });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+
+
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Dashboard RSM 2026 | Project Twin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #050812;
+            color: #e2e8f0;
+            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent), radial-gradient(circle at bottom left, rgba(0, 102, 255, 0.05), transparent);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-premium {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-premium:hover {
+            border-color: #00f2ff;
+            background: rgba(0, 242, 255, 0.02);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .phase-card {
+            cursor: pointer;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .kpi-text {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar-bg {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00f2ff, #0066ff);
+            border-radius: 3px;
+        }
+
+        .img-fit {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .label-blur {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 8, 18, 0.95);
+            backdrop-filter: blur(20px);
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox.flex {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            cursor: zoom-out;
+        }
+
+        .btn-back {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            color: #00f2ff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .view-section {
+            display: none;
+        }
+
+        #landing-view {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto space-y-12">
+
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8" id="header">
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <div id="btn-home" class="btn-back"><span>←</span> TORNAR A L'INICI</div>
+                    <span id="phase-tag"
+                        class="text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full">Project
+                        Twin</span>
+                </div>
+                <h1 id="main-title" class="text-6xl font-bold text-white tracking-tight">CASA RSM | 2026</h1>
+                <p id="main-desc" class="text-slate-400 text-lg max-w-2xl leading-relaxed">Gestió operativa i visual de
+                    la reforma de l'habitatge</p>
+            </div>
+        </header>
+
+        <!-- LANDING VIEW -->
+        <div id="landing-view" class="view-section space-y-12">
+            <!-- Hero -->
+            <section id="hero">
+                <div class="card-premium h-[450px] relative group overflow-hidden">
+                    <img src="casa_rsm_view.jpg" class="img-fit opacity-80 lb-trigger cursor-zoom-in">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#050812] via-transparent to-transparent pointer-events-none">
+                    </div>
+                    <div class="absolute bottom-10 left-10 space-y-2 pointer-events-none">
+                        <span class="label-blur text-cyan-400 border-cyan-400/20">Ubicació</span>
+                        <h2 class="text-3xl font-bold text-white">Raval de Santa Magdalena, 30</h2>
+                        <p class="text-slate-400">Vilanova i la Geltrú</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Short Indication -->
+            <section class="card-premium p-8 bg-gradient-to-br from-white/[0.03] to-transparent border-white/10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-slate-300 text-lg">
+                        Eina per a la gestió operativa, tècnica i visual de la reforma integral
+                    </p>
+                    <div
+                        class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-l border-white/10 pl-6">
+                        Project Twin <br> Dashboard 2026
+                    </div>
+                </div>
+            </section>
+
+            <!-- Primary Phase Selection -->
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div onclick="showPhase('pb')"
+                    class="card-premium phase-card group bg-[#0a1b2b] border-cyan-500/30 hover:bg-[#0c2236] transition-all !h-[350px]">
+                    <div class="content space-y-4">
+                        <span
+                            class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30">Fase
+                            I</span>
+                        <h2 class="text-4xl font-bold text-white">Projecte Bàsic</h2>
+                        <p class="text-slate-400 text-sm max-w-xs">Auditoria, normativa i compliment tècnic del projecte
+                        </p>
+                        <div
+                            class="flex items-center gap-2 mt-4 text-xs font-bold text-cyan-400 uppercase tracking-widest group-hover:gap-4 transition-all">
+                            Veure Anàlisi <span>→</span>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="showPhase('pe')"
+                    class="card-premium phase-card group bg-[#1b0a2b] border-purple-500/30 hover:bg-[#220c36] transition-all !h-[350px]">
+                    <div class="content space-y-4">
+                        <span
+                            class="text-[10px] font-bold text-purple-400 uppercase tracking-widest bg-purple-400/20 px-4 py-2 rounded-full border border-purple-400/30">Fase
+                            II</span>
+                        <h2 class="text-4xl font-bold text-white">Projecte Executiu</h2>
+                        <p class="text-slate-400 text-sm max-w-xs">Definició del detall constructiu i entorn de treball
+                            amb l'oficina tècnica</p>
+                        <div
+                            class="flex items-center gap-2 mt-4 text-xs font-bold text-purple-400 uppercase tracking-widest group-hover:gap-4 transition-all">
+                            Zona de Treball <span>→</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Concept Section -->
+            <section onclick="showPhase('visio')"
+                class="card-premium p-10 group bg-[#1a140a] border-orange-500/20 hover:bg-[#221a0d] transition-all cursor-pointer">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="space-y-4">
+                        <span
+                            class="text-[10px] font-bold text-orange-400 uppercase tracking-widest bg-orange-400/10 px-3 py-1 rounded-full">Identitat
+                            Promotor</span>
+                        <h2 class="text-3xl font-bold text-white">Concepte de la Reforma</h2>
+                        <p class="text-slate-400 text-sm max-w-xl leading-relaxed">Consideracions, ADN i visió
+                            estratègica del promotor per a tot el projecte: Interiorisme, Sostenibilitat i Tecnologia
+                        </p>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-widest group-hover:gap-4 transition-all">
+                        Explorar Visió <span>→</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PB VIEW -->
+        <div id="pb-view" class="view-section space-y-16">
+            <div class="space-y-8">
+                <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                    I. PROJECTE BÀSIC (PB)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="view.html?file=Informe_Analisi_PB_RSM_V1.md" class="card-premium p-8 block group">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">⚠️</span><span
+                                class="text-[10px] font-bold text-yellow-500 uppercase">Anàlisi Tècnica</span></div>
+                        <h4 class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-2">Estàndard
+                            EnerPHit</h4>
+                        <div class="kpi-text text-emerald-400">85%</div>
+                        <div class="progress-bar-bg mt-4">
+                            <div class="progress-bar-fill w-[85%] !bg-emerald-400"></div>
+                        </div>
+                        <p class="mt-6 text-sm text-slate-500">Transmitàncies detectades per sota de l'òptim Passivhaus
+                        </p>
+                    </a>
+                    <a href="view.html?file=Regles_aplicables_a_Vilanova_i_la_Geltru.txt"
+                        class="card-premium p-8 block group border-yellow-500/20">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📍</span><span
+                                class="text-[10px] font-bold text-yellow-500 uppercase">Normativa Local</span></div>
+                        <h4 class="text-slate-400 uppercase tracking-widest text-[10px] font-bold mb-2">Normativa VNG
+                        </h4>
+                        <div class="kpi-text text-yellow-500">80%</div>
+                        <div class="progress-bar-bg mt-4">
+                            <div class="progress-bar-fill w-[80%] !bg-yellow-500"></div>
+                        </div>
+                        <p class="mt-6 text-sm text-slate-500">Punts d'ajust en habitabilitat i configuració d'ascensor
+                        </p>
+                    </a>
+                    <a href="RESUM_SISTEMA_SUPORT_PB.html" class="card-premium p-8 block group border-cyan-400/20">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📋</span><span
+                                class="text-[10px] font-bold text-cyan-400 uppercase">SISTEMA</span></div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Protocol de Seguiment</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Arquitectura Local-First i protocol d'execució
+                            del suport tècnic.</p>
+                        <span class="block mt-6 text-[10px] text-cyan-400 font-bold uppercase tracking-widest">Veure
+                            Protocol →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PE VIEW -->
+        <div id="pe-view" class="view-section space-y-20">
+            <!-- II.1 REQUERIMENTS DEL PROMOTOR -->
+            <div class="space-y-8">
+                <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                    <h3
+                        class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-purple-800 pl-4">
+                        II.1. Propostes i opcions de treball del promotor (investigació)</h3>
+                    <span
+                        class="text-[10px] text-purple-400 font-bold bg-purple-400/10 px-3 py-1 rounded-full uppercase tracking-widest">Base
+                        de treball</span>
+                </div>
+
+                <!-- Box Explicatiu II.1 -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div
+                        class="glass p-8 rounded-3xl border-purple-500/20 bg-purple-500/[0.02] flex gap-6 items-start lg:col-span-2">
+                        <div class="bg-purple-500/10 p-3 rounded-2xl text-2xl">📋</div>
+                        <div class="space-y-2">
+                            <h4 class="text-white font-bold text-sm uppercase tracking-widest">Base de treball i visió
+                                estratègica</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Aquesta secció recull la síntesi de la investigació i les propostes del promotor. No són
+                                solucions tancades, sinó una base de diàleg i opcions tècniques per obrir la discussió
+                                amb l'arquitecte i co-definir les millors solucions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- DOSSIER MESTRE ESTATGÈTIC -->
+                    <a href="view.html?file=docs/PE/Dossier_Plantejament_PE_Promotor.md&from=pe"
+                        class="card-premium p-8 flex flex-col justify-center items-center text-center border-purple-500 bg-purple-500/20 group">
+                        <span class="text-3xl mb-3">📘</span>
+                        <h4 class="text-white font-bold text-lg">Dossier de propostes i opcions</h4>
+                        <p class="text-[10px] text-purple-300 uppercase tracking-widest mt-1">Llegir visió completa →
+                        </p>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Clima i Energia -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Instal_lacions.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">⚡</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Energia</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Instal·lacions i Clima</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Aerotèrmia Aire-Aire, Fotovoltaica
+                            intel·ligent i pre-instal·lació de vehicle elèctric (VE) integrada amb HA.</p>
+                    </a>
+
+                    <!-- Domòtica -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Domotica.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🤖</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Control</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Estratègia Domòtica DIY</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Infraestructura per a Home Assistant: fil
+                            neutre, caixes de 60mm i cobertura Wi-Fi/Zigbee en 4 plantes.</p>
+                    </a>
+
+                    <!-- Cuina -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Cuina.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🍳</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Interiorisme</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Disseny de Cuina</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Espai integrat sense illa. Comparativa de
+                            marques (Arrital, Santos) i equipament encastat Passivhaus.</p>
+                    </a>
+
+                    <!-- Revestiments -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Revestiments_Interiors.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🏛️</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Acabats</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Parets, Sostres i Sòcols</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Acabat guix Q4, pintura de silicat
+                            (saludable) i detall de sòcols enrasats per a un minimalisme total.</p>
+                    </a>
+
+                    <!-- Il·luminació -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Il_luminacio.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">💡</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Llum</span></div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Il·luminació Arquitectònica</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Llum emocional i funcional. Perfils
+                            d'ombra (trimless), carrils magnètics i escenes automatitzables.</p>
+                    </a>
+
+                    <!-- Banys -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Banys.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🚿</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Higiene</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Configuració de Banys</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Jerarquia de banys (P0/P1/P2), sanitaris
+                            suspesos, dutxes higièniques i facilitat de manteniment.</p>
+                    </a>
+
+                    <!-- Paviments -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Paviments.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🪵</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Paviments</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Estratègia de Paviments</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Contrast entre el gres industrial (PB) i
+                            la fusta tecnològica SPC (P1/P2). Criteris de durabilitat.</p>
+                    </a>
+
+                    <!-- Ascensor -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Ascensor.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🛗</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Mobilitat</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Transport Vertical</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Elecció de l'ascensor elèctric MRL.
+                            Silenci, integració arquitectònica (portes camaleó) i manteniment.</p>
+                    </a>
+
+                    <!-- Fusteries i Exterior -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Fusteries_Exteriors.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🪟</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Envolupant</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Tancaments Exteriors</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Detall de les finestres Weru: triple vidre
+                            i hermeticitat crítica per a l'estàndard Passivhaus.</p>
+                    </a>
+
+                    <!-- Escales -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Escales.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🪜</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Estructura</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Escales i Graons</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Combinació d'acer galvanitzat (exterior) i
+                            fusta (interior). Estètica industrial i funcional.</p>
+                    </a>
+
+                    <!-- Portes Interiors -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Tancaments_Interiors.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🚪</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Fusteria</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Tancaments Interiors</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Portes de fusta massissa amb pas d'aire
+                            per a VMC. Correderes encastades i batents premium.</p>
+                    </a>
+
+                    <!-- Façana i Seguretat -->
+                    <a href="view.html?file=docs/PE/Documents_Treball/Informe_Acabats_Sistemes.md&from=pe"
+                        class="card-premium p-6 block group border-purple-500/20">
+                        <div class="flex justify-between items-start mb-4"><span class="text-2xl">🛡️</span><span
+                                class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Sistemes</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-2 text-lg">Façana i Seguretat</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Acabats del SATE (RAL 9010/9016),
+                            vídeo-porter IP i infraestructura de seguretat integrada.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- II.2 PROPOSTA DE L'ARQUITECTE -->
+            <div class="space-y-8">
+                <div class="flex justify-between items-end border-b border-white/5 pb-4">
+                    <h3
+                        class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-emerald-800 pl-4">
+                        II.2. Proposta i documentació tècnica (arquitecte)</h3>
+                    <span
+                        class="text-[10px] text-emerald-400 font-bold bg-emerald-400/10 px-3 py-1 rounded-full uppercase tracking-widest italic">Pendent
+                        de lliurament</span>
+                </div>
+
+                <!-- Box Explicatiu II.2 -->
+                <div class="glass p-8 rounded-3xl border-emerald-500/20 bg-emerald-500/[0.02] flex gap-6 items-start">
+                    <div class="bg-emerald-500/10 p-3 rounded-2xl text-2xl">📐</div>
+                    <div class="space-y-2">
+                        <h4 class="text-white font-bold text-sm uppercase tracking-widest">Projecte Executiu de
+                            l'Arquitecte</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Espai destinat a la documentació formal generada per l'oficina tècnica. Aquí s'integraran
+                            les solucions d'enginyeria, plànols detallats i amidaments que l'arquitecte proposarà com a
+                            resposta als requeriments del promotor, formant el cos legal i tècnic de l'obra.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-premium p-8 block group border-emerald-500/20 bg-emerald-500/[0.02] opacity-60">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📄</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Oficial</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Memòria Executiva</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed italic">Documentació oficial elaborada per
+                            l'oficina tècnica: càlculs, memòria i plec de condicions.</p>
+                    </div>
+
+                    <div class="card-premium p-8 block group border-emerald-500/20 bg-emerald-500/[0.02] opacity-60">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📐</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Plànols</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Plànols de Detall</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed italic">Detalls constructius, instal·lacions,
+                            estructura i acabats per a l'execució d'obra.</p>
+                    </div>
+
+                    <div class="card-premium p-8 block group border-emerald-500/20 bg-emerald-500/[0.02] opacity-60">
+                        <div class="flex justify-between items-start mb-6"><span class="text-3xl">📊</span><span
+                                class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Amidaments</span>
+                        </div>
+                        <h4 class="text-white font-bold mb-4 text-xl">Pressupost d'Obra</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed italic">Amidaments i pressupost detallat per a
+                            la petició d'ofertes a les constructores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VISIO VIEW -->
+    <div id="visio-view" class="view-section space-y-24">
+        <!-- 1. Interiorisme e Experiencia -->
+        <div class="space-y-8">
+            <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                1. Interiorisme i Experiència</h3>
+            <div class="card-premium p-10 bg-white/[0.01]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="h-[400px] flex flex-col space-y-4">
+                        <span class="label-blur w-fit text-slate-400 font-bold">Estat actual sala</span>
+                        <div class="flex-grow rounded-[24px] overflow-hidden border border-white/5 bg-black"><img
+                                src="sala_abans_original.jpg" class="img-fit opacity-60 cursor-zoom-in lb-trigger">
+                        </div>
+                    </div>
+                    <div class="h-[400px] flex flex-col space-y-4">
+                        <span
+                            class="label-blur w-fit text-cyan-400 bg-cyan-400/10 !border-cyan-400/20 font-bold">Proposta
+                            RSM</span>
+                        <div
+                            class="flex-grow rounded-[24px] overflow-hidden border border-cyan-400/40 bg-black shadow-[0_0_30px_rgba(0,242,255,0.15)]">
+                            <img src="sala_digital_base.png" class="img-fit cursor-zoom-in lb-trigger">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-4">Experiència "Cozy Minimalism"</h4>
+                        <p class="text-slate-500 text-lg leading-relaxed max-w-xl">Briefing visual del promotor per
+                            a l'arquitecte tècnic.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="PORTAL_SIMULACIONS_RSM.html"
+                            class="bg-cyan-400 text-slate-900 px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(0,242,255,0.3)]">✨
+                            Portal de Simulacions</a>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="PROPOSTA_INTERIORISME_RSM.html#habitacio"
+                    class="card-premium p-8 block group border-cyan-400/10">
+                    <div class="flex justify-between items-start mb-6"><span class="text-3xl">🛏️</span><span
+                            class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest">P2 | Suite</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-4 text-xl">Dormitori Principal</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Refugi íntim amb materials naturals</p>
+                    <span
+                        class="block mt-6 text-[9px] text-cyan-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Explorar
+                        →</span>
+                </a>
+                <a href="SIMULACIO_DORMITORI_1.html"
+                    class="card-premium p-8 block group border-purple-500/20 bg-purple-500/[0.02]">
+                    <div class="flex justify-between items-start mb-6"><span class="text-3xl">🛌</span><span
+                            class="text-[10px] font-bold text-purple-400 uppercase tracking-widest">P2 |
+                            Single</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-4 text-xl">Dormitori 1</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Simulació fidel del nou espai estret</p>
+                    <span
+                        class="block mt-6 text-[9px] text-purple-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                        Comparativa
+                        →</span>
+                </a>
+                <a href="view.html?file=ESTUDI_AVANCAT_INTERIORISME_RSM.md"
+                    class="card-premium p-8 block group border-orange-400/10">
+                    <div class="flex justify-between items-start mb-6"><span class="text-3xl">🎨</span><span
+                            class="text-[10px] font-bold text-orange-400 uppercase tracking-widest">Estètica</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-4 text-xl">Colors i Paviments</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Definició de materials, textures i gra del
+                        terra</p>
+                    <span
+                        class="block mt-6 text-[9px] text-orange-400 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Veure
+                        Materials
+                        →</span>
+                </a>
+                <a href="ANIMA_EXPERIENCE_RSM.html"
+                    class="card-premium p-8 block group border-yellow-600/30 bg-yellow-600/[0.03]">
+                    <div class="flex justify-between items-start mb-6"><span class="text-3xl">🏺</span><span
+                            class="text-[10px] font-bold text-yellow-500 uppercase tracking-widest">ADN 1986</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-4 text-xl">L'Ànima de la Casa</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Com la reforma honra el seu passat:
+                        reinterpretació del gra del terratzo original, volums d'obra integrats i el ritme vertical
+                        de les baranes de 1986.</p>
+                    <span
+                        class="block mt-6 text-[9px] text-yellow-500 font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform">Explorar
+                        Experiència Històrica
+                        →</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. Benestar i Sostenibilitat -->
+        <div class="space-y-8">
+            <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                2. Benestar i Sostenibilitat</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="view.html?file=GESTIO_CIRCULAR_AIGUA_RSM.md"
+                    class="card-premium p-6 block group border-blue-500/20 bg-blue-500/[0.02]">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">💧</span><span
+                            class="text-[9px] font-bold text-blue-400 uppercase tracking-widest">Hídric</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Gestió de l'Aigua</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Qualitat, osmosi i aprofitament de pluja
+                    </p>
+                </a>
+                <a href="view.html?file=VEGETACIO_I_BIOCLIMATICA_RSM.md"
+                    class="card-premium p-6 block group border-green-500/10 bg-green-500/[0.02]">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">🌿</span><span
+                            class="text-[9px] font-bold text-green-400 uppercase tracking-widest">Natura</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Bioclimàtica</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Filtres purificadors i control tèrmic</p>
+                </a>
+                <a href="view.html?file=ESTUDI_ILUMINACIO_TACTICA_RSM.md" class="card-premium p-6 block group">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">💡</span><span
+                            class="text-[9px] font-bold text-yellow-500 uppercase tracking-widest">Llum</span></div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Il·luminació Tàctica</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Salut visual i seguretat nocturna</p>
+                </a>
+                <a href="view.html?file=GUIA_MANTENIMENT_I_USABILITAT_RSM.md"
+                    class="card-premium p-6 block group border-cyan-500/10">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">🧹</span><span
+                            class="text-[9px] font-bold text-cyan-400 uppercase tracking-widest">Vida</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Manteniment</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Guia de neteja, ergonomia i mobiliari</p>
+                </a>
+                <a href="view.html?file=DETALL_INTERIORISME_SOTACOBERTA.md"
+                    class="card-premium p-6 block group border-purple-500/20 bg-purple-500/[0.02] lg:col-span-2">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">🏠</span><span
+                            class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Sotacoberta</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Refugi Sotacoberta</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Consideracions sobre l'aïllament SATE i
+                        l'estanqueïtat EnerPHit sota teulada.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- 3. Estratègia i Tecnologia -->
+        <div class="space-y-8">
+            <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                3. Estratègia i Tecnologia</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="view.html?file=LLISTA_VERIFICACIO_URBANISTICA_VNG.md" class="card-premium p-6 block group">
+                    <h4 class="text-white font-bold mb-2 text-lg">Urbanisme VNG</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Checklist de materials i colors llicència
+                    </p>
+                </a>
+                <a href="view.html?file=GUIA_PREINSTALACIO_DOMOTICA_RSM.md"
+                    class="card-premium p-6 block group border-blue-400/10">
+                    <h4 class="text-white font-bold mb-2 text-lg">Preinstal·lació Domòtica</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Infraestructura per a sensors i control
+                    </p>
+                </a>
+                <a href="view.html?file=SEGURETAT_INTEGRADA_DIY_RSM.md"
+                    class="card-premium p-6 block group border-red-500/10 bg-red-400/[0.01]">
+                    <div class="flex justify-between items-start mb-4"><span class="text-2xl">🛡️</span><span
+                            class="text-[9px] font-bold text-red-400 uppercase tracking-widest">Protecció</span>
+                    </div>
+                    <h4 class="text-white font-bold mb-2 text-lg">Seguretat i Incendis</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Sistemes anti-intrusió i detecció de foc
+                        integrats a la domòtica DIY.</p>
+                </a>
+                <a href="view.html?file=INCENTIUS_I_AJUTS_REHABILITACIO.md"
+                    class="card-premium p-6 block group border-green-500/20 bg-green-400/[0.01]">
+                    <h4 class="text-white font-bold mb-2 text-lg">Ajuts i Deduccions</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Estratègia de finançament Next Gen</p>
+                </a>
+                <a href="DEMO_NEXT_GEN_DASHBOARD.html" class="card-premium p-6 block group opacity-60">
+                    <h4 class="text-white font-bold mb-2 text-lg">Bessó Digital</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed">Preview del futur control 3D</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- 4. Entorn Humà i Familiar -->
+        <div class="space-y-8">
+            <h3 class="text-slate-500 font-bold tracking-[3px] uppercase text-xs border-l-2 border-slate-800 pl-4">
+                4. Entorn Humà i Familiar</h3>
+            <div class="grid grid-cols-1 gap-8">
+                <a href="view.html?file=HABITATGE_INTERGENERACIONAL_NENS_RSM.md"
+                    class="card-premium p-10 block group border-cyan-400/20 bg-gradient-to-br from-cyan-400/[0.03] to-transparent">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="text-4xl text-cyan-400">🧸</span>
+                                <span
+                                    class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/20">La
+                                    llar dels néts</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white">Habitatge Intergeneracional</h4>
+                            <p class="text-slate-400 text-base max-w-2xl leading-relaxed">
+                                Integració de seguretat, salut ambiental i espais fluids per a la <b>Clara, el Roger
+                                    i l'Estel</b>.
+                                Disseny de barreres reversibles, materials saludables i silenci compartit.
+                            </p>
+                        </div>
+                        <span
+                            class="bg-cyan-400/10 text-cyan-400 px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest group-hover:bg-cyan-400 group-hover:text-slate-900 transition-all">Llegir
+                            Concepte →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="border-t border-white/5 pt-12 pb-16 text-center text-slate-600 text-sm italic" id="footer"
+        style="opacity: 0;">Projecte RSM - Dashboard de Gestió Promotor | Febrer 2026</footer>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox"><img id="lightbox-img" src=""></div>
+
+    <script>
+        // Ensure page starts at top
+        window.scrollTo(0, 0);
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        const views = {
+            landing: document.getElementById('landing-view'),
+            pb: document.getElementById('pb-view'),
+            pe: document.getElementById('pe-view'),
+            visio: document.getElementById('visio-view')
+        };
+
+        const header = {
+            tag: document.getElementById('phase-tag'),
+            title: document.getElementById('main-title'),
+            desc: document.getElementById('main-desc'),
+            btnBack: document.getElementById('btn-home')
+        };
+
+        function showPhase(phase) {
+            const currentView = Object.values(views).find(v => v.style.display === 'block');
+
+            gsap.to(currentView, {
+                opacity: 0, y: 20, duration: 0.4, onComplete: () => {
+                    Object.values(views).forEach(v => v.style.display = 'none');
+                    const nextView = views[phase];
+                    nextView.style.display = 'block';
+                    window.scrollTo(0, 0);
+
+                    if (phase === 'pb') {
+                        header.tag.innerText = "I | Projecte Bàsic";
+                        header.tag.className = "text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full";
+                        header.title.innerText = "Projecte Bàsic (PB)";
+                        header.desc.innerText = "Anàlisi estructural, normativa i validació de la base constructiva.";
+                        header.btnBack.style.display = 'flex';
+                    } else if (phase === 'pe') {
+                        header.tag.innerText = "II | Projecte Executiu";
+                        header.tag.className = "text-purple-400 font-bold tracking-[4px] uppercase text-[10px] bg-purple-400/10 px-4 py-2 rounded-full";
+                        header.title.innerText = "Projecte Executiu (PE)";
+                        header.desc.innerText = "Zona de treball formal i dossier tècnic de l'obra.";
+                        header.btnBack.style.display = 'flex';
+                    } else if (phase === 'visio') {
+                        header.tag.innerText = "III | Visió promotor";
+                        header.tag.className = "text-orange-400 font-bold tracking-[4px] uppercase text-[10px] bg-orange-400/10 px-4 py-2 rounded-full";
+                        header.title.innerText = "Visió i conceptes";
+                        header.desc.innerText = "ADN del projecte, interiorisme, sostenibilitat i consideracions del promotor.";
+                        header.btnBack.style.display = 'flex';
+                    } else {
+                        header.tag.innerText = "Project Twin";
+                        header.tag.className = "text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full";
+                        header.title.innerText = "CASA RSM | 2026";
+                        header.desc.innerText = "Gestió operativa i visual de la reforma de l'habitatge.";
+                        header.btnBack.style.display = 'none';
+                    }
+                    gsap.fromTo(nextView, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
+                }
+            });
+        }
+
+        document.getElementById('btn-home').addEventListener('click', () => showPhase('landing'));
+
+        window.addEventListener('load', () => {
+            gsap.from("#header", { opacity: 0, y: -20, duration: 1 });
+            gsap.from("#landing-view", { opacity: 0, y: 20, duration: 1, delay: 0.3 });
+            gsap.to("#footer", { opacity: 1, duration: 1, delay: 1 });
+
+            // Check for phase in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const phase = urlParams.get('phase');
+            if (phase && views[phase]) {
+                setTimeout(() => showPhase(phase), 500);
+            }
+        });
+
+        // Lightbox functionality
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        document.querySelectorAll('.lb-trigger').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault(); e.stopPropagation();
+                lbImg.src = img.src;
+                lb.classList.add('flex');
+                gsap.fromTo(lbImg, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
+            });
+        });
+        lb.addEventListener('click', () => {
+            gsap.to(lbImg, { scale: 0.8, opacity: 0, duration: 0.3, onComplete: () => { lb.classList.remove('flex'); lbImg.src = ''; } });
+        });
+    </script>
+</body>
+
+</html>

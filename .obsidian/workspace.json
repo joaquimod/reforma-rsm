@@ -1,0 +1,235 @@
+{
+  "main": {
+    "id": "f23aa505feb929a2",
+    "type": "split",
+    "children": [
+      {
+        "id": "6256f6380ca760db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a2af634753fbaae0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/PE/Dossier_Plantejament_PE_Promotor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Dossier_Plantejament_PE_Promotor"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "01dbb66524c49fa3",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba42d4e2a776be1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3fa4208a020fba12",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "e8657f1d637a01f5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "29b15478249bf563",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7edd1fe7643c53cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "371ee58e4fa4fce7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1c53e84568bcf5c8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE"
+            }
+          },
+          {
+            "id": "a4468ffafbaef254",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes de RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE"
+            }
+          },
+          {
+            "id": "1d5bdb9fd43713ae",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "655ea614a8c5d3cf",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas las propiedades"
+            }
+          },
+          {
+            "id": "7c599186db4617e5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema de RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
+    }
+  },
+  "active": "a2af634753fbaae0",
+  "lastOpenFiles": [
+    "check_links.py",
+    "vestibol_abans.jpg",
+    "sotacoberta_abans.png",
+    "sala_vinya_penedes.png",
+    "sala_somni_lavanda.png",
+    "sala_parket_rsm.png",
+    "sala_microciment_rsm.png",
+    "sala_microciment_gris_rsm.png",
+    "sala_matinada_daurada.png",
+    "sala_laser_tv_rsm.png",
+    "sala_hbo.png",
+    "cuina_menjador_2.mp4",
+    "cuina_menjador_1.mp4",
+    "VEGETACIO_I_BIOCLIMATICA_RSM.md",
+    "SIMULACIO_SOTACOBERTA.html",
+    "SIMULACIO_DORMITORI_1.html",
+    "SEGURETAT_INTEGRADA_DIY_RSM.md",
+    "Regles_aplicables_a_Vilanova_i_la_Geltru.txt",
+    "RESUM_SISTEMA_SUPORT_PB.html",
+    "RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE.pdf",
+    "PROPOSTA_INTERIORISME_RSM.html",
+    "PROMPT_LM_STUDIO_thermal.txt",
+    "PORTAL_SIMULACIONS_RSM.html",
+    "PLA_GESTIO_RESIDUS_RSM.md",
+    "METODOLOGIA_ANALISI_AUDIT.md",
+    "LLISTA_VERIFICACIO_URBANISTICA_VNG.md",
+    "Informe_Auditoria_PB_V1.md",
+    "Informe_Auditoria_PB_SIMULACIO_ERRORS.md",
+    "Informe_Analisi_PB_RSM_V1.md",
+    "INCENTIUS_I_AJUTS_REHABILITACIO.md",
+    "HABITATGE_INTERGENERACIONAL_NENS_RSM.md",
+    "GUIA_PREINSTALACIO_DOMOTICA_RSM.md",
+    "GUIA_MANTENIMENT_I_USABILITAT_RSM.md",
+    "GESTIO_CIRCULAR_AIGUA_RSM.md",
+    "ESTUDI_ILUMINACIO_TACTICA_RSM.md",
+    "ESTUDI_AVANCAT_INTERIORISME_RSM.md",
+    "DETALL_INTERIORISME_SOTACOBERTA.md",
+    "DETALL_INTERIORISME_ESTUDI_PB.md",
+    "DETALL_INTERIORISME_DORMITORI_1.md",
+    "Comentaris_promotor_PB_RSM_V1.md",
+    "Carta_Promotor_Arquitecte.md",
+    "docs/PE/Documents_Treball/Informe_Acabats_Sistemes.md",
+    "docs/PE/Dossier_Plantejament_PE_Promotor.md",
+    "docs/PE/Dossier_Requeriments_Promotor_RSM.md",
+    "docs/PE/Documents_Treball/Informe_Fusteries_Exteriors.md",
+    "docs/PE/Documents_Treball/Informe_Revestiments_Interiors.md"
+  ]
+}

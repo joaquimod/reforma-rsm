@@ -1,0 +1,40 @@
+rules:
+  passivhaus:
+    demanda_calefaccio: 15  # kWh/m2a
+    demanda_refrigeracio: 15 # kWh/m2a
+    estanquitat_n50: 0.6    # h-1
+    aillament_minim:
+      façana: 0.20 # metres (exemple)
+      coberta: 0.25
+      solera: 0.15
+  cte_db_he:
+    transmitancia_maxima:
+      zona_c: # Vilanova i la Geltrú sol ser C
+        facana: 0.29
+        coberta: 0.23
+        finestres: 2.1
+  habitabilitat_cat:
+    superficie_minima_total: 36
+    superficie_minima_cuina_estar_menjador: 20
+    superficie_minima_habitacio: 6
+    quadrat_minim_habitacio_principal: 2.6
+    quadrat_minim_habitacio_secundaria: 2.0
+    cercle_minim_estar: 2.8
+    alcada_minima: 2.5
+    alcada_minima_serveis: 2.2
+    ratio_ventilacio: 0.125 # 1/8 de la superfície útil
+  urbanisme_vng:
+    nucli_antic: true
+    materials_prohibits: ['pvc', 'metalls brillants']
+    acabats_permesos: ['estuc de calç', 'morter de calç tradicional']
+    colors_permesos: ['ocre', 'terra', 'crema', 'blanc trencat']
+    limitacions_balcons:
+      volada_maxima: 0.45 # metres (exemple típic Nucli Antic)
+    vmc_obligatori: true # Per a reformes d'alta eficiència
+  accessibilitat_vng: # Basat en Decret 141/2012 i regles Vilanova
+    amplada_pas_habitables: 1.00 # Connecten accés amb sala, cuina, bany, 1 hab
+    amplada_pas_resta: 0.90
+    amplada_porta_llum: 0.80 # Accés i estances practicables
+    amplada_porta_resta: 0.70
+    diametre_gir_bany: 1.20 # Practicable
+    reserva_ascensor: 1.60

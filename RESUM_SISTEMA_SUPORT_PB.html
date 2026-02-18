@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            
+            
+            // Auto-auth via URL Hash (works better for local files)
+            // Format: file.html#auth=RSM2026
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+    if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Protocol de Suport | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #05080f;
+            color: #e2e8f0;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-premium {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00f2ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1000px] mx-auto space-y-16">
+
+        <header class="space-y-4" id="header" style="opacity: 0; transform: translateY(-20px);">
+            <a href="index.html"
+                class="text-cyan-400 font-bold text-sm uppercase tracking-widest hover:translate-x-[-4px] transition-transform inline-block">←
+                Tornar al Dashboard</a>
+            <h1 class="text-6xl font-bold text-white tracking-tight">Protocol de Suport <span
+                    class="gradient-text">Forense</span></h1>
+            <p class="text-slate-400 text-xl leading-relaxed">Metodologia de treball per a la fase de Projecte Bàsic i
+                Execució.</p>
+        </header>
+
+        <section class="space-y-12" id="content" style="opacity: 0; transform: translateY(20px);">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card-premium p-10 space-y-4">
+                    <div class="text-4xl mb-4">🔬</div>
+                    <h3 class="text-2xl font-bold text-white">Auditoria de Riscos</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Identificació de punts crítics en el disseny:
+                        transmitàncies tèrmiques, ponts tèrmics i compliment de la normativa Passivhaus / EnerPHit a
+                        Vilanova.</p>
+                </div>
+                <div class="card-premium p-10 space-y-4">
+                    <div class="text-4xl mb-4">🧱</div>
+                    <h3 class="text-2xl font-bold text-white">Suport de Materials</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Assessorament en la tria de paviments, fusteries i
+                        revestiments. Prioritzant l'estètica "Cozy Minimalism" amb alta durabilitat.</p>
+                </div>
+                <div class="card-premium p-10 space-y-4">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold text-white">Domòtica DIY</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Estratègia de control descentralitzat amb Home
+                        Assistant. Sensors de presència, reg automàtic i gestió d'atmosferes.</p>
+                </div>
+                <div class="card-premium p-10 space-y-4">
+                    <div class="text-4xl mb-4">♿</div>
+                    <h3 class="text-2xl font-bold text-white">Disseny Universal</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Adaptació dels espais per a una usabilitat total
+                        (gent gran): eliminació de graons, il·luminació tàctica i mobiliari ergonòmic.</p>
+                </div>
+            </div>
+
+            <div class="card-premium p-12 bg-white/[0.01] border-cyan-400/20">
+                <h2 class="text-3xl font-bold text-white mb-8">Flux de Treball</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="bg-cyan-400 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-slate-900 font-bold">
+                            1</div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Investigació i Dashboard</h4>
+                            <p class="text-slate-400 text-sm">Recopilació de dades, normativa local (VNG) i creació de
+                                l'entorn de visualització.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="bg-cyan-400 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-slate-900 font-bold">
+                            2</div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Iteració de Disseny</h4>
+                            <p class="text-slate-400 text-sm">Generació de renders 8K i estudis tècnics de materials per
+                                validar solucions abans de l'obra.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 items-start">
+                        <div
+                            class="bg-cyan-400 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-slate-900 font-bold">
+                            3</div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Acompanyament en Obra</h4>
+                            <p class="text-slate-400 text-sm">Resolució de dubtes en temps real i auditoria forense de
+                                la qualitat de l'execució.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-10 opacity-0" id="footer">
+            <p class="text-slate-600 text-[10px] uppercase tracking-[4px]">CASA RSM | Protocol Estratègic 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#header", { opacity: 1, y: 0, duration: 1 })
+                .to("#content", { opacity: 1, y: 0, duration: 1 }, "-=0.6")
+                .to("#footer", { opacity: 1, duration: 1 }, "-=0.4");
+        });
+    </script>
+</body>
+
+</html>

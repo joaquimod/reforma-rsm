@@ -1,0 +1,6 @@
+# Configuració del Sync Manager per a NotebookLM
+# Emplea aquest fitxer per connectar el teu projecte amb NotebookLM
+
+notebook_id: "7d9979e2-5df8-497c-a1f9-e07691f387e6"
+session_cookie: ""
+watch_dir: "docs/PB/V1"
