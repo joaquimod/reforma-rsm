@@ -32,48 +32,68 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
+        :root {
+            --primary: #00f2ff;
+            --secondary: #0066ff;
+            --bg-dark: #050812;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-purple: #a855f7;
+            --accent-orange: #f97316;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #050812;
-            color: #e2e8f0;
-            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent), radial-gradient(circle at bottom left, rgba(0, 102, 255, 0.05), transparent);
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.05), transparent 40%);
             background-attachment: fixed;
             min-height: 100vh;
         }
 
         .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
         }
 
         .card-premium {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 32px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
             position: relative;
         }
 
+        .card-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+
         .card-premium:hover {
-            border-color: #00f2ff;
+            border-color: var(--primary);
             background: rgba(0, 242, 255, 0.02);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 255, 0.1);
         }
 
         .phase-card {
             cursor: pointer;
-            height: 350px;
+            height: 380px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.05);
+            padding: 48px;
             position: relative;
             overflow: hidden;
+            border-radius: 32px;
         }
 
         .phase-card .content {
@@ -82,42 +102,53 @@
         }
 
         .kpi-text {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
+            letter-spacing: -2px;
             line-height: 1;
             margin-bottom: 0.5rem;
+            background: linear-gradient(to bottom right, #fff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .progress-bar-bg {
-            height: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 3px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
             overflow: hidden;
+            width: 100%;
         }
 
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00f2ff, #0066ff);
-            border-radius: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
         }
 
         .img-fit {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            transition: transform 0.8s ease;
+        }
+
+        .card-premium:hover .img-fit {
+            transform: scale(1.05);
         }
 
         .label-blur {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 6px 12px;
-            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 10px;
             font-weight: 700;
-            letter-spacing: 1px;
-            font-size: 10px;
+            letter-spacing: 2px;
+            font-size: 11px;
             text-transform: uppercase;
+            color: var(--primary);
         }
 
         #lightbox {
@@ -125,8 +156,8 @@
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: rgba(5, 8, 18, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(2, 6, 17, 0.98);
+            backdrop-filter: blur(24px);
             cursor: zoom-out;
             justify-content: center;
             align-items: center;
@@ -136,25 +167,27 @@
             display: flex;
         }
 
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 12px;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-            cursor: zoom-out;
-        }
-
         .btn-back {
             display: none;
             align-items: center;
-            gap: 8px;
-            color: #00f2ff;
-            font-weight: 700;
+            gap: 12px;
+            color: var(--primary);
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 12px;
+            letter-spacing: 3px;
+            font-size: 11px;
             cursor: pointer;
-            width: fit-content;
+            padding: 12px 24px;
+            border-radius: 12px;
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateX(-4px);
         }
 
         .view-section {
@@ -164,6 +197,34 @@
         #landing-view {
             display: block;
         }
+
+        /* Status Pills */
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pill-success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .pill-warning {
+            background: rgba(234, 179, 8, 0.1);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.2);
+        }
+
+        .pill-danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
     </style>
 </head>
 
@@ -171,17 +232,35 @@
     <div class="max-w-[1400px] mx-auto space-y-12">
 
         <!-- Header -->
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8" id="header">
+        <header
+            class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pb-8 border-b border-white/5"
+            id="header">
             <div class="space-y-4">
                 <div class="flex items-center gap-4">
-                    <div id="btn-home" class="btn-back"><span>←</span> TORNAR A L'INICI</div>
-                    <span id="phase-tag"
-                        class="text-cyan-400 font-bold tracking-[4px] uppercase text-[10px] bg-cyan-400/10 px-4 py-2 rounded-full">Project
-                        Twin</span>
+                    <div id="btn-home" class="btn-back"><span>←</span> INICI</div>
+                    <div class="flex items-center gap-2">
+                        <span id="phase-tag"
+                            class="text-white font-bold tracking-[3px] uppercase text-[9px] bg-white/5 px-4 py-2 rounded-lg border border-white/10">Project
+                            Twin</span>
+                        <span
+                            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-400 uppercase tracking-wider">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Sincronitzat
+                        </span>
+                    </div>
                 </div>
-                <h1 id="main-title" class="text-6xl font-bold text-white tracking-tight">CASA RSM | 2026</h1>
-                <p id="main-desc" class="text-slate-400 text-lg max-w-2xl leading-relaxed">Gestió operativa i visual de
-                    la reforma de l'habitatge</p>
+                <h1 id="main-title" class="text-7xl font-bold text-white tracking-tighter">CASA RSM</h1>
+                <p id="main-desc" class="text-slate-500 text-xl max-w-2xl font-light">
+                    Plataforma de <span class="text-slate-300 font-medium">gestió operativa</span> i control tècnic de
+                    la reforma integral.
+                </p>
+            </div>
+            <div class="flex flex-col items-end gap-2 text-right">
+                <div class="text-[10px] font-bold text-slate-500 uppercase tracking-[4px]">Estat de l'Auditoria</div>
+                <div class="flex items-center gap-3">
+                    <span class="status-pill pill-success">EnerPHit: Pass</span>
+                    <span class="status-pill pill-warning">VNG: Review</span>
+                </div>
             </div>
         </header>
 
@@ -218,53 +297,78 @@
             <!-- Primary Phase Selection -->
             <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div onclick="showPhase('pb')"
-                    class="card-premium phase-card group bg-[#0a1b2b] border-cyan-500/30 hover:bg-[#0c2236] transition-all !h-[350px]">
-                    <div class="content space-y-4">
-                        <span
-                            class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-400/20 px-4 py-2 rounded-full border border-cyan-400/30">Fase
-                            I</span>
-                        <h2 class="text-4xl font-bold text-white">Projecte Bàsic</h2>
-                        <p class="text-slate-400 text-sm max-w-xs">Auditoria, normativa i compliment tècnic del projecte
-                        </p>
-                        <div
-                            class="flex items-center gap-2 mt-4 text-xs font-bold text-cyan-400 uppercase tracking-widest group-hover:gap-4 transition-all">
-                            Veure Anàlisi <span>→</span>
+                    class="card-premium phase-card group bg-neutral-900 overflow-hidden !h-[400px]">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-50">
+                    </div>
+                    <div class="content space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="text-[9px] font-black text-cyan-400 uppercase tracking-[3px] bg-cyan-400/10 px-4 py-1.5 rounded-full border border-cyan-400/20">Fase
+                                I</span>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Activa</span>
                         </div>
+                        <h2 class="text-5xl font-bold text-white tracking-tighter">Projecte Bàsic</h2>
+                        <p class="text-slate-400 text-lg max-w-sm font-light">
+                            Auditoria forense, control de normativa i verificació de l'estàndard <span
+                                class="text-emerald-400 font-medium">EnerPHit</span>.
+                        </p>
+                        <button
+                            class="bg-white/5 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/50 text-cyan-400 text-[10px] font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-[2px] backdrop-blur-sm">
+                            Explorar Auditoria
+                        </button>
                     </div>
                 </div>
+
                 <div onclick="showPhase('pe')"
-                    class="card-premium phase-card group bg-[#1b0a2b] border-purple-500/30 hover:bg-[#220c36] transition-all !h-[350px]">
-                    <div class="content space-y-4">
-                        <span
-                            class="text-[10px] font-bold text-purple-400 uppercase tracking-widest bg-purple-400/20 px-4 py-2 rounded-full border border-purple-400/30">Fase
-                            II</span>
-                        <h2 class="text-4xl font-bold text-white">Projecte Executiu</h2>
-                        <p class="text-slate-400 text-sm max-w-xs">Definició del detall constructiu i entorn de treball
-                            amb l'oficina tècnica</p>
-                        <div
-                            class="flex items-center gap-2 mt-4 text-xs font-bold text-purple-400 uppercase tracking-widest group-hover:gap-4 transition-all">
-                            Zona de Treball <span>→</span>
+                    class="card-premium phase-card group bg-neutral-900 overflow-hidden !h-[400px]">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-50">
+                    </div>
+                    <div class="content space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="text-[9px] font-black text-purple-400 uppercase tracking-[3px] bg-purple-400/10 px-4 py-1.5 rounded-full border border-purple-400/20">Fase
+                                II</span>
+                            <span
+                                class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Planificació</span>
                         </div>
+                        <h2 class="text-5xl font-bold text-white tracking-tighter">Projecte Executiu</h2>
+                        <p class="text-slate-400 text-lg max-w-sm font-light">
+                            Definició de detalls constructius, amidaments i coordinació amb l'oficina tècnica.
+                        </p>
+                        <button
+                            class="bg-white/5 hover:bg-purple-500/20 border border-white/10 hover:border-purple-500/50 text-purple-400 text-[10px] font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-[2px] backdrop-blur-sm">
+                            Zona de Treball
+                        </button>
                     </div>
                 </div>
             </section>
 
             <!-- Concept Section -->
             <section onclick="showPhase('visio')"
-                class="card-premium p-10 group bg-[#1a140a] border-orange-500/20 hover:bg-[#221a0d] transition-all cursor-pointer">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div class="space-y-4">
-                        <span
-                            class="text-[10px] font-bold text-orange-400 uppercase tracking-widest bg-orange-400/10 px-3 py-1 rounded-full">Identitat
-                            Promotor</span>
-                        <h2 class="text-3xl font-bold text-white">Concepte de la Reforma</h2>
-                        <p class="text-slate-400 text-sm max-w-xl leading-relaxed">Consideracions, ADN i visió
-                            estratègica del promotor per a tot el projecte: Interiorisme, Sostenibilitat i Tecnologia
+                class="card-premium p-12 group bg-neutral-900 border-white/5 hover:border-orange-500/30 transition-all cursor-pointer relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-transparent"></div>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="text-[9px] font-black text-orange-400 uppercase tracking-[3px] bg-orange-400/10 px-4 py-1.5 rounded-full border border-orange-400/20">ADN</span>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Filosofia de
+                                Reforma</span>
+                        </div>
+                        <h2 class="text-5xl font-bold text-white tracking-tighter">Visió i Conceptes</h2>
+                        <p class="text-slate-400 text-lg max-w-2xl font-light leading-relaxed">
+                            Interiorisme tàctic, gestió circular de l'aigua i sostenibilitat bioclimàtica. La <span
+                                class="text-orange-400 font-medium">identitat del promotor</span> aplicada a cada
+                            detall.
                         </p>
                     </div>
                     <div
-                        class="flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-widest group-hover:gap-4 transition-all">
-                        Explorar Visió <span>→</span>
+                        class="flex items-center gap-4 bg-orange-500/10 border border-orange-500/20 px-8 py-4 rounded-2xl group-hover:bg-orange-500/20 transition-all">
+                        <span class="text-orange-400 font-bold uppercase tracking-[2px] text-[10px]">Explorar
+                            Conceptes</span>
+                        <span class="text-orange-400 text-xl group-hover:translate-x-2 transition-transform">→</span>
                     </div>
                 </div>
             </section>
