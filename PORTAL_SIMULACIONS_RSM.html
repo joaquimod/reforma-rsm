@@ -7,14 +7,14 @@
     <script>
         (function () {
             const CLAU_ACCES = "RSM2026";
-            
-            
+
+
             // Auto-auth via URL Hash (works better for local files)
             // Format: file.html#auth=RSM2026
             if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
                 sessionStorage.setItem('rsm_access', 'true');
             }
-    if (sessionStorage.getItem('rsm_access') !== 'true') {
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
                 let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
                 if (pass === CLAU_ACCES) {
                     sessionStorage.setItem('rsm_access', 'true');
@@ -148,12 +148,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="sim-grid" style="opacity: 0;">
 
             <!-- I. EXT / PB -->
-            <a href="PROPOSTA_INTERIORISME_RSM.html#facana" class="card-sim group" data-cat="EXT PB">
-                <span class="tag text-cyan-400">EXTERIOR</span>
-                <img src="interior_facana_renovada_v1_rsm.png" alt="Façana">
+            <a href="PROPOSTA_INTERIORISME_RSM.html#facana" class="card-sim group border-emerald-500/20"
+                data-cat="EXT PB">
+                <span class="tag text-emerald-400">DISSENY DEFINITIU</span>
+                <img src="facana_final_accessible_rsm.png" alt="Façana">
                 <div class="card-overlay">
                     <h3 class="text-xl font-bold text-white">Façana Principal</h3>
-                    <p class="text-slate-400 text-xs">Simulació de SATE i fusteries de roure</p>
+                    <p class="text-slate-400 text-xs text-emerald-400 font-bold">Accessibilitat Total & RAL
+                        7035/7040/7021</p>
                 </div>
             </a>
 
@@ -227,7 +229,16 @@
                 <img src="interior_habitacio_final_rsm.png" alt="Habitació Principal">
                 <div class="card-overlay">
                     <h3 class="text-xl font-bold text-white">Dormitori Principal</h3>
-                    <p class="text-slate-400 text-xs text-cyan-400 font-bold">Suite d'Alta Eficiència</p>
+                    <p class="text-slate-400 text-xs text-cyan-400 font-bold">Disseny Base: Fusta i Neutres</p>
+                </div>
+            </a>
+
+            <a href="PROPOSTA_INTERIORISME_RSM.html#habitacio" class="card-sim group border-cyan-500/20" data-cat="P2">
+                <span class="tag text-cyan-400">P2 | SUITE V2</span>
+                <img src="interior_habitacio_final_rsm_2.jpeg" alt="Habitació Principal V2">
+                <div class="card-overlay">
+                    <h3 class="text-xl font-bold text-white">Dormitori Principal</h3>
+                    <p class="text-slate-400 text-xs text-cyan-400 font-bold">Variant v2: Atmosfera Relax</p>
                 </div>
             </a>
 
@@ -242,7 +253,7 @@
 
             <a href="PROPOSTA_INTERIORISME_RSM.html#bany" class="card-sim group" data-cat="P2">
                 <span class="tag text-cyan-400">PLANTA SEGONA</span>
-                <img src="interior_bany_p2_porta_fusta_rsm.png" alt="Bany">
+                <img src="interior_bany_p2_rsm.png" alt="Bany">
                 <div class="card-overlay">
                     <h3 class="text-xl font-bold text-white">Bany Principal</h3>
                     <p class="text-slate-400 text-xs">Higene i disseny suspès</p>
