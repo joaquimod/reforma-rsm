@@ -1,14 +1,14 @@
 # Informe tècnic: disseny i equipament de banys
 
-**Data:** 16 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 16 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir els acabats, sanitaris i il·luminació dels tres nuclis humits segons la seva funció específica i nivell d'acabat requerit.
 
 ## 1. Bany planta baixa (servei)
-**Concepte:** Funcionalitat pura. Ús esporàdic (taller, garatge, convidat d'emergència) i neteja ràpida.
+**Concepte:** Funcionalitat pura. Ús esporàdic (taller, garatge, convidat) i neteja ràpida.
 
 *   **Paviment i revestiment:**
-    *   Continuïtat amb el terra de la PB (**Gres Porcelànic Gris**).
+    *   Continuïtat amb el terra de la PB (**Gres porcelànic gris**).
     *   Parets: Enrajolat bàsic blanc mat (econòmic i lluminós) o el mateix gris a mitja alçada.
 *   **Sanitari:**
     *   WC convencional a terra (amb cisterna motxilla). Més econòmic d'instal·lar i mantenir. Gamma bàsica (Ex: Roca The Gap).

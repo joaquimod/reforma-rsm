@@ -34,7 +34,7 @@ No es pot dependre d'un sol router. Cal preveure **Punts d'Accés (AP)** a sostr
 
 ---
 
-## 3. Requeriments elèctrics per a l'Arquitecte
+## 3. Requeriments elèctrics per al PE
 
 Aquests són els punts que han d'aparèixer al Pressupost del Projecte Executiu:
 
@@ -62,5 +62,3 @@ Aquests són els punts que han d'aparèixer al Pressupost del Projecte Executiu:
 | **Mecanismes** | **Caixes de 60mm de fons.** | Totes les plantes |
 
 ---
-
-Vols que revisem algun altre detall? He situat el Rack a la P1 perquè és "l'equador" del senyal a la teva casa.

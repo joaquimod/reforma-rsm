@@ -1,7 +1,7 @@
 # Informe tècnic: tancaments interiors (portes de pas)
 
-**Data:** 16 de febrer de 2026
-**Fase:** Projecte Executiu (Definició de materials i pressupost)
+**Data:** 16 de febrer de 2026.
+**Fase:** Projecte Executiu (Definició de materials i pressupost).
 **Objectiu:** Establir criteris de qualitat, funcionalitat (acústica/espai) i compliment Passivhaus per a les portes interiors.
 
 ---
@@ -33,13 +33,13 @@ Atès que hi ha poques unitats, es recomana invertir en qualitat superior:
 *   Evitar les portes "tubulars" (buit interior de cartró). Són lleugeres i transmeten molt el soroll.
 *   Triar portes **massisses** (aglomerat dens o DM). El pes aporta:
     *   **Aïllament acústic:** Vital en espais oberts com la planta baixa.
-    *   **Tact:** Sensació de robustesa i qualitat en obrir i tancar.
+    *   **Tacte:** Sensació de robustesa i qualitat en obrir i tancar.
 
 ### B. Ferratges (El toc de distinció)
-*   **Frontisses Ocultes:** Quan la porta està tancada, no es veu cap cilindre metàl·lic. Neteja visual total.
-*   **Picaport Magnètic:** Imprescindible en gamma alta. Elimina la llengüeta que sobresurt al cantell i el soroll metàl·lic en tancar. El tancament és silenciós i suau.
+*   **Frontisses ocultes:** Quan la porta està tancada, no es veu cap cilindre metàl·lic. Neteja visual total.
+*   **Picaport magnètic:** Imprescindible en gamma alta. Elimina la llengüeta que sobresurt al cantell i el soroll metàl·lic en tancar. El tancament és silenciós i suau.
 
-## 4. Acabats i Estètica
+## 4. Acabats i estètica
 
 ### Opció A: Lacat (Blanc/Color)
 *   **Avantatge:** Lluminositat, integració amb parets.

@@ -8,7 +8,7 @@
 
 ## 1. Parets interiors: el llenç blanc
 
-Per aconseguir el minimalisme buscat a la Casa RSM, la perfecció de la superfície és innegociable.
+Per aconseguir el minimalisme buscat a la Casa RSM, la perfecció de la superfície és important.
 
 *   **Material:** **Placa de Guix Laminat (tipus Pladur)** de doble gruix o placa d'alta densitat.
 *   **Qualitat d'Acabat:** Exigència de **Nivell Q4**. És el màxim nivell de llisat, obligatori per a pintures blanques amb il·luminació lateral o rasant, ja que elimina qualsevol ombra de les juntes.
@@ -30,16 +30,16 @@ Els sostres han de resoldre la integració de les instal·lacions VMC i Clima se
 
 ---
 
-## 3. Sòcols (Rodapiés): el detall de qualitat
+## 3. Sòcols: el detall de qualitat
 
 El sòcol sol ser el punt on s'acumula la pols i es trenca la línia de la paret. Proposem dues alternatives per al PE:
 
-### Opció A: Sòcol Enrasat (Flush) - Recomanat
+### Opció A: Sòcol enrasat (Flush) - Recomanat
 *   **Descripció:** El sòcol queda al mateix nivell que la paret mitjançant un perfil metàl·lic de base.
 *   **Avantatges:** Minimalisme pur. No acumula pols al cantell superior. Permet arrimmar els mobles totalment a la paret.
 *   **Inconvenient:** Cost d'instal·lació més elevat (requereix col·locació abans del pladur).
 
-### Opció B: Sòcol Minimalista blanc
+### Opció B: Sòcol minimalist blanc
 *   **Descripció:** Perfil rectangle de DM hidròfug, molt baix (40mm) i fi (10-12mm).
 *   **Acabat:** Pintat exactament del mateix color que la paret.
 *   **Avantatge:** Més econòmic i ràpid de posar.

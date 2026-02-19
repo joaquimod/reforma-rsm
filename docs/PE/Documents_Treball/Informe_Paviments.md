@@ -1,7 +1,7 @@
 # Informe tècnic: estratègia de paviments i revestiments
 
-**Data:** 16 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 16 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir els materials de pavimentació prioritzant la durabilitat, el baix manteniment i l'estètica minimalista (White/Wood/Grey).
 
 ---

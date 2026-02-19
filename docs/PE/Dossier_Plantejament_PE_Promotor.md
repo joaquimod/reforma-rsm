@@ -1,5 +1,5 @@
 # Dossier de plantejament del Projecte Executiu (PE) del promotor
-**Casa Raval Santa Magdalena (RSM) | Projecte RSM2026**
+**Casa Raval Santa Magdalena (Casa RSM) | Projecte RSM2026**
 
 ---
 

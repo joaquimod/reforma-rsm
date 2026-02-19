@@ -1,12 +1,12 @@
 # Informe tècnic: envolupant, mecanismes i sistemes de seguretat
 
-**Data:** 18 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 18 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir l'acabat exterior de la casa, la sèrie de mecanismes elèctrics i la infraestructura de seguretat i gestió d'aigua.
 
 ---
 
-## 1. Envolupant exterior: el look & feel de la façana
+## 1. Envolupant exterior (façana)
 
 Atesa la solució constructiva i la integració en el conjunt arquitectònic, es proposen els següents acabats per a la Casa RSM:
 

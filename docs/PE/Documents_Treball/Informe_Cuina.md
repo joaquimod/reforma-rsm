@@ -9,7 +9,7 @@
 ## 1. Concepte i distribució
 Es proposa una cuina "invisible" o silenciosa visualment, integrada en l'espai menjador.
 *   **Zona de treball:** Sense illa per maximitzar l'espai de circulació.
-*   **Emmagatzematge:** Ús de columnes fins al sostre per a despensa i electrodomèstics, i un moble baix (bufet) al menjador per a paraments no diaris.
+*   **Emmagatzematge:** Ús de columnes fins al sostre per a electrodomèstics, i un moble baix (bufet) al menjador per a paraments no diaris.
 *   **Integració:** Panelat total (frigorífic i rentavaixelles ocults) per evitar l'impacte visual del metall/plàstic.
 
 ---
@@ -28,7 +28,7 @@ Busquem materials tipus HPL (Laminat d'alta pressió) o Fenix (antifoscor i sed�
 ### B. Taulells (Pedra Sinteritzada)
 Indestructibles i antibacterians.
 *   **Referents:** **Dekton** (Cosentino), **Neolith**, **Laminam**.
-*   **Acabat:** Mat o "Satin", color sòlid (blanc trencat o gris ciment) per evitar que es vegi la pols/greix.
+*   **Acabat:** Mat o "Satin", color sòlid blanc, (blanc trencat o gris ciment) per evitar que es vegi la pols/greix.
 
 ---
 
@@ -70,5 +70,6 @@ Aquesta taula estima el cost total (mobles + muntatge + taulell + electrodomèst
 
 ---
 
-**Conclusió i Recomanació:**
+
+**Conclusió i recomanació:**
 Per a la Casa RSM, l'**Opció de Nivell 2** (Marques tipus **Santos** o **Rekker** amb electrodomèstics **Neff/Siemens**) ofereix el millor equilibri entre preu, disseny minimalista i fiabilitat alemanya, sense entrar en els preus desorbitats del sector de pur luxe.

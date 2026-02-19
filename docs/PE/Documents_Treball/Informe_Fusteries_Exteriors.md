@@ -1,7 +1,7 @@
 # Informe tècnic: fusteries d'alt rendiment per a Passivhaus
 
-**Data:** 16 de febrer de 2026
-**Fase:** Projecte Executiu (Definició de materials i pressupost)
+**Data:** 16 de febrer de 2026.
+**Fase:** Projecte Executiu (Definició de materials i pressupost).
 **Objectiu:** Fixar criteris per a la selecció de finestres que garanteixin l'hermeticitat i l'aïllament tèrmic exigits per l'estàndard Passivhaus.
 
 ## 1. Importància crítica en Passivhaus

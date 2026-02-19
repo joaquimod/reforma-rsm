@@ -1,7 +1,7 @@
 # Informe tècnic: estratègia i equipament de transport vertical (Ascensor)
 
-**Data:** 18 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 18 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir el tipus d'ascensor, marques i criteris de manteniment per garantir l'accessibilitat total a la Casa RSM amb el mínim impacte acústic i estructural.
 
 ---
@@ -53,24 +53,24 @@ En una rehabilitació d'habitatge unifamiliar, tenim bàsicament dues grans opci
 
 Si s'escull una solució de **Nivell 1 (Otis, Schindler, KONE)**, l'ascensor deixa de ser un element industrial per convertir-se en una peça d'alt disseny a la casa.
 
-### A. Interior de la Cabina (L'Experiència)
+### A. Interior de la cabina
 *   **Minimalisme Monocromàtic:** Ús de panells de **vidre matitzat** (*Skinplate* d'alta gamma) en colors blanc trencat o gris neutre. El vidre evita les ratllades i aporta una profunditat visual superior als lacats tradicionals.
 *   **Sostre Escultòric:** Panells LED de tota la superfície (tipus *Skylight*) que proporcionen una llum suau i uniforme, eliminant els focus puntuals agressius.
 *   **Mirall Infinit:** Mirall de paret completa (del terra al sostre) per "esborrar" el límit de la cabina i donar una sensació d'amplitud màxima.
 *   **Paviment Continu:** Instal·lació del mateix **SPC (Roure Clar)** que la resta de la casa dins la cabina per unificar espais.
 
-### B. Integració Exterior (L'Estabilitat Visual)
+### B. Integració exterior
 *   **Portes "Camaleó":** Acabat de les portes exteriors en pintura en pols del mateix codi RAL que les parets del passadís. L'ascensor esdevé pràcticament invisible quan està tancat.
 *   **Marcs Enrasats (Flush):** Instal·lació de les portes totalment a nivell de la paret de pladur o obra, eliminant els ressalts i marcs d'acer amples.
 *   **Indicadors Discrets:** Senyalització de pis mitjançant LEDs blancs minimalistes integrats en els propis marcs o portes, evitant pantalles LCD cridaneres.
 
-### C. Tecnologia i Escenes
+### C. Tecnologia i escenes
 *   **Il·luminació Adaptativa (Escenes):** Configuració de la llum de cabina segons l'hora del dia: llum natural/blanca al matí i llum càlida/tènue a la nit.
 *   **Botoneres de Vidre:** Interfície d'usuari mitjançant vidre negre o blanc amb polsadors retroil·luminats tàctils o de curt recorregut.
 
 ---
 
-## 5. Cicle de vida i sostenibilitat (ESG)
+## 5. Cicle de vida i Sostenibilitat (ESG)
 
 1.  **Ambiental:** Els ascensors elèctrics consumeixen el mateix que una cafetera en repòs. Són fàcils de connectar a les **plaques fotovoltaiques** de la taulada (ús diürn "gratis").
 2.  **Social (Accessibilitat):** El fet de tenir un elevador fiables garanteix que la casa sigui "per a tota la vida", eliminant barreres arquitectòniques en cas de mobilitat reduïda futura.
@@ -79,4 +79,4 @@ Si s'escull una solució de **Nivell 1 (Otis, Schindler, KONE)**, l'ascensor dei
 ---
 
 **Recomanació final per al PE:**
-Per a la Casa RSM, recomanaria un **Ascensor Elèctric MRL de la marca Orona o Otis**. Ofereixen una integració estètica minimalista perfecta, són notablement silenciosos i el seu manteniment a 20 anys vista és el més equilibrat i segur.
+Per a la Casa RSM, es recomana un **Ascensor Elèctric MRL de la marca Orona o Otis**. Ofereixen una integració estètica minimalista perfecta, són notablement silenciosos i el seu manteniment a 20 anys vista és el més equilibrat i segur.

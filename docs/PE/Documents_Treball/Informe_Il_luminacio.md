@@ -1,7 +1,7 @@
-# Informe tècnic: estratègia d'il·luminació arquitectònica i automatitzada
+# Informe tècnic: estratègia d'il·luminació automatitzada
 
-**Data:** 18 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 18 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir un sistema d'il·luminació minimalista, integrat en l'obra i totalment automatitzable per Home Assistant (DIY), cobrint espais interiors i exteriors.
 
 ---
@@ -26,7 +26,7 @@ En un estil minimalista modern, la llum no és un accessori, sinó part de l'arq
 *   **Sala Polivalent:** Instal·lació de **carril magnètic encastat** minimalista. Permet intercanviar focus d'accent (ús taller) per mòduls difusos (ús dormitori).
 *   **Safareig i Bany PB:** Plafons LED extraplans circulars encastats.
 
-### B. Planta 1 i 2 (Hàbitat i Cortesia)
+### B. Planta 1 i 2 (Hàbitat i cortesia)
 *   **Cuina i Despensa:**
     *   Cuina: Llum de treball sota mobles alts (Tira LED oculta).
     *   Despensa: Il·luminació lineal integrada en el prestatge superior o sostre, activada per sensor d'obertura.

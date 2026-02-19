@@ -1,7 +1,7 @@
 # Informe tècnic: estratègia d'escales i baranes
 
-**Data:** 18 de febrer de 2026
-**Fase:** Projecte Executiu
+**Data:** 18 de febrer de 2026.
+**Fase:** Projecte Executiu.
 **Objectiu:** Definir la materialitat i el disseny diferenciats per a cada tram d'escala de la Casa RSM, responent a la seva funció i context arquitectònic.
 
 ---
@@ -12,7 +12,7 @@ L'habitatge presenta tres situacions clarament diferenciades que requereixen sol
 
 ### 1.1 Tram Planta Baixa a Planta Primera (PB -> P1)
 Aquest és el tram d'accés principal a la zona de dia.
-*   **Tipologia:** Escala d'obra (existent/rehabilitada).
+*   **Tipologia:** Escala d'obra.
 *   **Proposta d'acabat:** Revestiment de la petja i contrapetja en **gres porcellànic** (el mateix paviment de gran format de la PB) fins a arribar al replà de la P1.
 *   **Raonament:** Continuitat material amb el terra de la planta baixa, que és la zona de més trànsit i on s'aplica una estètica més "industrial" i resistent.
 *   **Barana:** Muret cec blanc integrat en l'arquitectura.
@@ -23,7 +23,7 @@ Tram que connecta la zona de dia amb la zona de descans (dormitoris).
 *   **Proposta d'acabat:** Revestiment integral (petja i contrapetja) amb **SPC (fusta tecnològica)** a joc amb el paviment de les plantes superiors.
 *   **Raonament:** L'escala neix a la zona de dia (P1) i actua com a transició cap a la calidesa de la zona de nit. El material SPC ofereix un tacte més "domèstic" i silenciós per a les plantes de dormitoris.
 
-### 1.3 Tram Planta Segona a Sotacoberta (P2 -> PS)
+### 1.3 Tram Planta Segona a Sotacoberta (P2 -> PSC)
 Accés a l'altell/estudi i zona de serveis.
 *   **Tipologia:** Escala lleugera, tipus "moble" o peça escultòrica.
 *   **Proposta d'acabat:** Estructura metàl·lica vista (zanques laterals o monobiga) amb **esglaons de fusta massissa o xapa plegada de contrapetja oberta**.
