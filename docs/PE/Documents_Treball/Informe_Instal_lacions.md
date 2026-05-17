@@ -88,7 +88,17 @@ En una casa Passivhaus (demanda < 15 kWh/m²a), les regles del joc canvien respe
 
 ---
 
-## 7. Anàlisi econòmica i de manteniment (estimació 2026)
+## 7. Sinergia de Ventilació: VMC vs Claraboia Motoritzada (Purga Tèrmica)
+
+Encara que la casa disposi de **Ventilació Mecànica Controlada (VMC) de doble flux amb recuperador de calor**, la inclusió d'una claraboia motoritzada a la teulada de l'escala és un requisit bioclimàtic indispensable per als estius:
+
+*   **Rol de la VMC:** Funciona les 24h amb les finestres tancades. Garanteix la màxima eficiència a l'hivern i qualitat de l'aire constant, però el seu cabal (fins i tot en mode *bypass* d'estiu) és massa baix per refredar ràpidament l'estructura de la casa.
+*   **Rol de la Claraboia (Free-cooling intensiu):** A les nits d'estiu, obrir la claraboia juntament amb un accés a la planta baixa genera un **Efecte Xemeneia** immediat. Aquest "flush" o purga tèrmica evacua el 100% de l'aire calent acumulat a la sotacoberta en minuts, aprofitant el gran tir vertical de l'escala.
+*   **Gestió Domòtica:** La claraboia haurà d'incorporar motor, integració amb Home Assistant i sensor de pluja per permetre'n l'obertura nocturna automatitzada amb total seguretat.
+
+---
+
+## 8. Anàlisi econòmica i de manteniment (estimació 2026)
 
 | Concepte | **Opció A (Aire-Aire + ACS)** | **Opció B (Aire-Aigua + Fancoils)** |
 | :--- | :---: | :---: |
