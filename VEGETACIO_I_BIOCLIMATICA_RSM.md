@@ -21,5 +21,13 @@ Vilanova té una alta radiació a l'estiu; la vegetació actua com a barrera:
 - **Drenatge:** Connexió directa de jardineres al desguàs per evitar acumulacions d'aigua i mantenir el paviment net.
 - **Hidrojardineres:** Ús obligatori a l'interior per a una autonomia de 2-4 setmanes.
 
+## 4. Protecció Solar Passiva i Terrasses
+Davant la necessitat (o no) d'instal·lar tendals clàssics per protegir la casa a l'estiu, l'estratègia del Projecte Executiu aposta per solucions passives i integrades:
+
+- **Geometria Enretirada (Efecte Visera):** Les terrasses es troben endarrerides respecte a la línia de la coberta/façana. Aquest voladís natural frena la radiació solar de ple estiu (quan el sol és més alt) protegint el vidre, alhora que permet l'entrada de llum i escalfor a l'hivern (quan el sol va més baix).
+- **Ventilació Creuada i Efecte Xemeneia:** El control tèrmic no recau exclusivament en l'ombra, sinó en extreure l'aire calent a través del pati interior i la sotacoberta mitjançant sistemes de ventilació natural creuada.
+- **Vidres Baix Emissius:** La mateixa fusteria d'alta eficiència inclosa al PE actua com a barrera primordial de rebot tèrmic.
+- **Conclusió sobre els Tendals:** S'aconsella viure-hi el primer estiu sense proteccions tèxtils. En cas de requerir-ne posteriorment en alguna façana concreta, s'haurien d'evitar els tendals de braç extensible clàssics (que trenquen l'estètica "White & Oak" de l'arquitectura) en favor de **tendals verticals tipus Screen (Zip)**, integrats a l'estructura de la fusteria.
+
 ---
 *Estratègia Bioclimàtica VNG Ready | Gener 2026*
