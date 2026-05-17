@@ -11,9 +11,9 @@
 Atesa la configuració de 4 plantes de la Casa RSM, la propagació de senyals sense fils (Wi-Fi/Zigbee) és crítica. Es proposa una estructura en "arbre" amb un nucli central.
 
 ### A. El Cervell (Rack Central)
-*   **Ubicació recomanada:** Planta 1 (zona central o armari de serveis).
-*   **Funció:** Punt d'entrada de fibra òptica, ubicació del router principal, switch PoE i hub de Home Assistant (RbPi).
-*   **Requeriments:** Armari rack de 10" encastat o sobre-posat, amb ventilació passiva i 4 preses de corrent.
+*   **Ubicació recomanada:** Planta Baixa (Sala d'Instal·lacions).
+*   **Funció:** Punt d'entrada de fibra òptica (escomesa), ubicació del router principal, switch PoE i hub de Home Assistant (RbPi).
+*   **Requeriments:** Armari rack de 19" amb ventilació passiva i 6 preses de corrent protegides per SAI.
 
 ### B. La Columna Vertebral (Dorsal tècnica)
 *   **Tub de pujada:** Cal un tub corrugat de Ø40mm que comuniqui verticalment les 4 plantes (entrant pels quadres elèctrics o patis tècnics).

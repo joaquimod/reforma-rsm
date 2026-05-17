@@ -17,8 +17,8 @@ Durant la revisió dels plànols, fixa't o pregunta directament sobre aquests pu
 
 ### A. Normativa de Vilanova (façana i estètica)
 *   **Finestres:**
-    *   **Alerta:** Si diu "PVC" en façana visible.
-    *   **Requisit:** Ha de dir "Fusta" o "Alumini Lacat". El PVC està prohibit al Nucli Antic/Centre.
+    *   **Selecció:** PVC d'altes prestacions (especificació Passivhaus/Weru).
+    *   **Alerta:** Cal assegurar que l'acabat compleixi la normativa cromàtica del Nucli Antic per evitar denegacions.
 *   **Acabats de Façana:**
     *   **Alerta:** "Monocapa", "Arrebossat Acrílic" o colors vius.
     *   **Requisit:** "Morter de Calç" (Estuc tradicional) i colors terra/ocre/blanc trencat.
@@ -59,5 +59,5 @@ Per poder passar l'auditoria automàtica amb l'agent Antigravity, necessites el 
 ## Resum del "guió" per la reunió
 
 1.  **Entrada:** *"Bon dia. Com que no tinc els documents, avui revisem junts, però l'aprovació final la donaré demà després de mirar-m'ho a casa tranquil·lament."*
-2.  **Durant:** *"Això és PVC? Segur que l'Ajuntament ho permet aquí? I la màquina de ventilació on l'hem posat?"*
+2.  **Durant:** *"La fusteria de PVC d'altes prestacions (Weru) està confirmada. Com la justificarem estèticament davant l'Ajuntament? I la màquina de ventilació on l'hem posat?"*
 3.  **Sortida:** *"D'acord, m'agrada (o corregim això). Envieu-me el PDF Vectorial ara mateix i demà us dono llum verda."*

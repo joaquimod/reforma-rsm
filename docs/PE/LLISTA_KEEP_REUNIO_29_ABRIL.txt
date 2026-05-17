@@ -1,0 +1,25 @@
+Reunió PE Casa RSM - 29/04/2026
+
+Documentació a lliurar / demanar
+[ ] Lliurar Certificat Energètic 2024 (Estat actual)
+[ ] Demanar PDF Vectorial dels plànols presentats
+[ ] Demanar Estat d'Amidaments (Excel o BC3)
+[ ] Confirmar registre del nou CEE de Projecte (Lletra A)
+
+Checklist Tècnic i Accessibilitat
+[ ] SATE: Confirmar 16 cm de gruix (EPS Grafit)
+[ ] Fusteria: Confirmar PVC d'altes prestacions (triple vidre)
+[ ] Hermeticitat: Verificar detalls de cintes de segellat
+[ ] Climatització: Confirmar unitat exterior a coberta (no façana)
+[ ] VMC: Verificar traçat de tubs i recuperador >90%
+[ ] Elèctric: Caixes de 60 mm de fons i cable neutre a tot arreu
+[ ] Fotovoltaica: Previsió per a 5-6 kWp i bateria/V2H
+[ ] Ascensor: Model elèctric silenciós i aïllament acústic P2
+[ ] Nivell zero: Verificar transicions a terrasses sense graons
+[ ] Acabats: Morter de calç i colors segons normativa VNG
+
+Preguntes clau
+- Quina desviació tenim del PEM respecte al Projecte Bàsic?
+- Quan tindrem els amidaments tancats per demanar preus a constructores?
+- Com hem resolt el soroll de l'ascensor a la zona de dormitoris?
+- Està assegurat el salt d'eficiència per a la deducció de l'IRPF?

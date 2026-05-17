@@ -65,7 +65,7 @@ S'han definit tres configuracions base per al sistema domòtic:
 
 ## 4. Referències de Mobiliari i Complements
 
-Selecció basada en la "Taula de botigues virtuals" i el concepte de mobiliari lleuger:
+Selecció basada en la "Taula de botigues virtuals" i el concepte de mobiliari lleuger. Tots els elements (materials, equipaments, complements i mobles) han de complir amb els criteris de gestió i manteniment fàcils, alta durabilitat, neteja senzilla, resistència i usabilitat.
 
 *   **Butaca i Descans:** Stressless Office en cuir marró per a l'estudi i butaques de roure i lli (Kenay Home / Tikamoon).
 *   **Mobiliari d'Obra:** Prestatgeries integrades de calç i roure, i calaixeres minimalistes de fusta clara.

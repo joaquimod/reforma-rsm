@@ -1,0 +1,5 @@
+PROMPT POSITIU:
+(floating nightstand:1.3), light oak wood, wall-mounted, no legs, modern minimalist design, architectural interior design, photorealistic, 8k resolution, highly detailed wood texture, V-Ray render, natural lighting, <lora:XSarchitectural-38InteriorForBedroom:0.7>
+
+PROMPT NEGATIU:
+legs, standing, floor contact, wheels, traditional nightstand, ugly, plastic, low quality, blurry, deformed, watermark, text, dark wood

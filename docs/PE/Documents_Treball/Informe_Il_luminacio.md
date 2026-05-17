@@ -1,25 +1,45 @@
-# Informe tècnic: estratègia d'il·luminació automatitzada
+# Informe tècnic: selecció d'enllumenat Lux Light (PE)
 
-**Data:** 18 de febrer de 2026.
-**Fase:** Projecte Executiu.
-**Objectiu:** Definir un sistema d'il·luminació minimalista, integrat en l'obra i totalment automatitzable per Home Assistant (DIY), cobrint espais interiors i exteriors.
-
----
-
-## 1. Conceptes generals: la llum integrada
-
-En un estil minimalista modern, la llum no és un accessori, sinó part de l'arquitectura.
-
-*   **Il·luminació Indirecta (Fosos de llum):** Ús de perfils d'alumini ocults en falsos sostres, mobles o cortiners. La llum "banya" les superfícies.
-*   **Perfileria Trimless (Sense marcs):** Ús de perfils encastats a ras de pladur que queden totalment anivellats amb la paret/sostre. Quan estan apagats, són pràcticament invisibles.
-*   **Temperatura de color:**
-    *   **3000K (Blanc Càlid):** Estàndard per a tota la casa.
-    *   **2700K (Molt Càlid):** Per a zones de relaxació (dormitoris).
-    *   **CRI > 90:** Exigència mínima per garantir que els tons de la fusta natural i materials es vegin realistes.
+**Data:** 15 de maig de 2026.
+**Fase:** Projecte Executiu (Definitiu).
+**Objectiu:** Especificació tècnica de les lluminàries Lux Light i la seva integració amb Home Assistant per a un minimalisme total.
 
 ---
 
-## 2. Definició per espais
+## 1. Conceptes generals i Criteris de Disseny
+
+En un estil minimalista modern, la llum no és un accessori, sinó part de l'arquitectura. S'ha adoptat la marca **Lux Light** com a estàndard per a tot l'habitatge.
+
+*   **Temperatura de Color (CCT):** **3000K** (Blanc Càlid) com a estàndard general per garantir la calidesa sobre el roure i la ceràmica sorra.
+*   **Reproducció Cromàtica:** Exigència de **CRI > 90** en tots els models per a una visualització realista dels materials.
+*   **Regulació:** Tots els models principals són **Dimmable (Triac)** per a la seva integració amb Home Assistant.
+*   **Tecnologia Trimless:** Ús de perfils encastats a ras de pladur que queden totalment anivellats amb la paret/sostre.
+
+---
+
+## 2. Selecció Tècnica: Catàleg Lux Light
+
+S'han seleccionat els següents models base per a l'execució del projecte:
+
+### A. Il·luminació General (DLIGHT)
+*   **Aplicació:** Cuina, Menjador i Banys.
+*   **Característiques:** Downlight LED amb baix enlluernament (UGR < 19). Potències de 10W a 15W segons l'alçada del sostre.
+
+### B. Espais Tècnics i Sotacoberta (FLAT / SLIM)
+*   **Aplicació:** Zones amb fals sostre limitat pel gruix de l'aïllament tèrmic.
+*   **Característiques:** Perfil ultra-fí amb tecnologia 3CCT (selector de temperatura manual).
+
+### C. Zones de Descans (CONFORT 24)
+*   **Aplicació:** Dormitoris i zones de relax.
+*   **Característiques:** Òptica profunda per evitar l'enlluernament directe des del llit. Màxim confort visual.
+
+### D. Il·luminació d'Accent (Carril Magnètic)
+*   **Aplicació:** Sala polivalent i zones de treball.
+*   **Característiques:** Sistema flexible que permet intercanviar focus d'accent per mòduls difusos segons l'activitat.
+
+---
+
+## 3. Definició per espais
 
 ### A. Planta Baixa (Zonificació tècnica i flexible)
 *   **Garatge i Sala de Màquines:** Il·luminació funcional lineal (perfils estancs IP44) de muntatge en superfície. A la sala de màquines s'activa per interruptor de porta.

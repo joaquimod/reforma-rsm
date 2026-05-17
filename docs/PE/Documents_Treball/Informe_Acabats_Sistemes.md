@@ -10,9 +10,11 @@
 
 Atesa la solució constructiva i la integració en el conjunt arquitectònic, es proposen els següents acabats per a la Casa RSM:
 
-*   **Acabat:** Morter acrílic/siloxànic de gra fi. Repel·leix l'aigua i la contaminació, clau en l'entorn de Vilanova.
+*   **Estratègia d'aïllament (SATE):** 
+    *   **Opció Base:** EPS Grafit de 16 cm ($\lambda \approx 0,032$). Màxima eficiència amb el mínim gruix.
+    *   **Opció Natural:** Suro Natural o Fibra de Fusta de 20 cm ($\lambda \approx 0,040$). Aporta millor transpirabilitat i una inèrcia tèrmica superior (confort d'estiu), essent més coherent amb una visió bio-climàtica de la reforma.
+*   **Acabat:** Morter de calç o silicat de gra fi. Ha de ser altament transpirable per permetre el "respirar" del mur, especialment si s'opta per aïllaments naturals.
 *   **Color de la façana del carrer:** **Gris**, per mantenir la coherència estètica amb les altres tres cases del grup.
-*   **Col·locació del SATE (Façana carrer):** L'aïllament tèrmic exterior se situarà en les parets que queden a l'interior de les terrasses i balcons.
 *   **Color de la façana posterior:** Es proposa l'ús del **Blanc** per maximitzar la lluminositat i el confort tèrmic en la zona privada.
 *   **Zòcol inferior:** Revestiment de protecció en planta baixa (primers 50cm) mitjançant el mateix gres porcelànic del terra interior o pedra natural grisa. Evita el deteriorament per salpicadures de pluja i trànsit del carrer.
 

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const CLAU_ACCES = "RSM2026";
+            if (window.location.hash.includes('auth=' + CLAU_ACCES)) {
+                sessionStorage.setItem('rsm_access', 'true');
+            }
+            if (sessionStorage.getItem('rsm_access') !== 'true') {
+                let pass = prompt("🔐 ACCÉS PRIVAT - CASA RSM\n\nIntrodueix la clau d'accés per visualitzar el projecte:");
+                if (pass === CLAU_ACCES) {
+                    sessionStorage.setItem('rsm_access', 'true');
+                } else {
+                    alert("Clau incorrecta. L'accés ha estat denegat.");
+                    document.documentElement.style.display = 'none';
+                    window.location.href = "https://github.com";
+                }
+            }
+        })();
+    </script>
+    <title>Dormitori Principal | Casa RSM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #05080f; color: #e2e8f0; min-height: 100vh; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .comparison-img { width: 100%; height: 450px; object-fit: cover; border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; cursor: zoom-in; }
+        .comparison-img:hover { transform: scale(1.01); border-color: #10b981; }
+        .label-blur { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 6px 16px; border-radius: 12px; font-weight: 700; font-size: 11px; text-transform: uppercase; }
+        #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(5, 8, 15, 0.98); backdrop-filter: blur(20px); cursor: zoom-out; justify-content: center; align-items: center; }
+        #lightbox.flex { display: flex; }
+        #lightbox img { max-width: 90%; max-height: 90%; border-radius: 24px; }
+    </style>
+</head>
+
+<body class="p-8 md:p-12 lg:p-16">
+    <div class="max-w-[1400px] mx-auto space-y-12">
+        <header class="flex flex-col md:flex-row justify-between items-center gap-6" id="header" style="opacity: 0;">
+            <div class="space-y-2">
+                <span class="text-emerald-400 font-bold tracking-[4px] uppercase text-[10px]">Planta Segona (P2)</span>
+                <h1 class="text-4xl font-bold text-white tracking-tight">Dormitori 2 | Principal</h1>
+            </div>
+            <div class="flex gap-4">
+                <a href="PORTAL_SIMULACIONS_RSM.html" class="glass px-8 py-4 rounded-2xl text-slate-400 hover:text-emerald-400 transition-all font-bold">← Tornar</a>
+                <a href="index.html" class="glass px-8 py-4 rounded-2xl text-emerald-400 hover:bg-emerald-400/10 transition-all font-bold">Dashboard</a>
+            </div>
+        </header>
+
+        <!-- Vista Interior -->
+        <div class="space-y-6" id="section-interior" style="opacity: 0;">
+            <h3 class="text-xl font-bold text-white px-4 border-l-4 border-emerald-400">Vista Interior (Dormitori 2 | Principal)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                <div class="space-y-4">
+                    <span class="label-blur">Estat Actual</span>
+                    <img src="assets/actual/habitacio_abans_0.png" class="comparison-img lb-trigger">
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-cyan-400">Simulació Anterior (PB)</span>
+                    <img src="assets/pb/interior_habitacio_final_rsm.png" class="comparison-img lb-trigger">
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-emerald-400 border-emerald-400/20">Projecte Executiu (PE)</span>
+                    <img src="assets/pe/habitacio_interior_persiana_blanca_mig.png" class="comparison-img border-emerald-400/30 lb-trigger">
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista Terrassa -->
+        <div class="space-y-6 mt-12 pt-12 border-t border-white/5" id="section-exterior" style="opacity: 0;">
+            <h3 class="text-xl font-bold text-white px-4 border-l-4 border-emerald-400">Vista des de la Terrassa</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                <div class="space-y-4">
+                    <span class="label-blur text-cyan-400">Proposta Anterior (PB)</span>
+                    <img src="assets/pe/habitacio_vista_balco_pe_rsm_1778840041744.png" class="comparison-img lb-trigger !object-contain bg-black/20">
+                    <p class="text-xs text-slate-500 px-2">Finestra nua (sense persiana visible).</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-slate-400">Opció: Persiana Gris</span>
+                    <img src="assets/pe/habitacio_vista_balco_persiana_gris.png" class="comparison-img lb-trigger !object-contain bg-black/20">
+                    <p class="text-xs text-slate-500 px-2">Integració total amb el color de la fusteria.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-emerald-400 border-emerald-400/20">Disseny Definitiu PE</span>
+                    <img src="assets/pe/habitacio_facana_blanc_persiana_mig.png" class="comparison-img border-emerald-400/30 lb-trigger !object-contain bg-black/20">
+                    <p class="text-xs text-slate-500 px-2">PVC blanc i persiana blanca a mig baixar. Màxima lluminositat.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estudi de Materials (Alternatives PVC) -->
+        <div class="space-y-6 mt-12 pt-12 border-t border-white/5" id="section-materials" style="opacity: 0;">
+            <h3 class="text-xl font-bold text-white px-4 border-l-4 border-cyan-400">Estudi de Materials: PVC Blanc vs Fusta</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                <div class="space-y-4">
+                    <span class="label-blur text-slate-400">Opció A: PVC Blanc</span>
+                    <img src="assets/pe/habitacio_pvc_blanc.png" class="comparison-img lb-trigger">
+                    <p class="text-xs text-slate-500 px-2">Màxima puresa i integració amb la paret. Ambient molt lluminós.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-cyan-400">Opció B: PVC Fusta</span>
+                    <img src="assets/pe/habitacio_pvc_fusta.png" class="comparison-img border-cyan-400/30 lb-trigger">
+                    <p class="text-xs text-slate-500 px-2">Calidesa nòrdica. Lliga amb el mobiliari de roure i el terra.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-emerald-400">Exterior: Façana Gris Clar + Fusta</span>
+                    <img src="assets/pe/habitacio_facana_gris_clar_fusta.png" class="comparison-img border-emerald-400/30 lb-trigger">
+                    <p class="text-xs text-slate-500 px-2">Contrast premium amb gris clar. Sense baranes, puresa de línies.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exploració de Colors (Persianes) -->
+        <div class="space-y-6 mt-12 pt-12 border-t border-white/5" id="section-colors" style="opacity: 0;">
+            <h3 class="text-xl font-bold text-white px-4 border-l-4 border-indigo-400">Exploració de Colors: Persianes Exteriors</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+                <div class="space-y-4">
+                    <span class="label-blur text-slate-400">Variant: Gris Molt Clar</span>
+                    <img src="assets/pe/habitacio_facana_persiana_gris_clariissim.png" class="comparison-img lb-trigger">
+                    <p class="text-xs text-slate-500 px-2">Subtil matís grisós (quasi plata). Molt tecnològic.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="label-blur text-slate-400">Variant Interior: Gris Molt Clar</span>
+                    <img src="assets/pe/habitacio_interior_persiana_gris_clariissim.png" class="comparison-img lb-trigger">
+                    <p class="text-xs text-slate-500 px-2">Efecte interior del gris molt clar. Menys reflexió que el blanc pur.</p>
+                </div>
+                <!-- Espai per a futures variants -->
+                <div class="glass flex items-center justify-center rounded-2xl h-[300px] border-dashed border-2 border-white/10">
+                    <p class="text-slate-600 text-xs uppercase tracking-widest">Pendent de noves proves...</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center pt-12 pb-16 text-slate-600 text-[10px] uppercase tracking-[4px]">CASA RSM | Technical Double Check 2026</footer>
+    </div>
+    <div id="lightbox"><img id="lightbox-img" src=""></div>
+    <script>
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#header", { opacity: 1, y: 0, duration: 1 })
+              .to("#section-interior", { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
+              .to("#section-exterior", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+              .to("#section-materials", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+              .to("#section-colors", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            document.querySelectorAll('.lb-trigger').forEach(img => {
+                img.addEventListener('click', () => { if (img.src) { lbImg.src = img.src; lb.classList.add('flex'); } });
+            });
+            lb.addEventListener('click', () => { lb.classList.remove('flex'); });
+        });
+    </script>
+</body>
+</html>

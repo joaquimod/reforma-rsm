@@ -167,9 +167,9 @@
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
                 onclick="showTab('distribuidor', this)">📚 Biblioteca (P2)</button>
-            <button
-                class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('habitacio', this)">🛏️ Dormitori Principal (P2)</button>
+            <a href="SIMULACIO_DORMITORI_2.html"
+                class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-emerald-400 flex items-center">🛏️
+                Dormitori 2 (Principal)</a>
             <a href="SIMULACIO_DORMITORI_1.html"
                 class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-purple-400 flex items-center">🛌
                 Dormitori 1 (P2)</a>
@@ -190,10 +190,9 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     <!-- Abans -->
                     <div class="space-y-6">
-                        <span class="label-overlay !border-slate-500 text-slate-500">Estat Actual: Façana
-                            Original</span>
+                        <span class="label-overlay !border-slate-500 text-slate-500">Estat actual: Façana Original</span>
                         <div class="relative group card-premium overflow-hidden">
-                            <img src="facana_abans_0.jpg"
+                            <img src="assets/actual/facana_abans_0.jpg"
                                 class="simulation-image lb-trigger !h-[600px] opacity-70 grayscale hover:grayscale-0 transition-all duration-700">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
@@ -202,10 +201,9 @@
                     </div>
                     <!-- Després -->
                     <div class="space-y-6">
-                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta Final: Accessibilitat
-                            & RAL</span>
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE: Accessibilitat & RAL</span>
                         <div class="relative group card-premium overflow-hidden border-2 border-emerald-500/30">
-                            <img src="facana_final_accessible_rsm.png" class="simulation-image lb-trigger !h-[600px]">
+                            <img src="assets/pe/facana_rsm_pe_definitiva_2026.png" class="simulation-image lb-trigger !h-[600px] border-emerald-500/20 shadow-2xl">
                             <div class="absolute bottom-6 right-6 flex gap-3">
                                 <span
                                     class="bg-emerald-500/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-black text-white uppercase tracking-tighter">RAL
@@ -228,23 +226,52 @@
                         passant a un disseny de <b>dues fulles</b>, aportant més netedat visual a la composició.</p>
                     <p class="text-slate-400 leading-relaxed text-sm mb-4">L'estratègia cromàtica final es defineix en
                         tres tons per a un degradat equilibrat:</p>
+                </div>
+
+                <!-- Comparativa Variants PB -->
+                <div class="space-y-8 mt-16 pt-16 border-t border-white/5">
+                    <h3 class="text-2xl font-bold text-white px-4 border-l-4 border-cyan-400">Estudi de Façana: Variants de Planta Baixa (PB)</h3>
+                    <p class="text-slate-400 text-sm max-w-2xl px-4">Comparativa per decidir el nivell d'integració de la fusteria a la cota carrer. La variant "All White" unifica tota la fusteria del projecte.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                        <div class="space-y-4">
+                            <span class="label-overlay !border-slate-500 text-slate-500">Opció 1: Contrast (Base Gris Fosc)</span>
+                            <img src="assets/pe/facana_rsm_pe_definitiva_2026.png" class="simulation-image lb-trigger !h-[400px] border-white/5">
+                            <p class="text-[10px] text-slate-500 px-2 leading-tight">Manté les portes de la PB en contrast (RAL 7021). Ofereix una base visualment més sòlida.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <span class="label-overlay !border-emerald-400 text-emerald-400">Opció 2: Unificació (All White PB)</span>
+                            <img src="assets/pe/facana_rsm_pe_variant_blanca_pb_2026.png" class="simulation-image lb-trigger !h-[400px] border-emerald-500/20">
+                            <p class="text-[10px] text-slate-500 px-2 leading-tight">Unifica tota la fusteria en Blanc Pur (RAL 9016). Màxima lleugeresa i integració total.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <span class="label-overlay !border-purple-400 text-purple-400">Opció 3: Contrast Invers (All Grey)</span>
+                            <img src="assets/pe/facana_rsm_pe_all_grey_2026.png" class="simulation-image lb-trigger !h-[400px] border-purple-500/20">
+                            <p class="text-[10px] text-slate-500 px-2 leading-tight">Tota la fusteria (P1, P2 i PB) unificada en gris fosc RAL 7021. Estètica industrial contemporània.</p>
+                        </div>
+                    </div>
+                </div>
                     <ul class="text-slate-400 text-sm list-disc pl-6 space-y-1">
-                        <li><b>RAL 7035 (Gris lluminós)</b>: Cos principal de la façana.</li>
-                        <li><b>RAL 7040 (Gris finestra)</b>: Sòcol de la planta baixa (suavitza la transició).</li>
-                        <li><b>RAL 7021 (Gris negre)</b>: Porta principal i garatge (punts d'accent).</li>
+                        <li><b>RAL 9016 (Blanc Pur)</b>: Cos principal de la façana (estuc llis).</li>
+                        <li><b>NCS S 1502-Y50R (Sorra)</b>: Sòcol de la planta baixa (continuïtat amb l'interior).</li>
+                        <li><b>RAL 7021 (Gris Negre)</b>: Fusteries i accessos (segons variant triada).</li>
                     </ul>
                 </div>
             </section>
             <!-- VESTÍBOL -->
             <section id="vestibol" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="space-y-4">
                         <span class="label-overlay">Estat actual</span>
-                        <img src="vestibol_abans.jpg" class="simulation-image lb-trigger">
+                        <img src="assets/actual/vestibol_abans.jpg" class="simulation-image lb-trigger">
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-cyan-400">Proposta reformada</span>
-                        <img src="interior_vestibol_renovat_rsm.png" class="simulation-image lb-trigger">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <img src="assets/pb/interior_vestibol_renovat_rsm.png" class="simulation-image lb-trigger">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/vestibol_rsm_pe_definitiu_2026.png" class="simulation-image lb-trigger border-emerald-500/20">
                     </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
@@ -256,19 +283,19 @@
             </section>
             <!-- ESTUDI -->
             <section id="estudi" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="estudi_abans.jpg"
-                            class="simulation-image lb-trigger"></div>
-                    <div class="space-y-4 text-cyan-400"><span class="label-overlay !border-cyan-400">Ús inicial:
-                            Estudi</span><img src="interior_estudi_final.png" class="simulation-image lb-trigger"></div>
-                    <div class="space-y-4 text-orange-400"><span class="label-overlay !border-orange-400">Ús futur:
-                            Dormitori</span><img src="interior_estudi_futur_dormitori_rsm.png"
-                            class="simulation-image lb-trigger"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="assets/actual/estudi_abans.jpg"
+                            class="simulation-image lb-trigger !h-[300px]"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta PB</span><img src="assets/pb/interior_estudi_final.png" class="simulation-image lb-trigger !h-[300px]"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-orange-400">Proposta PE (Ús futur)</span><img src="assets/pe/estudi_pb_pe_definitiu_dormitori_2026.png"
+                            class="simulation-image lb-trigger !h-[300px]"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span><img src="assets/pe/estudi_pb_pe_definitiu_2026.png"
+                            class="simulation-image lb-trigger !h-[300px] border-emerald-500/30"></div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
                     <h3 class="text-xl font-bold text-white mb-4">Estudi (PB)</h3>
                     <p class="text-slate-400 leading-relaxed text-sm mb-4">Espai de treball a cota zero amb paviment
-                        continu de microciment. Dissenyat com un espai híbrid que pot evolucionar cap a un <b>dormitori
+                        de **gres porcelànic XL (Sorra)**. Dissenyat com un espai híbrid que pot evolucionar cap a un <b>dormitori
                             accessible</b> (ex: habitatge per a cuidador/a) a mig termini.</p>
                     <p class="text-slate-400 leading-relaxed text-sm">Les instal·lacions elèctriques i de dades s'han
                         pre-calculat per permetre la col·locació de TV i llit sense necessitat d'obres, mantenint la
@@ -277,62 +304,61 @@
             </section>
             <!-- PATI -->
             <section id="pati" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="pati_abans_0.png"
-                            class="simulation-image lb-trigger"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta
-                            Bio-Climàtica</span><img src="interior_pati_bioclimatic_rsm.png"
-                            class="simulation-image lb-trigger"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="assets/actual/pati_abans_0.png"
+                            class="simulation-image lb-trigger !h-[450px]"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta PB</span><img src="assets/pb/interior_pati_bioclimatic_rsm.png"
+                            class="simulation-image lb-trigger !h-[450px]"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/pati_rsm_pe_definitiu_2026.png" class="simulation-image lb-trigger !h-[450px] border-emerald-500/20">
+                    </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
                     <h3 class="text-xl font-bold text-white mb-4">Oasi Bioclimàtic</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">El pati interior actua com un regulador tèrmic
-                        natural per a tota la casa. S'instal·len enfiladisses mediterrànies sobre una estructura de
-                        cables d'acer i un sistema de reg per degoteig completament ocult.</p>
+                    <p class="text-slate-400 leading-relaxed text-sm">El pati interior actua com un regulador tèrmic natural per a tota la casa. El paviment es resol amb un llit de <b>pedretes fines grises del Garraf</b> juntament amb unes <b>lloses planes</b> per permetre el pas, potenciant el drenatge i l'estètica natural. S'instal·len enfiladisses mediterrànies sobre una estructura de cables d'acer i un sistema de reg per degoteig completament ocult.</p>
                 </div>
             </section>
             <!-- CUINA-MENJADOR (P1) -->
             <section id="cuina" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="space-y-4">
-                        <span class="label-overlay flex items-center gap-2">
-                            Vista interior
-                            <span
-                                class="bg-cyan-400/20 text-cyan-400 text-[8px] px-2 py-0.5 rounded-full animate-pulse">🎬
-                                Video</span>
-                        </span>
-                        <img src="interior_cuina_menjador_taula_4_final_rsm.png" class="simulation-image lb-trigger"
-                            data-video="cuina_menjador_1.mp4">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <div class="relative group">
+                            <img src="assets/pb/interior_cuina_menjador_taula_4_final_rsm.png" class="simulation-image lb-trigger !h-[400px]">
+                            <button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md p-3 rounded-full hover:bg-white/20 transition-all lb-trigger" data-video="cuina_menjador_1.mp4">
+                                <span class="text-xl">🎬</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-cyan-400 flex items-center gap-2">
-                            Vista des de la Terrassa
-                            <span
-                                class="bg-cyan-400/20 text-cyan-400 text-[8px] px-2 py-0.5 rounded-full animate-pulse">🎬
-                                Video</span>
-                        </span>
-                        <img src="interior_cuina_menjador_vista_terrassa.png" class="simulation-image lb-trigger"
-                            data-video="cuina_menjador_2.mp4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/cuina_rsm_pe_distribucio_2026.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Vista taula)</span>
+                        <img src="assets/pe/cuina_rsm_pe_vista_taula_final_2026.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
                     <h3 class="text-xl font-bold text-white mb-4">Cuina - Menjador</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">Integració d'espais mitjançant un taulell
-                        porcellànic de gran format i fusta de roure. S'ha prioritzat la fluïdesa cap a la balconada del
-                        P1 per aprofitar la ventilació creuada.</p>
+                    <p class="text-slate-400 leading-relaxed text-sm">Espai diàfan optimitzat sota el criteri <b>White, Oak & Sand</b>. S'ha reordenat la zona de columnes: el <b>mòdul del forn</b> es desplaça a la posició original de la nevera, mentre que l'antic lloc del forn s'allibera amb <b>prestatges oberts de roure</b> en angle de 40 cm. La <b>nevera</b> s'ubica ara al costat de la porta de la terrassa per millorar la funcionalitat.</p>
+                    <p class="text-slate-400 leading-relaxed text-sm mt-4">El paviment de <b>gres sorra (NCS S 1502-Y50R)</b> unifica tot l'ambient amb les terrasses del P1, mentre que les parets en <b>Blanc Pur (RAL 9016)</b> potencien la lluminositat i el contrast amb la fusta de roure clar.</p>
                 </div>
             </section>
             <!-- SALA (P1) -->
             <section id="sala" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="space-y-4 flex flex-col"><span class="label-overlay">Estat actual Sala</span>
-                        <div class="flex-grow"><img src="sala_abans_original.jpg"
-                                class="simulation-image lb-trigger w-full h-full object-cover"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-4">
+                        <span class="label-overlay">Estat actual</span>
+                        <img src="assets/actual/sala_abans_original.jpg" class="simulation-image lb-trigger !h-[400px]">
                     </div>
-                    <div class="space-y-4 flex flex-col"><span class="label-overlay !border-cyan-400">Transformació
-                            Sala</span>
-                        <div class="flex-grow"><img src="sala_digital_base.png"
-                                class="simulation-image lb-trigger w-full h-full object-cover"></div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <img src="assets/pb/sala_digital_base.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/sala_estar_rsm_definitiva_pe_1778839193189.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                 </div>
                 <div
@@ -347,38 +373,45 @@
                         Prova les Atmosferes</a>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Sala Cozy Minimalism</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">Dissenyat per al confort acústic i visual, aquest
-                        espai central integra el projector Laser TV d'última generació amb una pantalla ALR fixa que
-                        s'integra com una peça d'art quan no s'utilitza.</p>
+                    <h3 class="text-xl font-bold text-white mb-4">Sala d'estar (P1)</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Espai central dissenyat sota el concepte <b>Cozy Minimalism</b>, on predomina la calidesa de la fusta de roure i la continuïtat del paviment <b>gres sorra (NCS S 1502-Y50R)</b>. S'integra un sistema de <b>Laser TV</b> d'última generació amb pantalla ALR, que permet una experiència cinematogràfica sense trencar la puresa visual de les parets en <b>Blanc Pur (RAL 9016)</b>.</p>
                 </div>
             </section>
             <!-- DISTRIBUIDOR (P2) -->
             <section id="distribuidor" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="space-y-4"><span class="label-overlay">Pas actual</span><img
-                            src="distribuidor_p2_abans.jpg" class="simulation-image lb-trigger"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Biblioteca P2</span><img
-                            src="interior_distribuidor_p2_final.png" class="simulation-image lb-trigger"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-4">
+                        <span class="label-overlay">Estat actual</span>
+                        <img src="assets/actual/distribuidor_p2_abans.jpg" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <img src="assets/pb/interior_distribuidor_p2_final.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/distribuidor_p2_ascensor_rsm_pe_1778840670955.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Biblioteca de pas</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">Aprofitem el distribuïdor de la planta superior
-                        per crear una biblioteca amb estanteries enrasades i llum zenital, convertint una zona de pas en
-                        un espai de lectura serè.</p>
+                    <h3 class="text-xl font-bold text-white mb-4">Biblioteca i distribuïdor (P2)</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Zona de transició convertida en un espai de lectura serè. S'aprofita la llum zenital per emfatitzar les <b>estanteries enrasades de roure RSM</b> i el paviment continu en to sorra. La integració de l'ascensor en color blanc unifica visualment la planta superior, mantenint la coherència amb el <b>RAL 9016</b> de les fusteries.</p>
                 </div>
             </section>
             <!-- HABITACIÓ (P2) -->
             <section id="habitacio" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="space-y-4">
                         <span class="label-overlay">Estat actual</span>
-                        <img src="habitacio_abans_0.png" class="simulation-image lb-trigger">
+                        <img src="assets/actual/habitacio_abans_0.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta de Reforma: Disseny
-                            Base</span>
-                        <img src="interior_habitacio_final_rsm.png" class="simulation-image lb-trigger">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <img src="assets/pb/interior_habitacio_final_rsm.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <img src="assets/pe/habitacio_rsm_definitiva_pe_1778839747101.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                 </div>
 
@@ -392,63 +425,70 @@
                         <div class="space-y-3">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-2">Opció:
                                 Blau Mediterrani</span>
-                            <img src="interior_habitacio_v1_personalitzada_rsm.png"
+                            <img src="assets/pb/interior_habitacio_v1_personalitzada_rsm.png"
                                 class="rounded-3xl border border-white/10 cursor-zoom-in lb-trigger h-64 w-full object-cover hover:border-cyan-400/50 transition-all shadow-lg">
                         </div>
                         <div class="space-y-3">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-2">Opció:
                                 Aquarel·la Abstracte</span>
-                            <img src="interior_habitacio_v2_personalitzada_rsm.png"
+                            <img src="assets/pb/interior_habitacio_v2_personalitzada_rsm.png"
                                 class="rounded-3xl border border-white/10 cursor-zoom-in lb-trigger h-64 w-full object-cover hover:border-cyan-400/50 transition-all shadow-lg">
                         </div>
                         <div class="space-y-3">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pl-2">Opció:
                                 Atmosfera Relax</span>
-                            <img src="interior_habitacio_final_rsm_2.jpeg"
+                            <img src="assets/pb/interior_habitacio_final_rsm_2.jpeg"
                                 class="rounded-3xl border border-white/10 cursor-zoom-in lb-trigger h-64 w-full object-cover hover:border-cyan-400/50 transition-all shadow-lg">
                         </div>
                     </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Dormitori principal</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">Dormitori 2 (Principal)</h3>
                     <p class="text-slate-400 leading-relaxed text-sm">Habitació orientada al descans, lliure
-                        d'elements tecnològics visius. S'exploren variants de personalització amb l'ADN cromàtic del
-                        Blau Mediterrani i l'aquarel·la.</p>
+                        d'elements tecnològics visius. S'aplica l'estratègia <b>White, Oak & Sand</b>, utilitzant 
+                        el paviment de gres sorra i mobiliari a mida de roure clar per crear una atmosfera de puresa 
+                        i calidesa natural.</p>
                 </div>
             </section>
             <!-- BANY (P2) -->
             <section id="bany" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="bany_p2_abans_0.png"
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="assets/actual/bany_p2_abans_0.png"
                             class="simulation-image lb-trigger"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta Bany P2</span><img
-                            src="interior_bany_p2_rsm.png" class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta PB</span><img
+                            src="assets/pb/interior_bany_p2_rsm.png" class="simulation-image lb-trigger"></div>
+                    <div class="space-y-4"><span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span><img
+                            src="assets/pe/bany_p2_pe_definitiu.png" class="simulation-image lb-trigger border-emerald-500/30"></div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Bany Principal</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">Espai d'higiene totalment suspès per facilitar la
-                        neteja. S'utilitzen plaques de porcellànic de gran format per minimitzar les juntes i garantir
-                        una estètica neta i atemporal.</p>
+                    <h3 class="text-xl font-bold text-white mb-4">Bany Principal (PE)</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Espai d'higiene minimalista amb <b>moble de lavabo en fusta de roure clar</b> de gra suau. S'integra una <b>dutxa walk-in sense barreres</b> amb plat blanc enrasat. Tota la <b>griferia és encastada</b> (monocomandament a la paret i ruixador al sostre) per eliminar elements visuals superflus. La il·luminació natural es maximitza mitjançant una <b>finestra fixa rectangular</b> fins a la meitat de la paret amb vidre translúcid.</p>
                 </div>
             </section>
             <!-- ESCALA -->
             <section id="escala" class="view-section space-y-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="glass p-8 rounded-[32px] space-y-4"><span class="label-overlay">Detall Ascensor
-                            P1</span><img src="interior_escala_golfes_fusta_rsm.png"
-                            class="h-[450px] w-full object-cover rounded-xl lb-trigger cursor-zoom-in"></div>
-                    <div class="glass p-8 rounded-[32px] space-y-4"><span class="label-overlay">Estructura P2 (Barana
-                            Interior)</span><img src="interior_escala_p2_nova_barana_rsm.png"
-                            class="h-[450px] w-full object-cover rounded-xl lb-trigger cursor-zoom-in"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="space-y-4">
+                        <span class="label-overlay">Estat actual</span>
+                        <img src="assets/actual/escala_abans_0.jpg" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-cyan-400">Proposta PB</span>
+                        <img src="assets/pb/interior_escala_p2_nova_barana_rsm.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Opció A)</span>
+                        <img src="assets/pe/escala_rsm_minimalista_extrema_pe_1778839623285.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Opció B)</span>
+                        <img src="assets/pe/escala_rsm_final.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
                     <h3 class="text-xl font-bold text-white mb-4">Escala i nuclis verticals</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm mb-4">Integració de l'ascensor a la <b>Planta 1</b>
-                        amb fusteries de fusta clara. A la <b>Planta 2</b>, s'ha optimitzat l'estructura eliminant la
-                        barana de la paret i traslladant-la al buit interior per guanyar amplitud visual.</p>
-                    <p class="text-slate-400 leading-relaxed text-sm">Reforma de l'escala històrica per integrar
-                        l'ascensor panoràmic. S'ha previst il·luminació de seguretat en els esglaons i passamans de
-                        roure ergonòmics per a gent gran.</p>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-4">L'escala es consolida com l'eix de fusta que vertebra la casa. A la <b>Planta 1</b>, l'ascensor s'integra amb tancaments en <b>Roure RSM</b>, mentre que a la <b>Planta 2</b> s'elimina la barana opaca per un disseny de cables d'acer i passamans ergonòmics de fusta clara que aporten seguretat i transparència.</p>
+                    <p class="text-slate-400 leading-relaxed text-sm">S'ha previst il·luminació LED integrada en els esglaons per guiar el recorregut nocturn, mantenint el contrast suau entre el <b>blanc pur</b> dels paraments i la calidesa del roure.</p>
                 </div>
             </section>
         </div>

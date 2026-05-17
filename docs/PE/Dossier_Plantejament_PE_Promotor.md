@@ -39,8 +39,9 @@ L'objectiu principal és convertir una estructura existent en un volum d'alt ren
 ### 1.2 Façana i acabat exterior
 
 *   **Opcions de color:** Proposem el gris per a la façana del carrer per coherència amb el conjunt de cases veïnes, i el blanc per a la façana posterior per potenciar la llum al pati.
-*   **Estratègia d'aïllament:** Es planteja col·locar el SATE a la façana del carrer només en les parets interiors de terrasses i balcons per no alterar el pla de façana original.
-*   ** Dubte sobre el morter:** Busquem un acabat de gra fi que sigui altament transpirable i repel·lent a la brutícia marítima. Cal validar si un morter de silicat és la millor opció tècnica.
+*   **Estratègia d'aïllament (SATE):** Es planteja col·locar el SATE a la façana del carrer només en les parets interiors de terrasses i balcons per no alterar el pla de façana original.
+*   **Dilema de material:** Inicialment es va plantejar EPS Grafit (16 cm), però volem validar si és possible passar a **Suro Natural o Fibra de Fusta** (20 cm). Busquem millorar la inèrcia tèrmica per a l'estiu i la transpirabilitat del mur, reduint l'ús de plàstics.
+*   **Dubte sobre el morter:** Busquem un acabat de gra fi (morter de calç o silicat) que sigui altament transpirable i repel·lent a la brutícia marítima.
 
 ---
 
@@ -92,10 +93,12 @@ Volem una casa intel·ligent que mantingui el control de dades de forma local i 
 
 ---
 
-## 5. Disseny d'il·luminació i ambient
+## 5. Disseny d'il·luminació i ambient (Lux Light)
 
-*   **Flexibilitat:** Es proposa l'ús de carrils encastats a la zona de dia per poder moure els punts de llum en el futur.
-*   **Il·luminació indirecta:** Plantejament de foses perimetrals (shadow gap) als sostres per banyar les parets de llum sense veure els focus.
+S'ha adoptat la marca **Lux Light** com a estàndard tècnic del projecte.
+*   **Minimalisme:** Ús extensiu de Downlights encastats (DLIGHT) i perfils ultra-fins (FLAT) per a espais amb poc sostre.
+*   **Flexibilitat:** Implementació de carrils magnètics a la sala polivalent i zones de treball.
+*   **Domòtica:** Tota la selecció és regulable (Dimmable Triac) per a un control total des de Home Assistant.
 
 ---
 

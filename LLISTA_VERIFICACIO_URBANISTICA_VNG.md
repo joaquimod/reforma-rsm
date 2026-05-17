@@ -14,7 +14,7 @@
 *   [ ] **Textures:** Arrebossat fratasat fi. Prohibit textures rugoses o "picades".
 
 ## 2. Fusteries i Tancaments (Finestres i Portes)
-*   [ ] **Material:** Està **prohibit el PVC** en fusteries visibles des de la via pública. Cal especificar **Fusta** o **Alumini lacat**.
+*   [ ] **Material:** Seleccionat **PVC d'altes prestacions** (Passivhaus). Cal justificar la tria davant l'Ajuntament per eficiència energètica o usar acabats (folrats/lacats) que simulin fusta/alumini segons normativa del Nucli Antic.
 *   [ ] **Acabat:** Lacat mat en colors foscos (Negres, Grisos tipus RAL 7021, Verds foscos o Blaus de l'ordenança).
 *   [ ] **Proteccions Solars:** Prohibits els calaixos de persiana exteriors. Preferència per persianes de llibret (fusta/metall) o enrotllables interiors.
 *   [ ] **Baranes:** Cal especificar Ferro forjat o Fusta. Prohibit el PVC o el vidre continu sense perfileria.

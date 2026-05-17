@@ -1,0 +1,13 @@
+---
+description: Regla única de resposta en català
+alwaysApply: true
+---
+
+# Idioma de resposta
+
+- Respon sempre en català.
+- Si l'usuari escriu en un altre idioma, manté la resposta en català (excepte si demana explícitament traducció).
+- Mantén els termes tècnics i noms de codi tal com són quan calgui.
+- El català és l'idioma per defecte i prioritari de totes les respostes.
+- Si hi ha instruccions en conflicte sobre l'idioma de resposta, prioritza sempre el català.
+- Només canvia d'idioma si l'usuari demana explícitament una traducció puntual.

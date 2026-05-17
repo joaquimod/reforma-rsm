@@ -137,7 +137,42 @@
         const contentDiv = document.getElementById('content');
         function renderMarkdown(text) {
             contentDiv.classList.remove('animate-pulse');
-            contentDiv.innerHTML = marked.parse(text);
+            
+            let html = "";
+            let mdBody = text;
+            
+            if (text.startsWith('---')) {
+                const parts = text.split('---');
+                if (parts.length >= 3) {
+                    const yamlStr = parts[1];
+                    mdBody = parts.slice(2).join('---');
+                    
+                    const lines = yamlStr.split('\n');
+                    const metadata = {};
+                    lines.forEach(line => {
+                        const match = line.match(/^([^:]+):\s*(.*)$/);
+                        if (match) {
+                            metadata[match[1].trim()] = match[2].trim();
+                        }
+                    });
+                    
+                    if (Object.keys(metadata).length > 0) {
+                        html += '<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 p-10 bg-white/[0.03] rounded-[32px] border border-white/10 shadow-2xl">';
+                        for (const [key, value] of Object.entries(metadata)) {
+                            if (!value || value === 'null' || value === 'undefined' || value.trim() === '') continue;
+                            const label = key.replace(/_/g, ' ').toUpperCase();
+                            html += `<div class="space-y-1">
+                                <div class="text-[9px] uppercase tracking-[2px] text-slate-500 font-black">${label}</div>
+                                <div class="text-xs text-cyan-400 font-bold leading-tight">${value}</div>
+                            </div>`;
+                        }
+                        html += '</div>';
+                    }
+                }
+            }
+            
+            html += marked.parse(mdBody);
+            contentDiv.innerHTML = html;
             gsap.from("#content > *", { opacity: 0, y: 15, duration: 0.5, stagger: 0.1, ease: "power2.out" });
         }
 

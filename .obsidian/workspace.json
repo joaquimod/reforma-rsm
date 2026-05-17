@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/PE/Dossier_Plantejament_PE_Promotor.md",
+                "file": "docs/PE/Documents_Treball/Informe_Cuina.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dossier_Plantejament_PE_Promotor"
+              "title": "Informe_Cuina"
+            }
+          },
+          {
+            "id": "8bf7716aa1f667db",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/PB/V2/INFORME_SOL_LICITUD_BONIFICACIO_ICIO_VNG.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "INFORME_SOL_LICITUD_BONIFICACIO_ICIO_VNG"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -44,7 +59,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Explorador de archivos"
+              "title": "Files"
             }
           },
           {
@@ -174,40 +189,41 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Abrir selector rápido": false,
-      "graph:Abrir vista gráfica": false,
-      "canvas:Crear nuevo lienzo": false,
-      "daily-notes:Abrir la nota de hoy": false,
-      "templates:Insertar plantilla": false,
-      "command-palette:Abrir paleta de comandos": false,
-      "bases:Crear nueva base": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
     }
   },
-  "active": "a2af634753fbaae0",
+  "active": "8bf7716aa1f667db",
   "lastOpenFiles": [
-    "check_links.py",
+    "docs/PB/V2/INFORME_SOL_LICITUD_BONIFICACIO_ICIO_VNG.pdf",
+    "docs/PE/Dossier_Plantejament_PE_Promotor.md",
+    "interior_bany_p2_rsm.png",
+    "Prioritat__ordre_i_facilitat_de_neteja_-_Ús_diar_20260217_113915 (còpia).png",
+    "interior_habitacio_final_rsm_2.jpeg",
+    "r9sAdQYxY8rmwbB3alcmi (còpia).jpeg",
+    "facana_final_accessible_rsm.png",
+    "facana_final_accessible_rsm.jpeg",
+    "stitch_id_test.py",
+    "stitch_model_test.py",
+    "stitch_minimal.py",
+    "stitch_final_gen.py",
+    "stitch_simple.py",
+    "debug_stitch.py",
+    "stitch_v3.py",
+    "final_stitch_gen.py",
+    "test_stitch_skill_list.py",
+    "test_stitch_skill.py",
     "vestibol_abans.jpg",
     "sotacoberta_abans.png",
     "sala_vinya_penedes.png",
     "sala_somni_lavanda.png",
-    "sala_parket_rsm.png",
-    "sala_microciment_rsm.png",
-    "sala_microciment_gris_rsm.png",
-    "sala_matinada_daurada.png",
-    "sala_laser_tv_rsm.png",
-    "sala_hbo.png",
-    "cuina_menjador_2.mp4",
-    "cuina_menjador_1.mp4",
     "VEGETACIO_I_BIOCLIMATICA_RSM.md",
-    "SIMULACIO_SOTACOBERTA.html",
-    "SIMULACIO_DORMITORI_1.html",
     "SEGURETAT_INTEGRADA_DIY_RSM.md",
-    "Regles_aplicables_a_Vilanova_i_la_Geltru.txt",
-    "RESUM_SISTEMA_SUPORT_PB.html",
-    "RESUM_PREPARACIO_REUNIO_ARQUITECTE_PB_a_PE.pdf",
-    "PROPOSTA_INTERIORISME_RSM.html",
-    "PROMPT_LM_STUDIO_thermal.txt",
-    "PORTAL_SIMULACIONS_RSM.html",
     "PLA_GESTIO_RESIDUS_RSM.md",
     "METODOLOGIA_ANALISI_AUDIT.md",
     "LLISTA_VERIFICACIO_URBANISTICA_VNG.md",
@@ -227,7 +243,6 @@
     "Comentaris_promotor_PB_RSM_V1.md",
     "Carta_Promotor_Arquitecte.md",
     "docs/PE/Documents_Treball/Informe_Acabats_Sistemes.md",
-    "docs/PE/Dossier_Plantejament_PE_Promotor.md",
     "docs/PE/Dossier_Requeriments_Promotor_RSM.md",
     "docs/PE/Documents_Treball/Informe_Fusteries_Exteriors.md",
     "docs/PE/Documents_Treball/Informe_Revestiments_Interiors.md"

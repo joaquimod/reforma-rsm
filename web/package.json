@@ -1,0 +1,26 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^8.0.3"
+  },
+  "dependencies": {
+    "dompurify": "^3.3.3",
+    "fuse.js": "^7.2.0",
+    "js-yaml": "^4.1.1",
+    "lucide-static": "^1.7.0",
+    "marked": "^17.0.5",
+    "marked-gfm-heading-id": "^4.1.3"
+  }
+}

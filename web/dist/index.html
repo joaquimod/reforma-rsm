@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa RSM | Digital Twin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --primary: #2d3436;
+            --accent: #81ecec;
+            --text-main: #2d3436;
+            --text-meta: #636e72;
+            --border: rgba(0,0,0,0.05);
+            --glass: blur(12px) saturate(180%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass);
+            -webkit-backdrop-filter: var(--glass);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Mobile Nav */
+        #mobile-nav {
+            display: none;
+            background: white;
+            padding: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 3.5rem;
+            z-index: 99;
+        }
+
+        #mobile-nav div {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: 20px;
+            background: #eee;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        #mobile-nav div.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: calc(100vh - 4rem);
+        }
+
+        nav#sidebar {
+            padding: 2rem;
+            border-right: 1px solid var(--border);
+            background: rgba(0,0,0,0.02);
+            height: calc(100vh - 4rem);
+            position: sticky;
+            top: 4rem;
+        }
+
+        .plant-nav {
+            margin-bottom: 2rem;
+        }
+
+        .plant-title {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--text-meta);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-item:hover {
+            background: #eee;
+        }
+
+        .nav-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #login-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .login-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        input {
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-size: 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .space-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .space-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px var(--border);
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9rem;
+        }
+
+        .meta-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-meta);
+            margin-bottom: 0.1rem;
+        }
+
+        .plan-viewer {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            nav#sidebar { display: none; }
+            #mobile-nav { display: block; }
+            main { padding: 1.5rem; }
+            header { padding: 1rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .header-links { width: 100%; }
+            .header-links .btn { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/index-C3TteP_4.js"></script>
+</head>
+<body>
+
+    <div id="login-overlay">
+        <div class="login-card">
+            <h2 style="font-family: 'Outfit'; margin-bottom: 0.5rem;">CASA RSM</h2>
+            <p style="color: var(--text-meta); font-size: 0.9rem; margin-bottom: 2rem;">Accés al Digital Twin</p>
+            <input type="password" id="pass" placeholder="Clau del projecte...">
+            <button onclick="checkPass()">Entrar</button>
+        </div>
+    </div>
+
+    <header>
+        <div>
+            <h1>CASA RSM | Explorer</h1>
+            <div style="font-size: 0.8rem; opacity: 0.6;">Executiu 2026</div>
+        </div>
+        <div class="header-links">
+            <a href="https://joaquimod.github.io/reforma-rsm/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Definició del projecte de reforma</a>
+        </div>
+    </header>
+
+    <div id="mobile-nav">
+        <div class="m-nav-item" data-id="PB" onclick="showPlant('PB')">PB</div>
+        <div class="m-nav-item" data-id="P1" onclick="showPlant('P1')">P1</div>
+        <div class="m-nav-item" data-id="P2" onclick="showPlant('P2')">P2</div>
+        <div class="m-nav-item" data-id="PSC" onclick="showPlant('PSC')">PSC</div>
+        <div class="m-nav-item" data-id="C" onclick="showPlant('C')">C</div>
+        <div class="m-nav-item" data-id="RESUM" onclick="showSummary()" style="background: #ff7675; color: white;">RESUM</div>
+        <div class="m-nav-item" data-id="DOCS" onclick="showDocsMobile()" style="background: var(--primary); color: white;">DOCS</div>
+    </div>
+
+    <div class="container">
+        <nav id="sidebar">
+            <div class="plant-nav">
+                <div class="plant-title">PLANTES</div>
+                <div class="nav-item" onclick="showPlant('PB')">Planta Baixa (PB)</div>
+                <div class="nav-item" onclick="showPlant('P1')">Planta Primera (P1)</div>
+                <div class="nav-item" onclick="showPlant('P2')">Planta Segona (P2)</div>
+                <div class="nav-item" onclick="showPlant('PSC')">Sotacoberta (PSC)</div>
+                <div class="nav-item" onclick="showPlant('C')">Coberta (C)</div>
+                <div class="nav-item" onclick="showSummary()" style="margin-top: 1rem; border: 1px solid #ff7675; color: #ff7675;">Resum de Partides</div>
+                
+                <div class="plant-title" style="margin-top: 2rem;">DOCUMENTACIÓ</div>
+                <div id="docs-list">
+                    <!-- Dinàmic -->
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div id="content">
+                <!-- Dinàmic -->
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
