@@ -132,7 +132,7 @@
             <div class="flex gap-4">
                 <a href="PORTAL_SIMULACIONS_RSM.html"
                     class="glass px-6 py-4 rounded-2xl text-slate-400 hover:text-cyan-400 transition-all flex items-center gap-3 font-bold text-xs uppercase tracking-widest group">
-                    <span>🏠</span> Portada Simulacions
+                    Portada Simulacions
                 </a>
                 <a href="index.html"
                     class="glass px-6 py-4 rounded-2xl text-cyan-400 hover:bg-cyan-400/10 transition-all flex items-center gap-3 font-bold text-xs uppercase tracking-widest group">
@@ -145,41 +145,41 @@
         <nav class="flex flex-wrap items-center gap-4 mb-16" id="nav-tabs" style="opacity: 0;">
             <button
                 class="tab-btn active glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('facana', this)">🏠 Façana</button>
+                onclick="showTab('facana', this)">Façana</button>
             <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('vestibol', this)">🚪 Vestíbol (PB)</button>
+                onclick="showTab('vestibol', this)">Vestíbol</button>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('estudi', this)">🎨 Estudi (PB)</button>
+                onclick="showTab('estudi', this)">Estudi</button>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('pati', this)">🌿 Pati (PB)</button>
+                onclick="showTab('pati', this)">Pati</button>
             <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('cuina', this)">🍽️ Cuina-Menjador (P1)</button>
+                onclick="showTab('cuina', this)">Cuina-Menjador</button>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('sala', this)">🛋️ Sala (P1)</button>
+                onclick="showTab('sala', this)">Sala</button>
             <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('distribuidor', this)">📚 Biblioteca (P2)</button>
+                onclick="showTab('distribuidor', this)">Biblioteca</button>
             <a href="SIMULACIO_DORMITORI_2.html"
-                class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-emerald-400 flex items-center">🛏️
-                Dormitori 2 (Principal)</a>
+                class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-emerald-400 flex items-center">
+                Dormitori 2</a>
             <a href="SIMULACIO_DORMITORI_1.html"
-                class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-purple-400 flex items-center">🛌
-                Dormitori 1 (P2)</a>
+                class="glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-purple-400 flex items-center">
+                Dormitori 1</a>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('bany', this)">🚿 Bany (P2)</button>
+                onclick="showTab('bany', this)">Bany</button>
             <div class="w-px h-8 bg-white/10 mx-2 hidden md:block"></div>
             <button
                 class="tab-btn glass px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all"
-                onclick="showTab('escala', this)">🪜 Escala</button>
+                onclick="showTab('escala', this)">Escala</button>
         </nav>
 
         <!-- Main Content Area -->
@@ -272,19 +272,49 @@
             </section>
             <!-- ESTUDI -->
             <section id="estudi" class="view-section space-y-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="space-y-4"><span class="label-overlay">Estat actual</span><img src="assets/actual/estudi_abans.jpg"
-                            class="simulation-image lb-trigger !h-[300px]"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-cyan-400">Proposta PB</span><img src="assets/pb/interior_estudi_final.png" class="simulation-image lb-trigger !h-[300px]"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-orange-400">Proposta PE (Ús futur)</span><img src="assets/pe/estudi_pb_pe_definitiu_dormitori_2026.png"
-                            class="simulation-image lb-trigger !h-[300px]"></div>
-                    <div class="space-y-4"><span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span><img src="assets/pe/estudi_pb_pe_definitiu_2026.png"
-                            class="simulation-image lb-trigger !h-[300px] border-emerald-500/30"></div>
+                <!-- Estat actual centrat a dalt -->
+                <div class="max-w-md mx-auto mb-12 text-center space-y-4">
+                    <span class="label-overlay justify-center mx-auto w-fit">Estat actual</span>
+                    <img src="assets/actual/estudi_abans.jpg" class="simulation-image lb-trigger !h-[300px] mx-auto rounded-[24px] border border-white/5">
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Bloc Estudi / Treball -->
+                    <div class="glass p-6 rounded-[32px] border border-white/5 space-y-6">
+                        <h4 class="text-lg font-bold text-white px-3 border-l-3 border-cyan-400">Configuració: Estudi / Treball</h4>
+                        <p class="text-xs text-slate-400 px-3">Comparativa entre la Proposta Bàsica i la versió PE en format d'espai de treball.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <span class="label-overlay !border-cyan-400 text-xs w-fit">Proposta PB</span>
+                                <img src="assets/pb/interior_estudi_final.png" class="simulation-image lb-trigger !h-[260px]">
+                            </div>
+                            <div class="space-y-3">
+                                <span class="label-overlay !border-emerald-400 text-emerald-400 text-xs w-fit">Proposta PE</span>
+                                <img src="assets/pe/estudi_pb_pe_definitiu_2026.png" class="simulation-image lb-trigger !h-[260px] border-emerald-500/20">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bloc Dormitori / Ús futur -->
+                    <div class="glass p-6 rounded-[32px] border border-white/5 space-y-6">
+                        <h4 class="text-lg font-bold text-white px-3 border-l-3 border-orange-400">Configuració: Futur Dormitori</h4>
+                        <p class="text-xs text-slate-400 px-3">Comparativa de la transformació de l'espai en habitació per a cuidador/a o ús accessible.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <span class="label-overlay !border-cyan-400 text-xs w-fit">Proposta PB (Ús futur)</span>
+                                <img src="assets/pb/interior_estudi_futur_dormitori_rsm.png" class="simulation-image lb-trigger !h-[260px]">
+                            </div>
+                            <div class="space-y-3">
+                                <span class="label-overlay !border-orange-400 text-xs w-fit">Proposta PE (Ús futur)</span>
+                                <img src="assets/pe/estudi_pb_pe_definitiu_dormitori_2026.png" class="simulation-image lb-trigger !h-[260px] border-orange-500/20">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
                     <h3 class="text-xl font-bold text-white mb-4">Estudi (PB)</h3>
                     <p class="text-slate-400 leading-relaxed text-sm mb-4">Espai de treball a cota zero amb paviment
-                        de **gres porcelànic XL (Sorra)**. Dissenyat com un espai híbrid que pot evolucionar cap a un <b>dormitori
+                        de <b>gres porcelànic XL (Sorra)</b>. Dissenyat com un espai híbrid que pot evolucionar cap a un <b>dormitori
                             accessible</b> (ex: habitatge per a cuidador/a) a mig termini.</p>
                     <p class="text-slate-400 leading-relaxed text-sm">Les instal·lacions elèctriques i de dades s'han
                         pre-calculat per permetre la col·locació de TV i llit sense necessitat d'obres, mantenint la
@@ -336,7 +366,7 @@
             </section>
             <!-- SALA (P1) -->
             <section id="sala" class="view-section space-y-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     <div class="space-y-4">
                         <span class="label-overlay">Estat actual</span>
                         <img src="assets/actual/sala_abans_original.jpg" class="simulation-image lb-trigger !h-[400px]">
@@ -346,8 +376,16 @@
                         <img src="assets/pb/sala_digital_base.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE</span>
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">PE: Projector</span>
                         <img src="assets/pe/sala_estar_rsm_definitiva_pe_1778839193189.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">PE: TV OLED (Roure)</span>
+                        <img src="assets/pe/sala_estar_rsm_tv_oled.png" class="simulation-image lb-trigger !h-[400px]">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">PE: TV OLED (Blanc i Metall)</span>
+                        <img src="assets/pe/sala_estar_rsm_tv_oled_metal_blanc.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                 </div>
                 <div
@@ -432,7 +470,7 @@
                     </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
-                    <h3 class="text-xl font-bold text-white mb-4">Dormitori 2 (Principal)</h3>
+                    <h3 class="text-xl font-bold text-white mb-4">Dormitori 2</h3>
                     <p class="text-slate-400 leading-relaxed text-sm">Habitació orientada al descans, lliure
                         d'elements tecnològics visius. S'aplica l'estratègia <b>White, Oak & Sand</b>, utilitzant 
                         el paviment de gres sorra i mobiliari a mida de roure clar per crear una atmosfera de puresa 
@@ -466,12 +504,12 @@
                         <img src="assets/pb/interior_escala_p2_nova_barana_rsm.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Opció A)</span>
-                        <img src="assets/pe/escala_rsm_minimalista_extrema_pe_1778839623285.png" class="simulation-image lb-trigger !h-[400px]">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Escala P1)</span>
+                        <img src="assets/pe/escala_rsm_final.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                     <div class="space-y-4">
-                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Opció B)</span>
-                        <img src="assets/pe/escala_rsm_final.png" class="simulation-image lb-trigger !h-[400px]">
+                        <span class="label-overlay !border-emerald-400 text-emerald-400">Proposta PE (Escala P2)</span>
+                        <img src="assets/pe/escala_rsm_minimalista_extrema_pe_1778839623285.png" class="simulation-image lb-trigger !h-[400px]">
                     </div>
                 </div>
                 <div class="glass p-8 rounded-[32px] mt-8">
