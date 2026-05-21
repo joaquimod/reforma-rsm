@@ -2,7 +2,7 @@
 
 Aquesta llista recull les millors revistes, plataformes digitals i referents de disseny d'interiors actuals, seleccionats per la seva aposta pel disseny modern, l'arquitectura d'alta gamma i l'estètica contemporània.
 
-## 1. Plataformes digitals d'avantguarda (Arquitectura i Disseny Pur)
+## 1. Plataformes digitals d'avantguarda (arquitectura i disseny pur)
 Indispensables per seguir les últimes obres d'arquitectes internacionals i les tendències més trencadores.
 
 *   **Dezeen**: [dezeen.com](https://www.dezeen.com)
@@ -12,7 +12,7 @@ Indispensables per seguir les últimes obres d'arquitectes internacionals i les 
 *   **Designboom**: [designboom.com](https://www.designboom.com)
     *   Especialitat: Una barreja única d'arquitectura, art i tecnologia. Molt visual i enfocada a solucions de disseny global.
 
-## 2. Revistes de luxe i estil curat (Top-top)
+## 2. Revistes de luxe i estil curat (top-top)
 Publicacions amb una estètica molt cuidada que defineixen el luxe contemporani.
 
 *   **Yellowtrace**: [yellowtrace.com.au](https://www.yellowtrace.com.au)
@@ -32,7 +32,7 @@ Publicacions properes que tracten el disseny que es fa a Barcelona i a l'Estat, 
 *   **Manera Magazine**: [maneramagazine.es](https://maneramagazine.es)
     *   Especialitat: Nova revista que aposta per l'interiorisme amb caràcter, personalitat i una fotografia molt potent.
 
-## 4. Referències amb personalitat i estil "Real"
+## 4. Referències amb personalitat i estil "real"
 Enfocaments que s'allunyen de la perfecció rígida i busquen espais més humans i viscuts.
 
 *   **Apartamento Magazine**: [apartamentomagazine.com](https://apartamentomagazine.com)
@@ -40,7 +40,7 @@ Enfocaments que s'allunyen de la perfecció rígida i busquen espais més humans
 *   **Est Living**: [estliving.com](https://estliving.com)
     *   Especialitat: Disseny de cases de luxe amb una estètica molt neta i minimalista, molt similar al "vibe" que busquem per a Casa RSM.
 
-## 5. Xarxes Socials i Canals Visuals
+## 5. Xarxes socials i canals visuals
 *   **The Local Project (YouTube / Instagram)**: Vídeos curts i entrevistes en cases d'arquitecte amb un nivell de detall i producció impressionant.
 *   **Pinterest**: Crear taulers (boards) filtrant per conceptes com *"Modern Mediterranean Interior"*, *"Brutalism Interior Architecture"* o *"Minimalist High-end Bathroom"*.
 

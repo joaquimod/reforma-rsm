@@ -41,7 +41,7 @@ Aquest document recull la llista real de mobiliari necessari per a la casa refor
 | **Baixa** | **Sala polivalent** | Estanteria | Sí | - |
 | **Baixa** | **Sala polivalent** | Taula | Sí | - |
 | **Baixa** | **Sala polivalent** | Cadira | Sí | - |
-| **Primera** | **Sala d'estar** | Silló | Sí | - |
+| **Primera** | **Sala d'estar** | Butaca Stressless | Sí | Model Classic de pell antracita i base de fusta clara (existent). |
 | **Primera** | **Sala d'estar** | Lámpara de peu | Sí | - |
 | **Primera** | **Cuina - Menjador** | Taula | Sí | - |
 | **Primera** | **Cuina - Menjador** | Cadires | Sí | - |

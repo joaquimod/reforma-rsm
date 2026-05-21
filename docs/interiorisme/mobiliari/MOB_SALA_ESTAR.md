@@ -239,9 +239,26 @@ Sistema d'emmagatzematge obert o tancat destinat principalment a llibres i objec
     - **On veure'l:** DomesticoShop (Barcelona).
     - **Enllaç:** [Veure](https://www.usm.com/es-es/home/soluciones/estanterias-y-almacenaje-para-el-hogar/).
 
+## 5. La butaca de lectura existent (Stressless)
+
+Per a la zona de lectura de la sala d'estar (Planta Primera), el projecte disposa de la butaca de descans existent del promotor, evitant l'adquisició d'un element nou.
+
+### 5.1 Característiques i materials de la butaca
+* **Model:** Stressless amb base *Classic* de fusta laminada corbada.
+* **Entapissat:** Pell natural de gra gruixut en color gris carbó / antracita.
+* **Base:** Peu de fusta laminada en acabat roure natural clar o faig.
+* **Estat:** Molt bona conservació, amb les arrugues i el desgast natural de la pell de qualitat, aportant confort visual immediat.
+
+### 5.2 Valoració d'integració a la Casa RSM
+* **Coherència de materials:** La fusta clara del peu *Classic* s'integra perfectament amb els tons del paviment d'alta inèrcia tèrmica de la Planta Baixa/Primera i amb els fusteries interiors de fusta de roure clàssica que defineixen el projecte.
+* **Contrast cromàtic:** L'entapissat gris fosc/antracita aporta una nota de contrast que trenca la uniformitat dels blancs porosos i grisos de fons, coordinant-se amb la perfileria en negre de les finestres eficients.
+* **Consells per al cozy minimalism:**
+    * *Suavització visual:* Com que és una butaca molt encoixinada i amb certa presència, es pot vestir amb un plaid o manta de textura orgànica i color clar (cru, sorra o lli natural, idealment de *Teixidors*) plegada verticalment sobre el respatller o el seient.
+    * *Composició de l'espai:* Cal ubicar-la en un racó a prop de la llum natural de la façana, acompanyada d'un llum de lectura de línies molt depurades i fines (com el *Tolomeo* d'Artemide o el llum *Tab* de Flos) per no recarregar l'espai.
+
 ---
 
-## 5. On comprar i adreces físiques
+## 6. On comprar i adreces físiques
 
 ### A Vilanova i la Geltrú i zona Garraf
 - **Kave Home Partner Vilanova (CA Grup Interiors):** Rambla de Salvador Samà, 18, 08800 Vilanova i la Geltrú.

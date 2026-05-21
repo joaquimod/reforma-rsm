@@ -3,7 +3,7 @@ planta: P1
 tipus: Interior
 superficie_m2: 16.5
 funcio: Sala d'estar, zona social
-mobiliari_equipament: Sofà, Laser TV, moble de perfil baix, moble bufet, estanteria biblioteca, taula rodona, cadires, butaca, làmpara lectura
+mobiliari_equipament: Sofà, Laser TV, moble de perfil baix, moble bufet, estanteria biblioteca, taula rodona, cadires, butaca Stressless (existent), làmpara lectura
 il_luminacio: Perimetral (fosos de llum), control de preses de corrent domòtiques
 clima: VMC
 paviment: Vinílic SPC

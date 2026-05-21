@@ -92,6 +92,8 @@
             height: calc(100vh - 4rem);
             position: sticky;
             top: 4rem;
+            overflow-y: auto;
+            padding-bottom: 4rem;
         }
 
         .plant-nav {
@@ -100,9 +102,9 @@
 
         .plant-title {
             text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.75rem;
-            color: var(--text-meta);
+            font-weight: 900;
+            font-size: 0.85rem;
+            color: var(--primary);
             letter-spacing: 1px;
             margin-bottom: 1rem;
         }
@@ -293,14 +295,41 @@
     <script type="module">
         let currentData = [];
 
+        function getDocLabel(d) {
+            let label = d.replace('.md', '').replace('LLISTA_PROVEIDORS_', '').replace(/_/g, ' ');
+            if (label === 'RSM') return 'Interiorisme RSM';
+            if (d === 'ESTRUCTURA_DASHBOARDS_RSM.md') return 'Estructura de Dashboards';
+            if (d === 'PLA_ACCIO_MOBILIARI.md') return "Pla d'acció de mobiliari";
+            if (d === 'INVENTARI_MOBILIARI_RSM.md') return 'Inventari de mobiliari';
+            if (d === 'PUNTS_VENDA_MOBILIARI.md') return 'Punts de venda de mobiliari';
+            if (d === 'MOB_SALA_ESTAR.md') return "Mobiliari sala d'estar";
+            if (d === 'MOB_CUINA_MENJADOR.md') return 'Mobiliari cuina i menjador';
+            if (d === 'MOB_DORMITORIS.md') return 'Mobiliari dormitoris';
+            if (d === 'MOB_EXTERIOR.md') return 'Mobiliari exterior';
+            if (d === 'MOB_SERVEI_EMMAGATZEMATGE.md') return 'Mobiliari servei i magatzem';
+            return label;
+        }
+
         window.showDocsMobile = () => {
             const content = document.getElementById('content');
             let html = `<h2 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 2rem;">Documentació del Projecte</h2>`;
             
             const docGroups = [
                 {
-                    name: 'Mobiliari i Banys',
-                    files: ['LLISTA_PROVEIDORS_RSM.md', 'LLISTA_PROVEIDORS_CUINES_TOP_RSM.md', 'LLISTA_PROVEIDORS_BANYS_RSM.md']
+                    name: 'Estratègia i Guies',
+                    files: ['ESTRUCTURA_DASHBOARDS_RSM.md', 'ESTRATEGIA_INTERIORISME_RSM.md', 'GUIA_DISSENY_INTERIOR_RSM.md', 'GUIA_MANTENIMENT_RSM.md', 'FONTS_INSPIRACIO_INTERIORISME_RSM.md']
+                },
+                {
+                    name: 'Organització',
+                    files: ['Informe_Despensa.md', 'Informe_Zona_Bicicletes.md', 'Informe_Garatge.md', 'Informe_Bugaderia.md', 'Informe_Pati.md']
+                },
+                {
+                    name: 'Proveïdors: mobiliari i banys',
+                    files: ['LLISTA_PROVEIDORS_RSM.md', 'LLISTA_PROVEIDORS_CUINES_TOP_RSM.md', 'LLISTA_PROVEIDORS_BANYS_RSM.md', 'LLISTA_PROVEIDORS_LLITS_ROBA_RSM.md', 'LLISTA_PROVEIDORS_SOFAS_BUTAQUES_RSM.md']
+                },
+                {
+                    name: 'Anàlisi per estança',
+                    files: ['INVENTARI_MOBILIARI_RSM.md', 'PLA_ACCIO_MOBILIARI.md', 'PUNTS_VENDA_MOBILIARI.md', 'MOB_SALA_ESTAR.md', 'MOB_CUINA_MENJADOR.md', 'MOB_DORMITORIS.md', 'MOB_EXTERIOR.md', 'MOB_SERVEI_EMMAGATZEMATGE.md']
                 },
                 {
                     name: 'Acabats i Tancaments',
@@ -313,10 +342,6 @@
                 {
                     name: 'Energia i Clima',
                     files: ['LLISTA_PROVEIDORS_CLIMA_VMC_RSM.md', 'LLISTA_PROVEIDORS_FOTOVOLTAICA_V2H_RSM.md']
-                },
-                {
-                    name: 'Estratègia i Guies',
-                    files: ['ESTRATEGIA_INTERIORISME_RSM.md', 'GUIA_MANTENIMENT_RSM.md', 'FONTS_INSPIRACIO_INTERIORISME_RSM.md']
                 }
             ];
 
@@ -326,8 +351,7 @@
                     html += `<div style="font-size: 0.75rem; font-weight: 700; color: var(--text-meta); margin: 2rem 0 1rem 0; text-transform: uppercase; letter-spacing: 1px;">${group.name}</div>`;
                     html += `<div class="space-grid">`;
                     availableFiles.forEach(d => {
-                        let label = d.replace('.md', '').replace('LLISTA_PROVEIDORS_', '').replace(/_/g, ' ');
-                        if(label === 'RSM') label = 'Interiorisme RSM';
+                        let label = getDocLabel(d);
                         html += `
                         <div class="space-card" onclick="showDoc('${d}')" style="cursor: pointer; padding: 1.2rem; border-left: 4px solid var(--primary);">
                             <div style="font-size: 0.9rem; font-weight: 700;">📄 ${label}</div>
@@ -376,8 +400,13 @@
             const scriptMarked = document.createElement('script');
             scriptMarked.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
 
-            const res = await fetch('data.json');
-            currentData = await res.json();
+            try {
+                const res = await fetch('data.json');
+                currentData = await res.json();
+            } catch (e) {
+                console.warn("No s'ha pogut carregar data.json (probable CORS local).", e);
+                currentData = [];
+            }
             
             // Wait for both to load
             let loaded = 0;
@@ -388,11 +417,46 @@
                     const docList = document.getElementById('docs-list');
                     const docGroups = [
                         {
-                            name: 'Mobiliari i Banys',
+                            name: 'Estratègia i Guies',
+                            files: [
+                                'ESTRUCTURA_DASHBOARDS_RSM.md',
+                                'ESTRATEGIA_INTERIORISME_RSM.md',
+                                'GUIA_DISSENY_INTERIOR_RSM.md',
+                                'GUIA_MANTENIMENT_RSM.md',
+                                'FONTS_INSPIRACIO_INTERIORISME_RSM.md'
+                            ]
+                        },
+                        {
+                            name: 'Organització',
+                            files: [
+                                'Informe_Despensa.md',
+                                'Informe_Zona_Bicicletes.md',
+                                'Informe_Garatge.md',
+                                'Informe_Bugaderia.md',
+                                'Informe_Pati.md'
+                            ]
+                        },
+                        {
+                            name: 'Proveïdors: mobiliari i banys',
                             files: [
                                 'LLISTA_PROVEIDORS_RSM.md',
                                 'LLISTA_PROVEIDORS_CUINES_TOP_RSM.md',
-                                'LLISTA_PROVEIDORS_BANYS_RSM.md'
+                                'LLISTA_PROVEIDORS_BANYS_RSM.md',
+                                'LLISTA_PROVEIDORS_LLITS_ROBA_RSM.md',
+                                'LLISTA_PROVEIDORS_SOFAS_BUTAQUES_RSM.md'
+                            ]
+                        },
+                        {
+                            name: 'Anàlisi per estança',
+                            files: [
+                                'INVENTARI_MOBILIARI_RSM.md',
+                                'PLA_ACCIO_MOBILIARI.md',
+                                'PUNTS_VENDA_MOBILIARI.md',
+                                'MOB_SALA_ESTAR.md',
+                                'MOB_CUINA_MENJADOR.md',
+                                'MOB_DORMITORIS.md',
+                                'MOB_EXTERIOR.md',
+                                'MOB_SERVEI_EMMAGATZEMATGE.md'
                             ]
                         },
                         {
@@ -420,14 +484,6 @@
                                 'LLISTA_PROVEIDORS_CLIMA_VMC_RSM.md',
                                 'LLISTA_PROVEIDORS_FOTOVOLTAICA_V2H_RSM.md'
                             ]
-                        },
-                        {
-                            name: 'Estratègia i Guies',
-                            files: [
-                                'ESTRATEGIA_INTERIORISME_RSM.md',
-                                'GUIA_MANTENIMENT_RSM.md',
-                                'FONTS_INSPIRACIO_INTERIORISME_RSM.md'
-                            ]
                         }
                     ];
                     
@@ -435,11 +491,10 @@
                     docGroups.forEach(group => {
                         const availableFiles = group.files.filter(f => window.DOCS_BUNDLE && window.DOCS_BUNDLE[f]);
                         if(availableFiles.length > 0) {
-                            docsHtml += `<div style="font-size: 0.65rem; font-weight: 700; color: var(--text-meta); margin: 1rem 0 0.5rem 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">${group.name}</div>`;
+                            docsHtml += `<div style="font-size: 0.75rem; font-weight: 700; color: #10b981; margin: 1.5rem 0 0.5rem 0; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 1px;">${group.name}</div>`;
                             availableFiles.forEach(d => {
-                                let label = d.replace('.md', '').replace('LLISTA_PROVEIDORS_', '').replace(/_/g, ' ');
-                                if(label === 'RSM') label = 'Interiorisme RSM';
-                                docsHtml += `<div class="nav-item" onclick="showDoc('${d}')" style="font-size: 0.8rem; opacity: 0.8; padding: 0.4rem 0.8rem;">📄 ${label}</div>`;
+                                let label = getDocLabel(d);
+                                docsHtml += `<div class="nav-item" onclick="showDoc('${d}')" style="font-size: 0.9rem; font-weight: 500;">📄 ${label}</div>`;
                             });
                         }
                     });
@@ -455,6 +510,14 @@
                     marked.use({
                         renderer: {
                             link(token) {
+                                let href = token.href;
+                                if (href && href.endsWith('.md')) {
+                                    const parts = href.split('/');
+                                    const filename = parts[parts.length - 1];
+                                    if (window.DOCS_BUNDLE && window.DOCS_BUNDLE[filename]) {
+                                        return `<a href="javascript:void(0)" onclick="window.showDoc('${filename}')">${token.text}</a>`;
+                                    }
+                                }
                                 return `<a href="${token.href}" ${token.title ? `title="${token.title}"` : ''} target="_blank" rel="noopener noreferrer">${token.text}</a>`;
                             }
                         }

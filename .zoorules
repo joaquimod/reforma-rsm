@@ -1,0 +1,33 @@
+# REGLES D'OPTIMITZACIÓ PER A AGENTS EN LOCAL (ZOO CODE)
+
+## 1. COMPORTAMENT GENERAL I RAONAMENT
+
+* Sigues extremadament directe, concís i pragmàtic.
+* Estalvia explicacions teòriques o xerrades de cortesia. Respon només amb el que és estrictament necessari per a la tasca.
+* Abans de realitzar canvis complexos o de múltiples fitxers, utilitza un procés de reflexió intern silenciós (sense escriure'l de forma redundant al xat).
+* Si una tasca té molts passos, planifica primer un esquema dels fitxers afectats abans de tocar codi.
+
+## 2. PREVENCIÓ DE BUCLS I REPETICIONS (CRUCIAL PER A LLM LOCALS)
+
+* Després d'utilitzar l'eina \"write_to_file\" o \"apply_diff\" amb èxit, NO tornis a escriure el codi complet que has generat en la teva resposta final de xat. Limita't a confirmar que s'ha desat correctament o a mostrar un resum dels canvis.
+* No entris en bucles de lectura/escriptura. Si un canvi falla 2 vegades seguides, atura't, demana confirmació a l'usuari i explica l'error.
+* Verifica sempre si els fitxers que vols modificar o crear ja existeixen abans de cridar les ones de terminal o de lectura per no duplicar context.
+
+## 3. CONTROL DE TOKENS I ESTALVI DE CONTEXT
+
+* Evita fer cerques transversals massives (tipus grep) si pots demanar-me la ruta exacta del fitxer.
+* Quan demanis llegir un fitxer, llegeix exclusivament les línies o el fragment de codi que necessites analitzar, mai arxius complets de més de 500 línies si no és imprescindible.
+* Intenta resoldre la modificació d'un fitxer en un sol \"torn de paraula\" (Ingeix -> Sintetitza -> Escriu el canvi sencer d'un sol cop). Dividir els canvis en massa micro-crides d'edició satura la memòria cau i degrada el teu raonament.
+
+## 4. COMPRESSIÓ DE SORTIDES DE TERMINAL
+
+* Quan executis comandes de terminal (com 'npm install', 'cargo test', 'git status' o scripts de Python/Bash), filtra la sortida abans de processar-la.
+* Ignora completament les barres de progrés, els logs d'instal·lació exitosos, o les llistes de tests que hagin passat correctament (pass green).
+* Centra el teu anàlisi exclusivament en els codis d'error (Exit codes!= 0), traces de fallades d'execució (stack traces), errors de sintaxi o adverticions de compilació (warnings).
+* Si l'output d'una comanda és molt verbós, demana'm permís o resumeix-lo en menys de 20 línies destacant només els punts crítics.
+
+### Per què funciona tan bé aquesta configuració al teu Mac?
+
+1. Atura el \"bucle de repetició de tokens\" `: Els models de llenguatge tenen una forta inèrcia a repetir-se a si mateixos. En prohibir explícitament que tornin a escriure en el text final del xat el codi que ja s'ha guardat al disc dur, estalvies un temps d'espera enorme i fins a un 70% de tokens de sortida per prompt `.
+2. Redueix la brossa de la terminal en un 89% `: Quan deixes que un agent faci tests, la terminal sol escriure centenars de línies de text neutre (com \"Test X passed...\"). La secció 4 d'aquest fitxer de regles educa el model per ignorar el soroll i centrar-se exclusivament en els errors de linter i de compilació, evitant que el context s'ompli de brossa en menys de 5 minuts `.
+3. Optimitza el processament en un sol intent (Single-turn write) `: Els models mitjans (30B-35B) pateixen una degradació del rendiment molt forta si han d'anar modifiant un fitxer línia per línia (es perlen en la memòria de treball) `. Obligar l'agent a dissenyar el canvi primer i escriure'l de cop en el fitxer manté la coherència de la sintaxi molt més alta ``.

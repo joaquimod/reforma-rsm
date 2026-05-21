@@ -75,6 +75,12 @@ Barcelona ofereix les exposicions més completes de marques internacionals i les
 - **Web:** [mobles-guell.com](https://mobles-guell.com)
 - **Perfil:** Una de les exposicions més grans de Catalunya. Marques com Hay, Muuto, Ethnicraft, Treku, String.
 
+### 3.2 Mirsa Interiorisme & Mobiliari (El Vendrell)
+- **Adreça:** Avinguda Sant Vicenç, 51, 43700 El Vendrell.
+- **Web:** [mirsa.es](http://mirsa.es)
+- **Telèfon:** 977 66 02 48
+- **Perfil:** Empresa familiar amb trajectòria des del 1960, especialitzada en interiorisme, projectes de disseny integral i distribució de mobiliari contemporani de marques internacionals (distribuïdor oficial de Lago Design i Ligne Roset). Molt orientada a projectes complets d'interiorisme residencial.
+
 ---
 
 ## 4. Mobiliari funcional i grans superfícies

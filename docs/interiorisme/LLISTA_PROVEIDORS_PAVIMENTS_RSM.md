@@ -1,23 +1,26 @@
-# Llista de proveïdors de paviments (Gres i SPC) - Casa RSM
+# Llista de proveïdors de paviments (gres i SPC) - Casa RSM
 
 Aquesta llista classifica els proveïdors de paviments (Ceràmica/Gres i SPC - Stone Plastic Composite) per nivell de qualitat i exclusivitat, des de solucions econòmiques fins a l'alta gamma ("top-top").
 
-## 1. Grans superfícies (Gamma econòmica / DIY)
+## 1. Grans superfícies (gamma econòmica / DIY)
 Solucions de preu competitiu, ideals per a pressupostos ajustats o zones secundàries.
 
 *   **Leroy Merlin (VNG)**: [leroymerlin.es](https://www.leroymerlin.es)
     *   Adreça: Polígon Masia Barreres, Carrer de la Masia de Barreres, s/n, 08800 Vilanova i la Geltrú.
 *   **Bauhaus (Barcelona/Gavà)**: [bauhaus.es](https://www.bauhaus.es)
     *   Adreça: Carrer de la Ciutat d'Asunción, 57, 08030 Barcelona.
-*   **Obramat (Sant Boi)**: [obramat.es](https://www.obramat.es)
-    *   Adreça: Carrer de l'Alberedes, 2-22, 08830 Sant Boi de Llobregat (Proximitat).
+*   **Obramat (VNG)**: [obramat.es](https://www.obramat.es)
+    *   Adreça: Carrer de l'Acer, 13, Polígon Industrial Masia d'en Barreres, 08800 Vilanova i la Geltrú.
 
-## 2. Magatzems de materials (Gamma mitjana / Solidesa)
+## 2. Magatzems de materials (gamma mitjana / solidesa)
 Distribuïdors multimarca amb bona relació qualitat-preu i servei tècnic.
 
 *   **Materials Soler (VNG)**: [materialssoler.com](https://www.materialssoler.com)
     *   Adreça: Avinguda del Garraf, 14, 08800 Vilanova i la Geltrú.
     *   Especialitat: Paviments ceràmics i gres de marques nacionals (Roca, Pamesa).
+*   **Materials per a la Construcció del Garraf (Matgarraf - VNG)**: [matgarraf.org](https://matgarraf.org)
+    *   Adreça: Carrer d'Eusebi Millan, 9, 08800 Vilanova i la Geltrú.
+    *   Especialitat: Magatzem local de materials, ciments i paviments ceràmics de marques de confiança.
 *   **Pevimat (VNG)**: [pevimat.es](https://www.pevimat.es)
     *   Adreça: Carretera de l'Arboç, 2, 08800 Vilanova i la Geltrú.
     *   Especialitat: Ceràmica i materials per a la construcció amb showroom propi.
@@ -27,7 +30,7 @@ Distribuïdors multimarca amb bona relació qualitat-preu i servei tècnic.
     *   Adreça: Carrer de Pere IV, 102, 08018 Barcelona / Carrer de París, 38, 08029 Barcelona.
     *   Especialitat: Una de les majors exposicions, amb gran varietat d'estoc.
 
-## 3. Boutiques i especialistes (Gamma mitjana-alta / Disseny)
+## 3. Boutiques i especialistes (gamma mitjana-alta / disseny)
 Showrooms amb selecció de tendència, marques de disseny i assessorament estètic.
 
 *   **Tono Bagno (Barcelona)**: [tonobagno.com](https://www.tonobagno.com)
@@ -43,7 +46,7 @@ Showrooms amb selecció de tendència, marques de disseny i assessorament estèt
     *   Adreça: Carrer de Còrsega, 257, 08036 Barcelona.
     *   Especialitat: Combinació de terres porcelànics i paviments SPC/Laminats premium.
 
-## 4. Flagships de marca (Gamma Premium)
+## 4. Flagships de marca (gamma premium)
 Showrooms exclusius del propi fabricant. La millor manera de veure tot el catàleg de la marca.
 
 *   **Porcelanosa (Barcelona)**: [porcelanosa.com](https://www.porcelanosa.com)
@@ -57,8 +60,11 @@ Showrooms exclusius del propi fabricant. La millor manera de veure tot el catàl
 *   **Cosentino City Barcelona**: [cosentino.com](https://www.cosentino.com)
     *   Adreça: Avinguda Diagonal, 497, 08021 Barcelona.
     *   Especialitat: Superfícies Dekton (ultra-compacte) i Sensa.
+*   **Villeroy & Boch (Fliesen)**: [villeroy-boch-tiles.com](https://villeroy-boch-tiles.com)
+    *   Adreça: (Consultable a través de distribuïdors autoritzats a Catalunya).
+    *   Especialitat: Gres porcelànic de gamma premium amb dissenys alemanys clàssics i contemporanis de gran resistència per a interiors i exteriors.
 
-## 5. Showrooms exclusius i d'autor (Top-top)
+## 5. Showrooms exclusius i d'autor (top-top)
 Productes disruptius, pedres naturals tractades i peces de col·leccionista.
 
 *   **Mutina (via MINIM)**: [mutina.it](https://www.mutina.it)
@@ -74,7 +80,7 @@ Productes disruptius, pedres naturals tractades i peces de col·leccionista.
 ## Especialistes en SPC (Stone Plastic Composite)
 Si busqueu la màxima qualitat específica en paviments SPC (vinílics de nucli rígid):
 
-*   **Quick-Step (Distribuïdors oficials)**: [quick-step.com.es](https://www.quick-step.com.es)
+*   **Quick-Step (distribuïdors oficials)**: [quick-step.com.es](https://www.quick-step.com.es)
     *   Representat a Barcelona per showrooms especialitzats com **Estil Parket** (c. Pelai, 12).
 *   **Moduleo**: [moduleo.es](https://www.moduleo.es)
     *   Disponible a showrooms de gamma alta (ex. Neoceramica).
@@ -82,4 +88,4 @@ Si busqueu la màxima qualitat específica en paviments SPC (vinílics de nucli 
     *   Referència habitual en parket sintètic i SPC de gran resistència.
 
 ---
-*Darrera actualització: 9 d'abril de 2026*
+*Darrera actualització: 19 de maig de 2026*
