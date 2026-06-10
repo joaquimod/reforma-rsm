@@ -20,3 +20,15 @@
 *   **Simulacions visuals:** Revisió dels renders i simulacions BIM compromesos (combinacions de fusteries i mobiliari blanc vs. fusta).
 *   **Estat del PE:** Revisió del calendari de visat, enllestiment d'amidaments, pressupost d'execució global i tramitació municipal.
 *   **Licitació de setembre:** Planificació de la petició de pressupostos (model de constructor únic vs. industrials separats).
+
+## 4. Revisió d'infraestructura de domòtica passiva i telecomunicacions
+
+*   **Caixes de mecanismes i fil neutre:** Confirmació que totes les caixes de l'obra tindran un fons mínim de 60 mm per allotjar els micromòduls de control, i que tots els punts d'encès (interruptors/polsadors) inclouran fil neutre.
+*   **Sensors de fusteria exterior:** Previsió del tub corrugat de Ø16/20 mm des del bastiment de cadascuna de les portes i finestres exteriors fins a la caixa de registre més propera per a la instal·lació de sensors magnètics de seguretat cablejats.
+*   **Càmeres de seguretat (CCTV):** Verificació que es dibuixen en els plànols d'instal·lació les preses de dades RJ45 Cat6a alimentades per PoE per a les càmeres interiors (vestíbol, garatge, sala d'estar) i exteriors (perimetrals).
+*   **Gestió de l'energia i V2H:** Previsió del pas de tub de dades entre el comptador general (Smart Meter) i el carregador del garatge, a més de la connexió de dades de l'inversor solar al rack central de telecomunicacions.
+*   **Ascensor:** Presa RJ45 Cat6a a la maquinària de l'ascensor per a telèfon d'emergència IP (en lloc de línia analògica) i monitorització de dades.
+*   **Comptador d'aigua general:** Canalització de Ø25 mm des de l'arqueta de l'escomesa general d'aigua fins al rack central per al futur comptador per impulsos.
+*   **Estació meteorològica:** Pas de tub de Ø25 mm directe des del rack fins al punt exterior de la terrassa de la P2.
+*   **Quadres elèctrics de planta:** Reserva de l'espai mínim del 20% en rail DIN a cada subquadre de planta i canalització de dades al rack per a analitzadors de consum elèctric.
+*   **Interblocatge de seguretat VMC:** Previsió del tall elèctric o interblocatge de la VMC associat al sistema de detectors de fum/incendis (aturada en cas d'emergència).
