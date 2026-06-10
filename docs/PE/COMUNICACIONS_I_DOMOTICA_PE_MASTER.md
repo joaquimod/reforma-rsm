@@ -4,6 +4,8 @@
 **Data:** 12 de maig de 2026    
 **Objectiu:** Definició de la infraestructura passiva, xarxa de dades i requeriments elèctrics per a la domòtica integrada.
 
+![Sistemes de confort de la Casa RSM](assets/infografia_sistemes_rsm.png)
+
 ---
 
 ## 1. Infraestructura general i vertical tècnica

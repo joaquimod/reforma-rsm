@@ -1,5 +1,12 @@
 {
     "workbench.editorAssociations": {
-        "*.md": "vscode.markdown.preview.editor"
-    }
+        "*.md": "vscode.markdown.preview.editor",
+        "*.pdf": "adamgibbons.vscode-pdf"
+    },
+    "files.associations": {
+        "*.pdf": "pdf"
+    },
+    "markdown.styles": [
+        ".vscode/markdown-light.css"
+    ]
 }

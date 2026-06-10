@@ -2,6 +2,8 @@
 
 Aquest document, preparat pel promotor, recull les especificacions, prestacions i preus orientatius dels principals equipaments i sistemes tècnics previstos per a la reforma de la Casa RSM dins del Projecte Executiu (PE), incloent-hi enllaços a la documentació oficial i catàlegs de cada fabricant. L'objectiu és disposar d'una referència de base pròpia per poder contrastar-la amb les propostes i pressupostos que presenti en el seu moment l'estudi d'arquitectura.
 
+![Sistemes de confort de la Casa RSM](assets/infografia_sistemes_rsm.png)
+
 ---
 
 ## 1. Sistema de ventilació i recuperador de calor (VMC)
