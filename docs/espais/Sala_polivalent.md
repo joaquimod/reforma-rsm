@@ -3,7 +3,7 @@ planta: PB
 tipus: Interior
 superficie_m2: 17.35
 funció: Espai de treball
-mobiliari_equipament: Estanteria, armari, 2 taules de treball, ordinador, 2 pantalles, 2 cadires
+mobiliari_equipament: Estanteria, armari exempt, 2 taules de treball, ordinador, 2 pantalles, 2 cadires
 il_luminacio: LED regulable
 clima: VMC
 paviment: Gres porcelènic tècnic rectificat

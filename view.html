@@ -27,50 +27,88 @@
         })();
     </script>
     <title>Visor de Document | Casa RSM</title>
+    <script src="docs_bundle.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
+        :root {
+            --bg-color: #050812;
+            --text-color: #cbd5e1;
+            --bg-gradient: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --title-color: #ffffff;
+            --h2-color: #00f2ff;
+            --h3-color: #ffffff;
+            --primary-accent: #00f2ff;
+            --code-bg: rgba(0, 242, 255, 0.1);
+            --code-color: #00f2ff;
+            --blockquote-bg: rgba(0, 242, 255, 0.03);
+            --blockquote-text: #94a3b8;
+        }
+
+        html.light {
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+            --bg-gradient: radial-gradient(circle at top right, rgba(14, 165, 233, 0.1), transparent);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(148, 163, 184, 0.2);
+            --title-color: #0f172a;
+            --h2-color: #0284c7;
+            --h3-color: #1e293b;
+            --primary-accent: #0284c7;
+            --code-bg: rgba(14, 165, 233, 0.1);
+            --code-color: #0369a1;
+            --blockquote-bg: rgba(14, 165, 233, 0.03);
+            --blockquote-text: #475569;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: #050812;
-            color: #cbd5e1;
-            background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-gradient);
             background-attachment: fixed;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
             border-radius: 40px;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         #content h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: white;
+            color: var(--title-color);
             margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+            border-bottom: 1px solid var(--glass-border);
             padding-bottom: 1rem;
+            transition: color 0.3s, border-color 0.3s;
         }
 
         #content h2 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #00f2ff;
+            color: var(--h2-color);
             margin-top: 3rem;
             margin-bottom: 1.5rem;
+            transition: color 0.3s;
         }
 
         #content h3 {
             font-size: 1.3rem;
             font-weight: 700;
-            color: white;
+            color: var(--h3-color);
             margin-top: 2rem;
             margin-bottom: 1rem;
+            transition: color 0.3s;
         }
 
         #content p {
@@ -89,26 +127,75 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: #00f2ff;
+            color: var(--primary-accent);
             font-weight: bold;
+            transition: color 0.3s;
         }
 
         #content code {
-            background: rgba(0, 242, 255, 0.1);
-            color: #00f2ff;
+            background: var(--code-bg);
+            color: var(--code-color);
             padding: 2px 6px;
             border-radius: 6px;
             font-family: monospace;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         #content blockquote {
-            border-left: 4px solid #00f2ff;
-            background: rgba(0, 242, 255, 0.03);
+            border-left: 4px solid var(--primary-accent);
+            background: var(--blockquote-bg);
             padding: 1.5rem 2rem;
             border-radius: 0 20px 20px 0;
             margin: 2rem 0;
             font-style: italic;
-            color: #94a3b8;
+            color: var(--blockquote-text);
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        #content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        #content th, #content td {
+            border: 1px solid var(--glass-border);
+            padding: 10px 15px;
+            text-align: left;
+            transition: border-color 0.3s;
+        }
+        #content th {
+            background-color: var(--code-bg);
+            color: var(--title-color);
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #content tr:nth-child(even) {
+            background-color: var(--blockquote-bg);
+            transition: background-color 0.3s;
+        }
+
+        /* Overrides for elements with utility text color classes in light mode */
+        html.light a.glass-card {
+            color: #334155 !important;
+        }
+        html.light a.glass-card:hover {
+            background: rgba(148, 163, 184, 0.15) !important;
+        }
+        html.light #file-name {
+            color: #475569 !important;
+        }
+        html.light footer {
+            color: #94a3b8 !important;
+        }
+        html.light #content .grid {
+            background: rgba(148, 163, 184, 0.05) !important;
+            border-color: rgba(148, 163, 184, 0.2) !important;
+        }
+        html.light #content .grid div.text-slate-500 {
+            color: #475569 !important;
+        }
+        html.light #content .grid div.text-cyan-400 {
+            color: #0284c7 !important;
         }
     </style>
 </head>
@@ -124,7 +211,12 @@
                     class="hidden glass-card px-6 py-3 rounded-2xl text-purple-400 border-purple-500/30 hover:bg-purple-400/10 transition-all font-bold text-sm">←
                     Tornar al PE</a>
             </div>
-            <div id="file-name" class="text-[10px] uppercase tracking-[3px] font-bold text-slate-500">Document</div>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="glass-card w-12 h-12 rounded-2xl flex items-center justify-center text-lg hover:bg-white/5 transition-all" aria-label="Cambiar tema">
+                    ☀️
+                </button>
+                <div id="file-name" class="text-[10px] uppercase tracking-[3px] font-bold text-slate-500">Document</div>
+            </div>
         </header>
         <div id="wrapper" class="glass-card p-10 md:p-16 lg:p-20 min-h-[60vh]" style="opacity: 0;">
             <div id="content" class="animate-pulse">Carregant document...</div>
@@ -134,6 +226,34 @@
     </div>
 
     <script>
+        // Theme switcher logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        function getStoredTheme() {
+            return localStorage.getItem('theme') || 'dark';
+        }
+        
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                document.documentElement.classList.add('light');
+                themeToggleBtn.innerHTML = '🌙';
+            } else {
+                document.documentElement.classList.remove('light');
+                themeToggleBtn.innerHTML = '☀️';
+            }
+        }
+        
+        // Initial theme check
+        const initialTheme = getStoredTheme();
+        applyTheme(initialTheme);
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('theme', newTheme);
+            applyTheme(newTheme);
+        });
+
         const contentDiv = document.getElementById('content');
         function renderMarkdown(text) {
             contentDiv.classList.remove('animate-pulse');
@@ -191,6 +311,13 @@
 
             if (!fileName) { contentDiv.innerHTML = "❌ Fitxer no especificat."; return; }
             document.getElementById('file-name').textContent = fileName.replace('.md', '').replace(/_/g, ' ');
+
+            // Check pre-loaded bundle first (works locally and on web)
+            if (window.DOCS_BUNDLE && (window.DOCS_BUNDLE[fileName] || window.DOCS_BUNDLE[fileName.split('/').pop()])) {
+                const content = window.DOCS_BUNDLE[fileName] || window.DOCS_BUNDLE[fileName.split('/').pop()];
+                renderMarkdown(content);
+                return;
+            }
 
             if (window.location.protocol === 'file:') {
                 contentDiv.innerHTML = `<div class="text-center py-20 space-y-8">

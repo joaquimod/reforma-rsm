@@ -17,7 +17,7 @@ Transformar l'escala actual de metall i fusta amb esglaons volats en una peça a
 
 | Estat inicial | Resultat final |
 | :--- | :--- |
-| <img src="docs/PE/simulacions/escala_rsm_inicial.jpg" width="400"> | <img src="docs/PE/simulacions/escala_rsm_final.png" width="400"> |
+| <img src="assets/pe/escala_rsm_inicial.jpg" width="400"> | <img src="assets/pe/escala_rsm_final.png" width="400"> |
 
 ---
 

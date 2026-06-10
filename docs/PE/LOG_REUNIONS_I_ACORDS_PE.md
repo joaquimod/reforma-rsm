@@ -4,13 +4,26 @@ Aquest document registra cronològicament els acords presos amb l'arquitecta per
 
 ---
 
-## [28/05/2026] - Propera reunió (Previsió)
-- **Objectiu:** Validació final de materials i tancament d'amidaments interiors.
+## [11/06/2026] - Propera reunió (Previsió Tancament PE)
+- **Objectiu:** Tancament definitiu del Projecte Executiu (PE) abans de l'enviament a visar i a l'Ajuntament de VNG.
 - **Temes pendents:**
-    - [ ] Presentar proposta d'interiors d'armaris (PB i P2).
-    - [ ] Selecció final de la sèrie de ceràmica (tons sorra).
-    - [ ] Decisió sobre el llum central de la cuina.
-    - [ ] Confirmació color fusteries (Gris/Blanc vs Blanc).
+    - [ ] Revisió per part del promotor del plànol d'il·luminació.
+    - [ ] Presentació dels renders/simulacions BIM (façana i interiors blancs vs fusta).
+    - [ ] Lliurament dels amidaments i pressupost d'execució global final.
+    - [ ] Debat sobre estratègia de pressupostos constructius (setembre).
+
+---
+
+## [28/05/2026] - Revisió tècnica pre-tancament PE
+- **Assistents:** Joaquim, Laia Codina (SGArq), David Fructuoso (SGArq).
+- **Acords tancats:**
+    - **Tancaments i Façana:** Es descarta el bicolor (gris/blanc). Promotor prefereix tot blanc, però s'ajorna la decisió final de les portes PB (garatge/entrada) als renders BIM.
+    - **Paviments:** Ceràmica color clar però càlid (no freda) a PB/P1/P2.
+    - **Instal·lacions:** Eliminada l'arqueta de registre del garatge; falsos sostres validats; reixetes VMC accionables elèctricament.
+- **Acords metodològics:**
+    - S'entreguen els plànols provisionals per revisió (`25035 Magdalena 30 - VNG - Ejecutivo.pdf`).
+    - L'arquitecte proporcionarà simulacions interiors per acabar de decidir materials durant l'execució.
+    - Il·luminació: Queda validada per l'arquitecte (inclosos llums penjants menjador), però requereix revisió detallada (deures a casa del promotor).
 
 ---
 

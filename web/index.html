@@ -299,6 +299,7 @@
             let label = d.replace('.md', '').replace('LLISTA_PROVEIDORS_', '').replace(/_/g, ' ');
             if (label === 'RSM') return 'Interiorisme RSM';
             if (d === 'ESTRUCTURA_DASHBOARDS_RSM.md') return 'Estructura de Dashboards';
+            if (d === 'INFORME_CAIXA_FORTA_SEGURETAT.md') return 'Caixa forta (Seguretat)';
             if (d === 'PLA_ACCIO_MOBILIARI.md') return "Pla d'acció de mobiliari";
             if (d === 'INVENTARI_MOBILIARI_RSM.md') return 'Inventari de mobiliari';
             if (d === 'PUNTS_VENDA_MOBILIARI.md') return 'Punts de venda de mobiliari';
@@ -337,7 +338,7 @@
                 },
                 {
                     name: 'Electro i Tecnologia',
-                    files: ['LLISTA_PROVEIDORS_ELECTRODOMESTICS_RSM.md', 'LLISTA_PROVEIDORS_SMART_TV_RSM.md', 'LLISTA_PROVEIDORS_DOMOTICA_DIY_RSM.md']
+                    files: ['INFORME_CAIXA_FORTA_SEGURETAT.md', 'LLISTA_PROVEIDORS_ELECTRODOMESTICS_RSM.md', 'LLISTA_PROVEIDORS_SMART_TV_RSM.md', 'LLISTA_PROVEIDORS_DOMOTICA_DIY_RSM.md']
                 },
                 {
                     name: 'Energia i Clima',
@@ -473,6 +474,7 @@
                         {
                             name: 'Electro i Tecnologia',
                             files: [
+                                'INFORME_CAIXA_FORTA_SEGURETAT.md',
                                 'LLISTA_PROVEIDORS_ELECTRODOMESTICS_RSM.md',
                                 'LLISTA_PROVEIDORS_SMART_TV_RSM.md',
                                 'LLISTA_PROVEIDORS_DOMOTICA_DIY_RSM.md'

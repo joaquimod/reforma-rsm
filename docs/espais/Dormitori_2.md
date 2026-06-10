@@ -3,7 +3,7 @@ planta: P2
 tipus: Interior
 superficie_m2: 13.22
 funcio: Dormitori principal
-mobiliari_equipament: Armaris encastats, llit doble (160cm)
+mobiliari_equipament: Mobiliari exempt, llit doble (160cm)
 il_luminacio: LED regulable per fases (warm 2700K)
 clima: VMC
 paviment: Vinílic SPC
