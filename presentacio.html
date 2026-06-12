@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentació del Projecte | Casa RSM</title>
+
+    <!-- Fonts de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #0284c7;
+            --accent-hover: #0369a1;
+            --border-color: #e2e8f0;
+            --card-bg: #f8fafc;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            padding: 3rem 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .header-title h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-title p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .concept-badge {
+            background-color: #f0f9ff;
+            border: 1px solid #e0f2fe;
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .app-layout {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .app-layout {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 3rem;
+            }
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                position: sticky;
+                top: 2rem;
+                background-color: var(--card-bg);
+                border: 1px solid var(--border-color);
+                border-radius: 24px;
+                padding: 1.5rem;
+                box-shadow: var(--shadow);
+                width: 280px;
+                flex-shrink: 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            header {
+                display: none;
+            }
+        }
+
+        .sidebar-brand h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .sidebar-brand a:hover h2,
+        .header-title a:hover h1 {
+            color: var(--accent-color);
+        }
+
+        .sidebar-brand .sidebar-address {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .sidebar-brand .sidebar-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            background-color: #f1f5f9;
+            color: var(--text-color);
+        }
+
+        .nav-item.active {
+            background-color: #f0f9ff;
+            border-color: #e0f2fe;
+            color: var(--accent-color);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Secció: Navegador de Plantes */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.75rem;
+        }
+
+        .intro-subtitle {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 2.5rem 0 0.75rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .floor-explorer {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .floor-explorer {
+                grid-template-cols: 1.2fr 1fr;
+            }
+        }
+
+        .tab-menu {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+        }
+
+        /* Mapa de plànols */
+        .plan-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 1.5rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow);
+            min-height: 400px;
+        }
+
+        .plan-image-wrapper {
+            position: relative;
+            max-width: 100%;
+            display: inline-block;
+        }
+
+        .plan-image {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Hotspots */
+        .hotspot {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: var(--accent-color);
+            border: 3px solid #ffffff;
+            color: #ffffff;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+            transform: translate(-50%, -50%);
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .hotspot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        .hotspot:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+            background: var(--accent-hover);
+        }
+
+        .hotspot.active {
+            background: #10b981;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        /* Targeta de detalls de l'espai */
+        .space-detail-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .space-render-container {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .space-render {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .space-render:hover {
+            transform: scale(1.03);
+        }
+
+        .space-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .space-info p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .space-specs {
+            display: grid;
+            grid-template-cols: 1fr 1fr;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .spec-val {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Secció de vídeos */
+        .video-showcase {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-cols: 1fr 1fr;
+            }
+        }
+
+        .video-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .video-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Secció: Simulador interactiu */
+        .simulator-section {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .simulator-container {
+            display: grid;
+            grid-template-cols: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .simulator-container {
+                grid-template-cols: 1.3fr 1fr;
+            }
+        }
+
+        .simulator-viewport {
+            background-color: #f1f5f9;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            aspect-ratio: 16/10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .simulator-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .simulator-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sim-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sim-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .option-selector {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .option-btn:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
+        }
+
+        .option-btn.active {
+            border-color: var(--accent-color);
+            background: #f0f9ff;
+            color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.1);
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Disseny responsiu i detalls del visor de vídeo de la cuina */
+        .video-btn {
+            background: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .video-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .header-address {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .intro-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .intro-images-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            align-items: center;
+        }
+
+        @media (min-width: 640px) {
+            .intro-images-grid {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .intro-p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            text-align: justify;
+        }
+
+        .intro-image-container {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .intro-plan-container {
+                width: 53%;
+                max-width: 650px;
+            }
+
+            .intro-infographic-container {
+                width: 47%;
+                max-width: 580px;
+            }
+        }
+
+        .intro-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .explorer-section {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        img:not(.lightbox-content) {
+            cursor: zoom-in;
+            transition: var(--transition);
+        }
+
+        img:not(.lightbox-content):hover {
+            transform: scale(1.015);
+        }
+
+        /* Lightbox modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.9);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-title">
+            <a href="#descripcio" onclick="showSection('descripcio', event)" style="text-decoration: none; color: inherit; display: inline-block;">
+                <h1>Casa RSM</h1>
+            </a>
+            <p class="header-address">Raval de Santa Magdalena, 30, Vilanova i la Geltrú</p>
+            <p class="header-subtitle">Projecte de Reforma</p>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <a href="#descripcio" onclick="showSection('descripcio', event)" style="text-decoration: none; color: inherit; display: inline-block;">
+                    <h2>Casa RSM</h2>
+                </a>
+                <p class="sidebar-address">Raval de Santa Magdalena, 30<br>Vilanova i la Geltrú</p>
+                <p class="sidebar-subtitle">Projecte de Reforma</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#descripcio" class="nav-item active" onclick="showSection('descripcio', event)">Descripció
+                    reforma</a>
+                <a href="#explorador" class="nav-item" onclick="showSection('explorador', event)">Explorador de
+                    plantes</a>
+                <a href="#mobles-banys" class="nav-item" onclick="showSection('mobles-banys', event)">Fusteria i
+                    banys</a>
+                <a href="#instal-lacions" class="nav-item" onclick="showSection('instal-lacions', event)">Instal·lacions</a>
+                <a href="#simulador" class="nav-item" onclick="showSection('simulador', event)">Simulador de
+                    variants</a>
+            </nav>
+        </aside>
+
+        <main>
+
+            <!-- SECCIÓ INICIAL: DESCRIPCIÓ DE LA REFORMA -->
+            <section class="intro-section" id="descripcio">
+                <div class="intro-content">
+                    <h2 class="section-title">La reforma de la Casa RSM</h2>
+                    
+                    <h3 class="intro-subtitle" style="margin-top: 0;">Plantejament de la reforma</h3>
+                    <p class="intro-p">
+                        El projecte de reforma integral de la Casa RSM té com a bases l'<strong>eficiència
+                            energètica</strong> i l'<strong>accessibilitat universal</strong>, adaptant l'habitatge
+                        original a les necessitats d'ús actuals i futures.
+                    </p>
+
+                    <div class="intro-images-row"
+                        style="display: flex; gap: 3rem; justify-content: center; margin: 2rem auto; max-width: 1100px; flex-wrap: wrap; align-items: center;">
+                        <img src="assets/pe/planols_pb_1.png" alt="Plànols Planta Baixa i Primera"
+                            style="height: 380px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                        <img src="assets/pe/planols_2_psc.png" alt="Plànols Planta Segona i Sotacoberta"
+                            style="height: 380px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                    </div>
+
+                    <h3 class="intro-subtitle">Accessibilitat universal</h3>
+                    <p class="intro-p">
+                        Pel que fa a l'accessibilitat, s'eliminen les barreres arquitectòniques en planta baixa,
+                        dissenyant un accés pla de carrer (vestíbul) i preparant un estudi polivalent convertible en
+                        dormitori adaptat. La connexió entre plantes queda prevista mitjançant l'espai per a un ascensor
+                        domèstic que arriba fins al segon pis. A més, es crea un nou accés vertical exterior mitjançant una escala
+                        des de la terrassa de la planta primera directament cap al pati.
+                    </p>
+
+                    <div class="intro-images-row"
+                        style="display: flex; gap: 3rem; justify-content: center; margin: 2rem auto; max-width: 1350px; flex-wrap: wrap; align-items: center;">
+                        <img src="assets/pe/alcat_anterior.png" alt="Plànol de l'alçat anterior"
+                            style="height: 380px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                        <img src="assets/pe/comunicacio_vertical.png" alt="Esquema de comunicació vertical"
+                            style="height: 380px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                        <img src="assets/pe/alcat_posterior.png" alt="Plànol de l'alçat posterior"
+                            style="height: 380px; width: auto; max-width: 100%; object-fit: contain; display: block;">
+                    </div>
+
+                    <h3 class="intro-subtitle">Eficiència energètica i EnerPHit</h3>
+                    <p class="intro-p">
+                        En termes d'eficiència, el projecte adopta criteris de l'estàndard de rehabilitació energètica
+                        <strong>EnerPHit</strong> (Passivhaus). Això es tradueix en un aïllament continu (sistema SATE
+                        transpirable), finestres de triple vidre i un sistema de climatització que inclou Ventilació
+                        Mecànica Controlada (VMC) de doble flux. A més, s'instal·laran plaques fotovoltaiques a la coberta
+                        i s'utilitzarà la bateria d'un cotxe elèctric per a emmagatzemar l'excedent de producció (integració
+                        bidireccional V2H), tot gestionat de manera intel·ligent per aconseguir un consum d'energia gairebé nul.
+                    </p>
+
+                    <h3 class="intro-subtitle">Millora de la qualificació energètica</h3>
+                    <p class="intro-p">
+                        Actualment, l'edifici té una qualificació energètica baixa de <strong>classe E</strong> (amb un consum de
+                        163 kWh/m² a l'any). Després de la reforma integral, l'habitatge superarà àmpliament els llindars de la
+                        <strong>classe A</strong>, estimant una reducció dràstica del consum fins a valors d'aproximadament 15-20 kWh/m²
+                        a l'any gràcies a l'alta eficiència aconseguida.
+                    </p>
+
+                    <div class="intro-image-container intro-plan-container"
+                        style="margin: 2rem auto; max-width: 650px;">
+                        <img src="assets/pe/envolvent_termica.png" alt="Plànol de l'envolvent tèrmica"
+                            class="intro-img">
+                    </div>
+
+                    <h3 class="intro-subtitle">Cicle de l'aigua i pati bioclimàtic</h3>
+                    <p class="intro-p">
+                        Així mateix, es dissenya un cicle de gestió d'aigua mitjançant la recollida de les aigües de pluja en un
+                        dipòsit soterrat sota el pati. Aquest recurs permetrà mantenir un pati bioclimàtic mediterrani, actuant com un
+                        regulador tèrmic natural de l'aire per evaporació que contribueix directament a l'eficiència energètica de la casa.
+                    </p>
+
+                    <h3 class="intro-subtitle">Domòtica i control del consum</h3>
+                    <p class="intro-p">
+                        En l'àmbit de la gestió de l'habitatge, s'implementa un sistema domòtic (DIY)
+                        que centralitza la il·luminació, el control de la climatització i el monitoratge del consum
+                        energètic. Aquest sistema permet programar i automatitzar el comportament de les diferents
+                        instal·lacions a través d'una interfície local senzilla, facilitant l'adaptació del consum a les
+                        necessitats reals i diàries d'ús de la casa.
+                    </p>
+
+                    <h3 class="intro-subtitle">Sinergies de confort i funcionament</h3>
+                    <p class="intro-p">
+                        Tot aquest plantejament integral d'eficiència i bioclimatització permetrà gaudir d'una llar amb un nivell de confort molt elevat, tal com s'il·lustra en el següent esquema de funcionament i conceptes clau:
+                    </p>
+
+                    <div class="intro-image-container intro-infographic-container"
+                        style="margin: 2rem auto; max-width: 580px;">
+                        <img src="assets/Gemini_Generated_Image_hx8hushx8hushx8h.png" alt="Conceptes clau de la reforma"
+                            class="intro-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓ: FUSTERIA I BANYS -->
+            <section class="explorer-section" id="mobles-banys">
+                <h2 class="section-title">Fusteria i banys</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 800px;">
+                    Detall dels plànols de fusteria feta a mida (armaris) i dels espais de bany. Els acabats combinen
+                    superfícies lacades en blanc i fusta de roure clar segons l'estança.
+                </p>
+
+                <div class="tab-menu" id="mobles-banys-tabs">
+                    <button class="tab-btn active" onclick="switchMoblesBanys('armaris')">Armaris a mida</button>
+                    <button class="tab-btn" onclick="switchMoblesBanys('banys')">Plànols de banys</button>
+                </div>
+
+                <div id="mobles-banys-container" style="margin-top: 2.5rem;">
+                    <!-- Apartat Armaris -->
+                    <div id="tab-armaris-content" class="mobles-banys-tab-content">
+                        <div style="display: flex; flex-direction: column; gap: 3rem;">
+                            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Armari del vestíbul</h3>
+                                    <p style="color: var(--text-muted);">Ubicat a la planta baixa, aquest armari
+                                        encastat a la paret de terra a sostre compta amb portes lacades en blanc per
+                                        integrar-se visualment de manera neta amb els paraments verticals de l'entrada.
+                                    </p>
+                                </div>
+                                <img src="assets/pe/armari_vestibol.png" alt="Plànol d'armari del vestíbul"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Fusteria de la cuina</h3>
+                                    <p style="color: var(--text-muted);">Mobiliari integrat per a la cuina de la planta
+                                        primera. Combina acabats de fusta de roure clar en els prestatges i mobles
+                                        inferiors amb portes lacades en blanc per a les columnes d'emmagatzematge.</p>
+                                </div>
+                                <img src="assets/pe/armaris_cuina.png" alt="Plànol d'armaris de la cuina"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Armari i taula d'estudi</h3>
+                                    <p style="color: var(--text-muted);">Mobiliari a mida per a la planta segona que
+                                        unifica la zona de treball amb armaris encastats, realitzats amb acabat de fusta
+                                        de roure clar.</p>
+                                </div>
+                                <img src="assets/pe/armaria_taula_p2.png" alt="Plànol d'armari i taula P2"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apartat Banys -->
+                    <div id="tab-banys-content" class="mobles-banys-tab-content" style="display: none;">
+                        <div style="display: flex; flex-direction: column; gap: 3rem;">
+                            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Bany Planta Baixa</h3>
+                                    <p style="color: var(--text-muted);">Bany complet accessible des de la planta baixa,
+                                        optimitzant la seva distribució per a l'accessibilitat.</p>
+                                </div>
+                                <img src="assets/pe/bany_pb.png" alt="Plànol de bany Planta Baixa"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Bany Planta Primera</h3>
+                                    <p style="color: var(--text-muted);">Bany situat a la planta primera, d'ús diari per
+                                        a la zona de dia.</p>
+                                </div>
+                                <img src="assets/pe/bany_p1.png" alt="Plànol de bany Planta Primera"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3
+                                        style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                        Bany Planta Segona</h3>
+                                    <p style="color: var(--text-muted);">Bany de la planta segona, que inclou un disseny
+                                        de mobles suspesos de fusta de roure clar.</p>
+                                </div>
+                                <img src="assets/pe/bany_p2.png" alt="Plànol de bany Planta Segona"
+                                    style="height: 280px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓ: INSTAL·LACIONS -->
+            <section class="explorer-section" id="instal-lacions" style="display: none;">
+                <h2 class="section-title">Plànols d'instal·lacions</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 800px;">
+                    Detall dels plànols tècnics de les instal·lacions del projecte de reforma, que inclouen el disseny elèctric i d'il·luminació, climatització, ventilació mecànica controlada (VMC), sanejament i la integració de fals sostres.
+                </p>
+
+                <div class="tab-menu" id="instal-lacions-tabs">
+                    <button class="tab-btn active" onclick="switchInstallacions('electricitat')">Electricitat i il·luminació</button>
+                    <button class="tab-btn" onclick="switchInstallacions('clima')">Climatització</button>
+                    <button class="tab-btn" onclick="switchInstallacions('ventilacio')">Ventilació (VMC)</button>
+                    <button class="tab-btn" onclick="switchInstallacions('sanejament')">Sanejament</button>
+                    <button class="tab-btn" onclick="switchInstallacions('integracio')">Plànol integrat</button>
+                </div>
+
+                <div id="instal-lacions-container" style="margin-top: 2.5rem;">
+                    <!-- Electricitat -->
+                    <div id="tab-electricitat-content" class="instal-lacions-tab-content">
+                        <div style="display: flex; flex-direction: column; gap: 3rem;">
+                            <!-- Plànols de subministrament elèctric -->
+                            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                                <div style="flex: 1; min-width: 300px;">
+                                    <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Instal·lació elèctrica i d'il·luminació</h3>
+                                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">El disseny elèctric centralitza el subministrament mitjançant línies específiques i proteccions per a la futura domòtica. S'estableix una distribució de punts de llum i interruptors estructurats per zones, garantint un funcionament pràctic i un disseny lumínic càlid i eficient.</p>
+                                    
+                                    <div style="margin-top: 1.5rem;">
+                                        <h4 style="font-size: 1.1rem; font-weight: 600; color: #1e293b; margin-bottom: 0.5rem;">Llegenda elèctrica</h4>
+                                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Llegenda de símbols per facilitar la lectura del plànol de subministrament:</p>
+                                        <img src="assets/pe/llegenda_ins_elec.png" alt="Llegenda d'instal·lació elèctrica" style="width: 100%; max-width: 160px; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--border-color); padding: 0.5rem; background: #ffffff;">
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                                    <img src="assets/pe/suministrament_electric_1.png" alt="Plànol elèctric Planta Baixa" style="height: 250px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                                    <img src="assets/pe/suministrament_electric_2.png" alt="Plànol elèctric Planta Primera i Segona" style="height: 250px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Climatització -->
+                    <div id="tab-clima-content" class="instal-lacions-tab-content" style="display: none;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Sistema de climatització</h3>
+                                <p style="color: var(--text-muted);">Esquema de la instal·lació de climatització per conductes i equips d'aerotèrmia d'alta eficiència. Està dissenyat per oferir una temperatura constant i homogènia a totes les estances amb el mínim consum possible, actuant de manera coordinada amb l'envolvent tèrmica.</p>
+                            </div>
+                            <img src="assets/pe/clima.png" alt="Plànol de climatització" style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Ventilació -->
+                    <div id="tab-ventilacio-content" class="instal-lacions-tab-content" style="display: none;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Ventilació Mecànica Controlada (VMC)</h3>
+                                <p style="color: var(--text-muted);">El sistema de VMC de doble flux amb recuperador de calor garanteix la renovació mecànica de l'aire de forma constant. Permet preescalfar l'aire nou del carrer amb l'aire expulsat sense barrejar-los, garantint una qualitat d'aire òptima (recuperador eficient) i reduint dràsticament les pèrdues de ventilació segons l'estàndard EnerPHit.</p>
+                            </div>
+                            <img src="assets/pe/ventilacio_mecanica.png" alt="Plànol de ventilació mecànica" style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Sanejament -->
+                    <div id="tab-sanejament-content" class="instal-lacions-tab-content" style="display: none;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Xarxa de sanejament</h3>
+                                <p style="color: var(--text-muted);">Disseny del sistema d'evacuació d'aigües residuals i pluvials. Inclou la recollida separada i la connexió cap al dipòsit de pluvials sota del pati per a la seva reutilització, reduint l'impacte ecològic i servint de base de reg per al pati bioclimàtic mediterrani.</p>
+                            </div>
+                            <img src="assets/pe/sanejament.png" alt="Plànol de sanejament" style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Integració total -->
+                    <div id="tab-integracio-content" class="instal-lacions-tab-content" style="display: none;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Integració de totes les instal·lacions</h3>
+                                <p style="color: var(--text-muted);">Aquest plànol conté totes les instal·lacions integrades i la distribució de fals sostres necessaris per ocultar els conductes (climatització, ventilació, fontaneria), codificats en una escala de grisos per facilitar la seva interpretació tridimensional i coordinació d'obra.</p>
+                            </div>
+                            <img src="assets/pe/instal_lacions_totes.png" alt="Integració de totes les instal·lacions i fals sostres" style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓ 1: EXPLORADOR DE PLANTES -->
+            <section class="explorer-section" id="explorador">
+                <h2 class="section-title">Explorador del projecte per plantes</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem; max-w: 800px;">
+                    Selecciona una planta per visualitzar el plànol de distribució. Clica sobre els punts indicadors per
+                    veure els renders 3D associats i els detalls de disseny de cada espai.
+                </p>
+
+                <div class="tab-menu">
+                    <button class="tab-btn active" onclick="switchFloor('pb')">Planta Baixa</button>
+                    <button class="tab-btn" onclick="switchFloor('p1')">Planta Primera</button>
+                    <button class="tab-btn" onclick="switchFloor('p2')">Planta Segona</button>
+                    <button class="tab-btn" onclick="switchFloor('sc')">Sotacoberta</button>
+                </div>
+
+                <div class="floor-explorer">
+                    <!-- Plànol interactiu (esquerra) -->
+                    <div class="plan-container">
+                        <div class="plan-image-wrapper" id="plan-wrapper">
+                            <img id="floor-plan-img" src="assets/pe/planta_baixa_2.png" alt="Plànol Planta Baixa"
+                                class="plan-image">
+                            <!-- Els hotspots es carreguen dinàmicament per Javascript -->
+                            <div id="hotspots-container"></div>
+                        </div>
+                    </div>
+
+                    <!-- Detalls de l'espai seleccionat (dreta) -->
+                    <div class="space-detail-card" id="detail-card">
+                        <div class="space-render-container">
+                            <img id="detail-render" src="assets/pe/vestibol_rsm_pe_definitiu_2026.png"
+                                alt="Render de l'espai" class="space-render">
+                        </div>
+                        <div class="space-info">
+                            <h3 id="detail-title">Vestíbul d'Entrada</h3>
+                            <p id="detail-desc">El vestíbul d'entrada està dissenyat a nivell de carrer, sense barreres
+                                arquitectòniques per facilitar l'accés a l'habitatge.</p>
+                            <div class="space-specs" id="detail-specs-container">
+                                <!-- Dinàmic -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓ 2: SIMULADOR INTERACTIU DE VARIANTS -->
+            <section class="simulator-section" id="simulador">
+                <h2 class="section-title">Simulador de colors i variants</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin-bottom: 2rem;">
+                    A l'espera dels renders finals de colors i tancaments per part de l'arquitecte per prendre les
+                    últimes decisions, utilitza aquest simulador per previsualitzar les diferents alternatives
+                    plantejades en fusteries, distribucions i materials.
+                </p>
+
+                <div class="simulator-container">
+                    <!-- Previsualització visual -->
+                    <div class="simulator-viewport">
+                        <img id="simulator-display-img" src="assets/pe/sala_estar_rsm_tv_oled_metal_blanc.png"
+                            alt="Previsualització del simulador" class="simulator-img">
+                    </div>
+
+                    <!-- Controls del simulador -->
+                    <div class="simulator-controls">
+
+                        <!-- 1. Disseny de la sala d'estar (Planta Primera) -->
+                        <div class="sim-group">
+                            <span class="sim-group-title">1. Disseny de la sala d'estar (Planta Primera)</span>
+                            <div class="option-selector">
+                                <button class="option-btn active"
+                                    onclick="simOption('sala_estar', 'moble_blanc', this)">
+                                    Moble blanc i estanteria negre
+                                </button>
+                                <button class="option-btn" onclick="simOption('sala_estar', 'moble_fusta', this)">
+                                    Moble i estanteria de fusta
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 2. Estil de l'escala -->
+                        <div class="sim-group">
+                            <span class="sim-group-title">2. Estil de l'escala</span>
+                            <div class="option-selector">
+                                <button class="option-btn active" onclick="simOption('escala', 'final', this)">
+                                    Tram principal (Planta 1 a Planta 2)
+                                </button>
+                                <button class="option-btn" onclick="simOption('escala', 'minimalista_extrema', this)">
+                                    Accés a la sotacoberta (Primer tram)
+                                </button>
+                                <button class="option-btn" onclick="simOption('escala', 'sense_vidre', this)">
+                                    Accés a la sotacoberta (Segon tram)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 3. Configuració de l'estudi de planta baixa -->
+                        <div class="sim-group">
+                            <span class="sim-group-title">3. Ús de l'estudi (Planta Baixa)</span>
+                            <div class="option-selector">
+                                <button class="option-btn active" onclick="simOption('estudi', 'treball', this)">
+                                    Disseny com a estudi / espai de treball
+                                </button>
+                                <button class="option-btn" onclick="simOption('estudi', 'dormitori', this)">
+                                    Disseny com a dormitori
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>Casa RSM | Projecte Executiu 2026</p>
+    </footer>
+
+    <!-- LÒGICA JAVASCRIPT -->
+    <script>
+        // BBDD local d'espais i imatges
+        const db = {
+            pb: {
+                title: "Planta Baixa",
+                plan: "assets/pe/planta_baixa_2.png",
+                spaces: [
+                    {
+                        id: 1,
+                        name: "Vestíbul d'Entrada",
+                        desc: "El vestíbul d'entrada està dissenyat a nivell de carrer, sense barreres arquitectòniques per facilitar l'accés a l'habitatge.",
+                        render: "assets/pe/vestibol_2.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_furniture: "Fusta de roure clar i lacat blanc (combinats)",
+                        woodwork_doors: "Lacades en blanc",
+                        x: 12, y: 30
+                    },
+                    {
+                        id: 2,
+                        name: "Estudi / Sala Polivalent",
+                        desc: "Espai de treball previst per poder-se reconvertir en un dormitori accessible en planta baixa en el futur.",
+                        render: "assets/pe/estudi_pb_pe_definitiu_2026.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_doors: "Lacades en blanc",
+                        x: 68, y: 50
+                    },
+                    {
+                        id: 3,
+                        name: "Pati Bioclimàtic",
+                        desc: "Pati central de la parcel·la que actua com a regulador tèrmic mitjançant ventilació natural creuada.",
+                        render: "assets/pe/pati_rsm_pe_definitiu_2026.png",
+                        floor: "Paviment exterior drenant color sorra",
+                        woodwork_ext: "PVC blanc",
+                        x: 86, y: 55
+                    }
+                ]
+            },
+            p1: {
+                title: "Planta Primera",
+                plan: "docs/espais/P 1 RSM.png",
+                spaces: [
+                    {
+                        id: 4,
+                        name: "Cuina - Menjador",
+                        desc: "Espai cuina-menjador moblat amb fusta de roure clar i paviment de ceràmica de color sorra.",
+                        render: "assets/pe/cuina_rsm_pe_distribucio_2026.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_furniture: "Fusta de roure clar i lacat blanc (combinats)",
+                        x: 55, y: 50
+                    },
+                    {
+                        id: 5,
+                        name: "Sala d'Estar",
+                        desc: "Sala d'estar amb obertura cap a la terrassa exterior, amb previsió d'instal·lació per a projector o TV.",
+                        render: "assets/pe/sala_estar_rsm_tv_oled_metal_blanc.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_furniture: "Lacada en blanc o fusta de roure clar (moble TV)",
+                        x: 27, y: 50
+                    },
+                    {
+                        id: 6,
+                        name: "Escala Principal",
+                        desc: "Escala de connexió entre plantes amb passos de fusta de roure i barana de vidre temperat.",
+                        render: "assets/pe/escala_rsm_final.png",
+                        floor: "Passos de fusta de roure clar",
+                        woodwork_furniture: "Estructura i passamans de fusta de roure clar",
+                        x: 38, y: 75
+                    }
+                ]
+            },
+            p2: {
+                title: "Planta Segona",
+                plan: "docs/espais/P 2 RSM.png",
+                spaces: [
+                    {
+                        id: 7,
+                        name: "Bany Principal",
+                        desc: "Bany amb moble suspès de fusta de roure clar, paviment de gres de color sorra i aixeteria encastada d'acer raspallat.",
+                        render: "assets/pe/bany_p2_pe_definitiu.png",
+                        floor: "Ceràmica sorra (antilliscant)",
+                        woodwork_furniture: "Fusta de roure clar (moble suspès bany)",
+                        woodwork_doors: "Lacades en blanc",
+                        x: 26, y: 30
+                    },
+                    {
+                        id: 8,
+                        name: "Dormitori 2",
+                        desc: "Dormitori amb sortida a la terrassa de la planta segona, seguint els acabats de paviment ceràmic i colors de la resta de l'habitatge.",
+                        render: "assets/pe/habitacio_rsm_definitiva_pe_1778839747101.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_doors: "Lacades en blanc",
+                        x: 24, y: 68
+                    },
+                    {
+                        id: 9,
+                        name: "Dormitori 1",
+                        desc: "Dormitori doble orientat a la façana interior, amb acabats en blanc i paviment ceràmic de color sorra.",
+                        render: "assets/pe/dormitori_2_rsm_pe_definitiu_1778842246348.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_ext: "PVC blanc",
+                        woodwork_furniture: "Fusta lacada en blanc (armaris encastats)",
+                        woodwork_doors: "Lacades en blanc",
+                        x: 51, y: 50
+                    },
+                    {
+                        id: 10,
+                        name: "Distribuïdor de Planta",
+                        desc: "Distribuïdor de la planta segona que connecta les habitacions i l'accés a l'ascensor domèstic.",
+                        render: "assets/pe/distribuidor_p2_ascensor_rsm_pe_1778840670955.png",
+                        floor: "Gres porcelànic color sorra",
+                        woodwork_furniture: "Fusta de roure clar i lacat blanc (combinats)",
+                        woodwork_doors: "Lacades en blanc (portes fil ras)",
+                        x: 43, y: 40
+                    }
+                ]
+            },
+            sc: {
+                title: "Refugi de Sotacoberta",
+                plan: "docs/espais/P Sotacoberta RSM.png",
+                spaces: [
+                    {
+                        id: 11,
+                        name: "Refugi Sotacoberta (Golfes)",
+                        desc: "Espai sota teulada acabat amb parquet laminat de roure clar en lloc del paviment ceràmic de la resta de plantes.",
+                        render: "assets/pe/sotacoberta_parquet_vidre_rsm_pe_1778840442372.png",
+                        floor: "Parquet laminat de roure clar",
+                        woodwork_ext: "PVC blanc (finestres de teulada)",
+                        woodwork_furniture: "Fusta de roure clar",
+                        x: 50, y: 50
+                    }
+                ]
+            }
+        };
+
+        // Estat actual de l'explorador
+        let currentFloor = 'pb';
+
+        // Canviar de planta
+        function switchFloor(floorKey) {
+            currentFloor = floorKey;
+
+            // Actualitza botons del menú de plantes
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(floorKey)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Actualitza imatge del plànol
+            const planImg = document.getElementById('floor-plan-img');
+            planImg.src = db[floorKey].plan;
+            planImg.alt = "Plànol " + db[floorKey].title;
+
+            // Carrega els hotspots
+            loadHotspots(floorKey);
+
+            // Carrega automàticament el primer espai de la planta per defecte
+            if (db[floorKey].spaces.length > 0) {
+                showSpaceDetails(db[floorKey].spaces[0].id);
+            }
+        }
+
+        // Dibuixar hotspots a sobre del plànol
+        function loadHotspots(floorKey) {
+            const container = document.getElementById('hotspots-container');
+            container.innerHTML = ''; // Netejar hotspots anteriors
+
+            db[floorKey].spaces.forEach(space => {
+                const marker = document.createElement('div');
+                marker.className = 'hotspot';
+                marker.style.left = space.x + '%';
+                marker.style.top = space.y + '%';
+                marker.innerText = space.id;
+                marker.title = space.name;
+                marker.setAttribute('data-id', space.id);
+
+                marker.addEventListener('click', () => {
+                    showSpaceDetails(space.id);
+                });
+
+                container.appendChild(marker);
+            });
+        }
+
+        // Mostrar els detalls de l'espai seleccionat a la targeta dreta
+        function showSpaceDetails(spaceId) {
+            // Cerca l'espai a la base de dades
+            let foundSpace = null;
+            Object.keys(db).forEach(floorKey => {
+                const space = db[floorKey].spaces.find(s => s.id === spaceId);
+                if (space) foundSpace = space;
+            });
+
+            if (!foundSpace) return;
+
+            // Actualitzar continguts de la targeta
+            document.getElementById('detail-title').innerText = foundSpace.name;
+            document.getElementById('detail-desc').innerText = foundSpace.desc;
+            document.getElementById('detail-render').src = foundSpace.render;
+            document.getElementById('detail-render').alt = "Render de " + foundSpace.name;
+
+            // Netejar i poblar les especificacions dinàmicament
+            const specsContainer = document.getElementById('detail-specs-container');
+            specsContainer.innerHTML = '';
+
+            function createSpecItem(label, value) {
+                const item = document.createElement('div');
+                item.className = 'spec-item';
+                
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'spec-label';
+                labelSpan.innerText = label;
+                
+                const valSpan = document.createElement('span');
+                valSpan.className = 'spec-val';
+                valSpan.innerText = value;
+                
+                item.appendChild(labelSpan);
+                item.appendChild(valSpan);
+                return item;
+            }
+
+            // Afegir paviment
+            if (foundSpace.floor) {
+                specsContainer.appendChild(createSpecItem('Paviment', foundSpace.floor));
+            }
+            // Afegir fusteria exterior
+            if (foundSpace.woodwork_ext) {
+                specsContainer.appendChild(createSpecItem('Fusteria exterior', foundSpace.woodwork_ext));
+            }
+            // Afegir fusteria de mobles
+            if (foundSpace.woodwork_furniture) {
+                specsContainer.appendChild(createSpecItem('Fusteria de mobles', foundSpace.woodwork_furniture));
+            }
+            // Afegir portes interiors
+            if (foundSpace.woodwork_doors) {
+                specsContainer.appendChild(createSpecItem('Portes interiors', foundSpace.woodwork_doors));
+            }
+
+            // Marcar hotspot com a actiu
+            document.querySelectorAll('.hotspot').forEach(marker => {
+                marker.classList.remove('active');
+                if (parseInt(marker.getAttribute('data-id')) === spaceId) {
+                    marker.classList.add('active');
+                }
+            });
+        }
+
+        const simulatorImages = {
+            escala: {
+                final: "assets/pe/escala_rsm_final.png",
+                sense_vidre: "assets/pe/escala_pujada_sense_vidre_frontal_rsm_pe_1778841860211.png",
+                minimalista_extrema: "assets/pe/escala_rsm_minimalista_extrema_pe_1778839623285.png"
+            },
+            estudi: {
+                treball: "assets/pe/estudi_pb_pe_definitiu_2026.png",
+                dormitori: "assets/pe/estudi_pb_pe_definitiu_dormitori_2026.png"
+            },
+            sala_estar: {
+                moble_blanc: "assets/pe/sala_estar_rsm_tv_oled_metal_blanc.png",
+                moble_fusta: "assets/pe/sala_estar_rsm_tv_oled.png"
+            },
+            distribuidor: {
+                abans: "assets/actual/distribuidor_p2_abans.jpg",
+                pb: "assets/pb/interior_distribuidor_p2_final.png",
+                pe: "assets/pe/distribuidor_p2_ascensor_rsm_pe_1778840670955.png"
+            }
+        };
+
+        function simOption(category, value, buttonEl) {
+            // Canviar la imatge previsualitzada
+            const displayImg = document.getElementById('simulator-display-img');
+            displayImg.style.opacity = 0.5; // Efecte de transició simple
+            setTimeout(() => {
+                displayImg.src = simulatorImages[category][value];
+                displayImg.alt = `Simulació de ${category} - variant ${value}`;
+                displayImg.style.opacity = 1;
+            }, 100);
+
+            // Actualitzar l'estat dels botons de la categoria
+            const parentSelector = buttonEl.parentNode;
+            parentSelector.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            buttonEl.classList.add('active');
+        }
+
+        function switchMoblesBanys(tabKey) {
+            const tabsContainer = document.getElementById('mobles-banys-tabs');
+            tabsContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(tabKey)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            if (tabKey === 'armaris') {
+                document.getElementById('tab-armaris-content').style.display = 'block';
+                document.getElementById('tab-banys-content').style.display = 'none';
+            } else {
+                document.getElementById('tab-armaris-content').style.display = 'none';
+                document.getElementById('tab-banys-content').style.display = 'block';
+            }
+        }
+
+        function switchInstallacions(tabKey) {
+            const tabsContainer = document.getElementById('instal-lacions-tabs');
+            tabsContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(tabKey)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            const tabIds = ['electricitat', 'clima', 'ventilacio', 'sanejament', 'integracio'];
+            tabIds.forEach(id => {
+                const el = document.getElementById(`tab-${id}-content`);
+                if (el) {
+                    el.style.display = (id === tabKey) ? 'block' : 'none';
+                }
+            });
+        }
+
+        function showSection(sectionId, event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            // Amagar totes les seccions del contingut principal
+            document.querySelectorAll('main > section').forEach(sec => {
+                sec.style.display = 'none';
+            });
+
+            // Mostrar la secció seleccionada
+            const targetSec = document.getElementById(sectionId);
+            if (targetSec) {
+                targetSec.style.display = 'block';
+            }
+
+            // Actualitzar l'estat del menú lateral
+            document.querySelectorAll('.sidebar .nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${sectionId}`) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Actualitzar el hash de la URL sense provocar desplaçament
+            history.pushState(null, null, `#${sectionId}`);
+
+            // Desplaçar la finestra al capdamunt
+            window.scrollTo(0, 0);
+        }
+
+        // Inicialització al carregar la pàgina
+        window.addEventListener('load', () => {
+            // Llegir el hash actual per mostrar la secció corresponent, o defecte 'descripcio'
+            const currentHash = window.location.hash.substring(1);
+            const validSections = ['descripcio', 'mobles-banys', 'explorador', 'simulador', 'instal-lacions'];
+            if (currentHash && validSections.includes(currentHash)) {
+                showSection(currentHash);
+            } else {
+                showSection('descripcio');
+            }
+
+            switchFloor('pb');
+
+            // Configurar funcionalitat de Lightbox per a imatges zoomables
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            document.querySelectorAll('img:not(.lightbox-content)').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+        });
+    </script>
+
+    <!-- Modal Lightbox -->
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
+    </div>
+</body>
+
+</html>
