@@ -122,6 +122,80 @@
             }
         }
 
+        /* Menú de navegació mòbil (barra inferior o superior) */
+        .mobile-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--border-color);
+            z-index: 900;
+            justify-content: space-around;
+            padding: 0.5rem 0.25rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            gap: 0.25rem;
+            flex: 1;
+            text-align: center;
+            padding: 0.25rem 0;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-item.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-nav-item svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        /* Ajust de contingut en mòbils per no col·lapsar amb la barra inferior */
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 70px;
+            }
+            .app-layout {
+                padding: 1rem;
+            }
+            .intro-section, .explorer-section {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            header {
+                padding: 2rem 1rem 1rem;
+            }
+            .header-title h1 {
+                font-size: 2.2rem;
+            }
+            .header-address {
+                font-size: 1rem;
+            }
+        }
+
         .sidebar-brand h2 {
             font-size: 1.8rem;
             font-weight: 800;
@@ -782,6 +856,30 @@
             <p class="header-subtitle">Projecte de Reforma</p>
         </div>
     </header>
+    
+    <!-- Menú de navegació mòbil -->
+    <nav class="mobile-nav">
+        <a href="#descripcio" class="mobile-nav-item active" onclick="showSection('descripcio', event)">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Descripció
+        </a>
+        <a href="#explorador" class="mobile-nav-item" onclick="showSection('explorador', event)">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            Plantes
+        </a>
+        <a href="#mobles-banys" class="mobile-nav-item" onclick="showSection('mobles-banys', event)">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>
+            Fusteria
+        </a>
+        <a href="#instal-lacions" class="mobile-nav-item" onclick="showSection('instal-lacions', event)">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            Instal·lacions
+        </a>
+        <a href="#simulador" class="mobile-nav-item" onclick="showSection('simulador', event)">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>
+            Simulador
+        </a>
+    </nav>
 
     <div class="app-layout">
         <aside class="sidebar">
@@ -1606,6 +1704,14 @@
 
             // Actualitzar l'estat del menú lateral
             document.querySelectorAll('.sidebar .nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${sectionId}`) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Actualitzar l'estat del menú mòbil
+            document.querySelectorAll('.mobile-nav-item').forEach(item => {
                 item.classList.remove('active');
                 if (item.getAttribute('href') === `#${sectionId}`) {
                     item.classList.add('active');
