@@ -1126,6 +1126,7 @@
                         il·luminació</button>
                     <button class="tab-btn" onclick="switchInstallacions('clima')">Climatització</button>
                     <button class="tab-btn" onclick="switchInstallacions('ventilacio')">Ventilació (VMC)</button>
+                    <button class="tab-btn" onclick="switchInstallacions('acs')">Aigua Calenta (ACS)</button>
                     <button class="tab-btn" onclick="switchInstallacions('sanejament')">Sanejament</button>
                     <button class="tab-btn" onclick="switchInstallacions('integracio')">Plànol integrat</button>
                 </div>
@@ -1199,6 +1200,19 @@
                                     de ventilació segons l'estàndard EnerPHit.</p>
                             </div>
                             <img src="assets/pe/ventilacio_mecanica.png" alt="Plànol de ventilació mecànica"
+                                style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
+                        </div>
+                    </div>
+
+                    <!-- Aigua Calenta Sanitària (ACS) -->
+                    <div id="tab-acs-content" class="instal-lacions-tab-content" style="display: none;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="font-size: 1.4rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">
+                                    Xarxa d'Aigua Calenta Sanitària (ACS) i Fontaneria</h3>
+                                <p style="color: var(--text-muted);">Plànol detallat de la distribució d'aigua freda i calenta sanitària a banys i cuina. El sistema s'abasteix mitjançant un equip d'aerotèrmia centralitzat amb acumulador integrat d'alta eficiència, reduint al mínim les pèrdues tèrmiques per distribució a les diferents plantes.</p>
+                            </div>
+                            <img src="assets/pe/acs.png" alt="Plànol de fontaneria i ACS"
                                 style="height: 380px; width: auto; max-width: 100%; object-fit: contain; border-radius: 12px; border: 1px solid var(--border-color);">
                         </div>
                     </div>
@@ -1677,7 +1691,7 @@
                 }
             });
 
-            const tabIds = ['electricitat', 'clima', 'ventilacio', 'sanejament', 'integracio'];
+            const tabIds = ['electricitat', 'clima', 'ventilacio', 'acs', 'sanejament', 'integracio'];
             tabIds.forEach(id => {
                 const el = document.getElementById(`tab-${id}-content`);
                 if (el) {
