@@ -129,20 +129,19 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-top: 1px solid var(--border-color);
+            background-color: #0f172a; /* Fons fosc elegant (slate-900) per contrastar al màxim */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 900;
             justify-content: space-around;
-            padding: 0.5rem 0.25rem;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0.25rem;
+            box-shadow: 0 -10px 25px -5px rgba(15, 23, 42, 0.3); /* Ombra més marcada per separar de la web */
         }
 
         .mobile-nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: var(--text-muted);
+            color: #94a3b8; /* Gris clar en repòs */
             text-decoration: none;
             font-size: 0.75rem;
             font-weight: 600;
@@ -155,12 +154,12 @@
         }
 
         .mobile-nav-item.active {
-            color: var(--accent-color);
+            color: #38bdf8; /* Blau cel brillant (sky-400) molt visible sobre fosc */
         }
 
         .mobile-nav-item svg {
-            width: 20px;
-            height: 20px;
+            width: 22px; /* Una mica més gran */
+            height: 22px;
             fill: currentColor;
         }
 
